@@ -19,19 +19,19 @@ export const LayerHeader = styled.div`
   transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
   will-change: transform;
   text-transform: uppercase;
-  font-weight: 900;
+  font-family: raleway_b;
   color: #e7e7e0;
-  text-shadow: 0 0 15px #9d822b
+  text-shadow: 0 0 15px #9d822b;
 `;
 
 export const LayersCaption = styled.div`
   font-size: calc(var(--index) / 1.175);
-  letter-spacing: calc(var(--index) / 3.5);
-  margin-top: calc(var(--index) * -.75)
+	letter-spacing: calc(var(--index) / 3.5);
+	margin-top: calc(var(--index) * -.75);
 `;
 
 export const LayersTitle = styled.div`
-  font-size: calc(var(--index) * 2.5);
+  font-size: calc(var(--index) * 2.65);
   letter-spacing: calc(var(--index) / 2.25);
 `;
 
@@ -57,15 +57,3 @@ export const LayerMiddle = styled(Layer)`
 export const LayerFront = styled(Layer)`
   transform: translate3d(0, calc(var(--scrollTop) / 5.7), 0);
 `;
-
-export const MainArticle = styled.article`
-  min-height: 100vh;
-`;
-
-export const MainArticleContent = styled.div``;
-
-export const MainArticleTitle = styled.h2``;
-
-export const MainArticleText = styled.p``;
-
-export const Copy = styled.div``;

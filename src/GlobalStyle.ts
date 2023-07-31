@@ -3,17 +3,17 @@ import 'modern-normalize';
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --index: calc(1vw +1vh)
+    --index: calc(1vw + 1vh);
   }
 
   @font-face {
-    font-family: raleway_f;
-    src: url(fonts/raleway-regular.woff2);
+	  font-family: raleway_f;
+	  src: url(fonts/raleway-regular.woff2);
   }
   @font-face {
-    font-family: raleway_b;
-    src: url(fonts/raleway-black.woff2);
-    font-weight: 900;
+	  font-family: raleway_b;
+	  src: url(fonts/raleway-black.woff2);
+	  font-weight: 900;
   }
 
   * {
