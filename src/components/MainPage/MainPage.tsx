@@ -6,7 +6,6 @@ import MainSection from '../MainSection';
 import { Content, Wrapper } from './MainPage.styled';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-gsap.config({trialWarn: false});
 
 const MainPage: FC = () => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
