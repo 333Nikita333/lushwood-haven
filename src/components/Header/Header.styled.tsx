@@ -35,7 +35,7 @@ export const LayerHeader = styled.div`
   text-transform: uppercase;
   font-family: raleway_b;
   font-size: calc(var(--index) * 1.8);
-  color: #e7e7e0;
+  color: var(--text);
   text-shadow: 0 0 15px #9d822b;
 `;
 

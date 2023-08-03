@@ -2,11 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 const GlobalStyle = createGlobalStyle`
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
   :root {
     --index: calc(1vw + 1vh);
     --text: #e7e7e0;
@@ -22,6 +17,12 @@ const GlobalStyle = createGlobalStyle`
 	  src: url(fonts/raleway-black.woff2);
 	  font-weight: 900;
   }
+  
+  * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
   
   body {
     background-color: #010101;

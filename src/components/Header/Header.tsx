@@ -17,8 +17,8 @@ const bgImageLayerFront: string = 'images/layer-front.png';
 const Header: FC = () => {
   useEffect(() => {
     const handleScroll = (): void => {
-      document.body.style.cssText += `--scrollTop: ${window.scrollY}px`;
-      console.log(window.scrollY)
+      document.documentElement.style.setProperty('--scrollTop', `${window.scrollY}px`)
+      // document.body.style.cssText += `--scrollTop: ${window.scrollY}px`;
     };
 
     window.addEventListener('scroll', handleScroll);
