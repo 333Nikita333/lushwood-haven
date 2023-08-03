@@ -1,13 +1,7 @@
-import Header from './components/Header';
-import MainSection from './components/MainSection';
+import MainPage from './components/MainPage';
 
 function App(): JSX.Element {
-  return (
-    <>
-      <Header />
-      <MainSection />
-    </>
-  );
+  return <MainPage />;
 }
 
 export default App;

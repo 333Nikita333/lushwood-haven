@@ -10,6 +10,7 @@ import {
 const bgImageDungeon: string = 'images/dungeon.jpg';
 
 const MainSection: FC = () => {
+  
   return (
     <MainArticle style={{ backgroundImage: `url(${bgImageDungeon})` }}>
       <MainArticleContent>

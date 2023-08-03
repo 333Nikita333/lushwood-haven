@@ -16,16 +16,17 @@ const bgImageLayerFront: string = 'images/layer-front.png';
 
 const Header: FC = () => {
   useEffect(() => {
+    const handleScroll = (): void => {
+      document.body.style.cssText += `--scrollTop: ${window.scrollY}px`;
+      console.log(window.scrollY)
+    };
+
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const handleScroll = (): void => {
-    document.body.style.cssText = `--scrollTop: ${window.scrollY}px`;
-  };
 
   return (
     <MainHeader>

@@ -2,6 +2,19 @@ import styled from 'styled-components';
 
 export const MainHeader = styled.header`
   position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: calc(var(--index) * 10);
+    background-image: url('images/ground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: calc(var(--index) * -4.5);
+  }
 `;
 
 export const Layers = styled.div`
@@ -17,17 +30,19 @@ export const Layers = styled.div`
 export const LayerHeader = styled.div`
   z-index: 1;
   transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+  transition: var(--transition);
   will-change: transform;
   text-transform: uppercase;
   font-family: raleway_b;
+  font-size: calc(var(--index) * 1.8);
   color: #e7e7e0;
   text-shadow: 0 0 15px #9d822b;
 `;
 
 export const LayersCaption = styled.div`
   font-size: calc(var(--index) / 1.175);
-	letter-spacing: calc(var(--index) / 3.5);
-	margin-top: calc(var(--index) * -.75);
+  letter-spacing: calc(var(--index) / 3.5);
+  margin-top: calc(var(--index) * -0.75);
 `;
 
 export const LayersTitle = styled.div`
@@ -43,6 +58,7 @@ export const Layer = styled.div`
   background-size: cover;
   background-position: center;
   will-change: transform;
+  transition: var(--transition);
 `;
 
 export const LayerBase = styled(Layer)`

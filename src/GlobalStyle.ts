@@ -2,8 +2,15 @@ import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 const GlobalStyle = createGlobalStyle`
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
   :root {
     --index: calc(1vw + 1vh);
+    --text: #e7e7e0;
+    --transition: transform 0.75s cubic-bezier(0.075, 0.5, 0, 1);
   }
 
   @font-face {
@@ -14,12 +21,6 @@ const GlobalStyle = createGlobalStyle`
 	  font-family: raleway_b;
 	  src: url(fonts/raleway-black.woff2);
 	  font-weight: 900;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
   }
   
   body {
