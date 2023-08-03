@@ -1,6 +1,5 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { FC, useLayoutEffect, useRef } from 'react';
 import Header from '../Header';
 import MainSection from '../MainSection';
