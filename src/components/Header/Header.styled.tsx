@@ -30,7 +30,6 @@ export const Layers = styled.div`
 export const LayerHeader = styled.div`
   z-index: 1;
   transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
-  transition: var(--transition);
   will-change: transform;
   text-transform: uppercase;
   font-family: raleway_b;
@@ -58,7 +57,6 @@ export const Layer = styled.div`
   background-size: cover;
   background-position: center;
   will-change: transform;
-  transition: var(--transition);
 `;
 
 export const LayerBase = styled(Layer)`

@@ -1,7 +1,9 @@
 import MainPage from './components/MainPage';
 
 function App(): JSX.Element {
-  return <MainPage />;
+  return (
+      <MainPage />
+  );
 }
 
 export default App;

@@ -5,7 +5,6 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --index: calc(1vw + 1vh);
     --text: #e7e7e0;
-    --transition: transform 0.75s cubic-bezier(0.075, 0.5, 0, 1);
   }
 
   @font-face {

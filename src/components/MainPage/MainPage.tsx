@@ -1,30 +1,34 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FC, useLayoutEffect, useRef } from 'react';
+import { FC, useEffect } from 'react';
+import { animateScroll as scroll} from 'react-scroll';
 import Header from '../Header';
 import MainSection from '../MainSection';
-import { Content, Wrapper } from './MainPage.styled';
-
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+import { Content } from './MainPage.styled';
 
 const MainPage: FC = () => {
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const contentRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const handleScroll = (): void => {
+      document.documentElement.style.setProperty('--scrollTop', `${window.scrollY}px`);
+    };
 
-  useLayoutEffect(() => {
-    ScrollSmoother.create({
-      wrapper: wrapperRef.current,
-      content: contentRef.current,
+    window.addEventListener('scroll', handleScroll);
+
+    scroll.scrollTo(document.getElementById('content')?.offsetTop || 0, {
+      duration: 750,
+      delay: 0,
+      smooth: true,
+      offset: -70,
     });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
-    <Wrapper ref={wrapperRef}>
-      <Content ref={contentRef}>
-        <Header />
-        <MainSection />
-      </Content>
-    </Wrapper>
+    <Content id="content">
+      <Header />
+      <MainSection />
+    </Content>
   );
 };
 export default MainPage;

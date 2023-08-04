@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import {
   LayerBase,
   LayerFront,
@@ -15,19 +15,6 @@ const bgImageLayerMiddle: string = 'images/layer-middle.png';
 const bgImageLayerFront: string = 'images/layer-front.png';
 
 const Header: FC = () => {
-  useEffect(() => {
-    const handleScroll = (): void => {
-      document.documentElement.style.setProperty('--scrollTop', `${window.scrollY}px`)
-      // document.body.style.cssText += `--scrollTop: ${window.scrollY}px`;
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <MainHeader>
       <Layers>

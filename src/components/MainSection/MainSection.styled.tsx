@@ -4,7 +4,7 @@ export const MainArticle = styled.article`
   --main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
   position: relative;
   top: -1px;
-	z-index: 10;
+	z-index: 10; 
   min-height: 100vh;
   background-size: cover;
   background-position: center;
@@ -25,7 +25,6 @@ export const MainArticleTitle = styled.h2`
   font-size: calc(var(--index) * 1.8);
   letter-spacing: calc(var(--index) / 7.5);
   transform: var(--main-article-transform);
-  transition: var(--transition);
   will-change: transform;
 `;
 
@@ -33,7 +32,6 @@ export const MainArticleText = styled.p`
   max-width: calc(var(--index) * 30);
   font-size: calc(var(--index) * 0.9);
   transform: var(--main-article-transform);
-  transition: var(--transition);
   will-change: transform;
 `;
 
