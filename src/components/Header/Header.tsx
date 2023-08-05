@@ -1,4 +1,6 @@
 import { FC } from 'react';
+import { HeaderProps } from '../../types/interfaces';
+import SoundBtn from '../SoundBtn';
 import {
   LayerBase,
   LayerFront,
@@ -14,17 +16,24 @@ const bgImageLayerBase: string = 'images/layer-base.png';
 const bgImageLayerMiddle: string = 'images/layer-middle.png';
 const bgImageLayerFront: string = 'images/layer-front.png';
 
-const Header: FC = () => {
+const Header: FC<HeaderProps> = ({ isMuted, toggleMute }) => {
   return (
     <MainHeader>
+      <SoundBtn isMuted={isMuted} toggleMute={toggleMute} />
       <Layers>
         <LayerHeader>
           <LayersCaption>Welcome to Parallax!</LayersCaption>
           <LayersTitle>Fairy Forest</LayersTitle>
         </LayerHeader>
-        <LayerBase style={{ backgroundImage: `url(${bgImageLayerBase})` }}></LayerBase>
-        <LayerMiddle style={{ backgroundImage: `url(${bgImageLayerMiddle})` }}></LayerMiddle>
-        <LayerFront style={{ backgroundImage: `url(${bgImageLayerFront})` }}></LayerFront>
+        <LayerBase
+          style={{ backgroundImage: `url(${bgImageLayerBase})` }}
+        ></LayerBase>
+        <LayerMiddle
+          style={{ backgroundImage: `url(${bgImageLayerMiddle})` }}
+        ></LayerMiddle>
+        <LayerFront
+          style={{ backgroundImage: `url(${bgImageLayerFront})` }}
+        ></LayerFront>
       </Layers>
     </MainHeader>
   );

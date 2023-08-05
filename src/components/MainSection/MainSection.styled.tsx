@@ -4,7 +4,7 @@ export const MainArticle = styled.article`
   --main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
   position: relative;
   top: -1px;
-	z-index: 10; 
+  z-index: 10;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
