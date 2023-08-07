@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Howl } from 'howler';
-import { Sound, SoundThemeType, UseSoundEffectType } from '../types';
+import {
+  Sound,
+  SoundOptionsType,
+  SoundThemeType,
+  UseSoundEffectType,
+} from '../types';
 
 const soundFiles = {
   forest: 'sounds/Forest.mp3',
@@ -12,14 +17,14 @@ const useSoundEffect = (soundTheme: SoundThemeType): UseSoundEffectType => {
   const [isMuted, setIsMuted] = useState<boolean>(false);
 
   useEffect(() => {
-    const soundUrl = soundFiles[soundTheme];
+    const soundUrl: string = soundFiles[soundTheme];
 
-    const options = {
+    const options: SoundOptionsType = {
       src: [soundUrl],
       loop: true,
       volume: 0.5,
     };
-    const newSound = new Howl(options);
+    const newSound: Sound = new Howl(options);
     setSound(newSound);
 
     return () => {

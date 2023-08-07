@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
-import Header from '../Header';
+import Hero from '../Hero';
 import MainSection from '../MainSection';
 import { Content } from './MainPage.styled';
 import { SoundThemeType } from '../../types';
 import useSoundEffect from '../../hooks/useSoundEffect';
+import Header from '../Header';
 
 const MainPage: FC = () => {
   const [soundTheme, setSoundTheme] = useState<SoundThemeType>('forest');
@@ -45,10 +46,13 @@ const MainPage: FC = () => {
   }, []);
 
   return (
-    <Content id="content">
+    <>
       <Header isMuted={isMuted} toggleMute={toggleMute} />
-      <MainSection />
-    </Content>
+      <Content id="content">
+        <Hero />
+        <MainSection />
+      </Content>
+    </>
   );
 };
 export default MainPage;
