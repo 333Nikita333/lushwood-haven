@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header`
   font-size: 18px;
   color: #fff;
   background: transparent;
-  border: none;
+  transition: transform 0.3s ease-in-out;
 `;
 
 export const LinkList = styled.ul`
