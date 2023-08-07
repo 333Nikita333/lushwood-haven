@@ -27,8 +27,15 @@ const GlobalStyle = createGlobalStyle`
     background-color: #010101;
     font-family: raleway_f, sans-serif;
     line-height: 1.55;
+    cursor: url('images/pointer-default.png'), auto;
   }
   
+  a,
+  button {
+    &:hover {
+      cursor: url('images/pointer-hover.png'), auto;
+    }
+  }
   
   ul {
     list-style: none;
