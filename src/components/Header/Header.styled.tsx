@@ -5,10 +5,10 @@ export const HeaderContainer = styled.header`
   z-index: 10000;
   display: flex;
   gap: 15px;
-  padding: 10px;
+  padding: ${({ theme }) => theme.paddings.small};
 
-  font-size: 18px;
-  color: #fff;
+  font-size: ${({ theme }) => theme.fontSizes.primary};
+  color: ${({ theme }) => theme.colors.primary};
   background: transparent;
   transition: transform 0.3s ease-in-out;
 `;

@@ -4,7 +4,6 @@ import 'modern-normalize';
 const GlobalStyle = createGlobalStyle`
   :root {
     --index: calc(1vw + 1vh);
-    --text: #e7e7e0;
   }
 
   @font-face {
@@ -14,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
 	  font-family: raleway_b;
 	  src: url(fonts/raleway-black.woff2);
-	  font-weight: 900;
+	  font-weight: ${({ theme }) => theme.fontWeights.secondary};
   }
   
   * {
@@ -36,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
       cursor: url('images/pointer-hover.png'), auto;
     }
   }
-  
+
   ul {
     list-style: none;
   }

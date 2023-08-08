@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { Howl } from 'howler';
+import { useEffect, useState } from 'react';
 import {
   Sound,
   SoundOptionsType,
@@ -7,7 +7,7 @@ import {
   UseSoundEffectType,
 } from '../types';
 
-const soundFiles = {
+const soundFiles: { forest: string; dungeon: string } = {
   forest: 'sounds/Forest.mp3',
   dungeon: 'sounds/Dungeon.mp3',
 };

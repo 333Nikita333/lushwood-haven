@@ -5,14 +5,14 @@ export const MainArticle = styled.article`
   position: relative;
   top: -1px;
   z-index: 10;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  color: var(--text);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const MainArticleContent = styled.div`

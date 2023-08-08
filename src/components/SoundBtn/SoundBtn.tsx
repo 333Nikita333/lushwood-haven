@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
-import { HeaderProps } from '../../types/interfaces';
-import { IconWrapper } from './SoundBtn.styled';
+import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
+import { SoundProps } from '../../types/interfaces';
+import { Button } from './SoundBtn.styled';
 
-const SoundBtn: FC<HeaderProps> = ({ isMuted, toggleMute }) => {
+const SoundBtn: FC<SoundProps> = ({ isMuted, toggleMute }) => {
   return (
-    <IconWrapper onClick={toggleMute}>
+    <Button onClick={toggleMute}>
       {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
-    </IconWrapper>
+    </Button>
   );
 };
 

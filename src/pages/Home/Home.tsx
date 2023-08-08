@@ -1,13 +1,13 @@
 import { FC, useEffect, useState } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
-import Hero from '../Hero';
-import MainSection from '../MainSection';
-import { Content } from './MainPage.styled';
-import { SoundThemeType } from '../../types';
+import Hero from '../../components/Hero';
+import MainSection from '../../components/MainSection';
 import useSoundEffect from '../../hooks/useSoundEffect';
-import Header from '../Header';
+import { SoundThemeType } from '../../types';
+import { Content } from './Home.styled';
+import SoundBtn from '../../components/SoundBtn';
 
-const MainPage: FC = () => {
+const Home: FC = () => {
   const [soundTheme, setSoundTheme] = useState<SoundThemeType>('forest');
   const { isMuted, toggleMute } = useSoundEffect(soundTheme);
   const [viewportHeight, setViewportHeight] = useState<number>(0);
@@ -46,13 +46,11 @@ const MainPage: FC = () => {
   }, []);
 
   return (
-    <>
-      <Header isMuted={isMuted} toggleMute={toggleMute} />
-      <Content id="content">
-        <Hero />
-        <MainSection />
-      </Content>
-    </>
+    <Content id="content">
+      <SoundBtn isMuted={isMuted} toggleMute={toggleMute} />
+      <Hero />
+      <MainSection />
+    </Content>
   );
 };
-export default MainPage;
+export default Home;

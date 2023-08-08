@@ -1,9 +1,8 @@
-import { FC, useState, useEffect } from 'react';
-import { HeaderProps } from '../../types/interfaces';
-import SoundBtn from '../SoundBtn';
-import { HeaderContainer, LinkList, LinkListItem } from './Header.styled';
+import { FC, useEffect, useState } from 'react';
+import Navigation from '../Navigation';
+import { HeaderContainer } from './Header.styled';
 
-const Header: FC<HeaderProps> = ({ isMuted, toggleMute }) => {
+const Header: FC = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);
 
@@ -34,18 +33,7 @@ const Header: FC<HeaderProps> = ({ isMuted, toggleMute }) => {
         transform: isHeaderVisible ? 'translateY(0)' : 'translateY(-100%)',
       }}
     >
-      <LinkList>
-        <LinkListItem>
-          <a href="">Home</a>
-        </LinkListItem>
-        <LinkListItem>
-          <a href="">Collections</a>
-        </LinkListItem>
-        <LinkListItem>
-          <a href="">Gallery</a>
-        </LinkListItem>
-        <SoundBtn isMuted={isMuted} toggleMute={toggleMute} />
-      </LinkList>
+      <Navigation />
     </HeaderContainer>
   );
 };

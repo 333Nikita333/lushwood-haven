@@ -1,4 +1,4 @@
-export interface HeaderProps {
+export interface SoundProps {
   isMuted: boolean;
   toggleMute: () => void;
 }
