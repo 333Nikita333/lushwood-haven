@@ -1,10 +1,12 @@
 const theme = {
- paddings: {
+  paddings: {
     small: '10px',
   },
   colors: {
     primary: '#ffffff',
     text: '#e7e7e0',
+    aboutSectionTitle: '#f4efec',
+    aboutSectionText: '#cdc6c3',
   },
   fontSizes: {
     primary: '18px',

@@ -4,10 +4,12 @@ import 'modern-normalize';
 const GlobalStyle = createGlobalStyle`
   :root {
     --index: calc(1vw + 1vh);
+    --color-header: #f4efec;
+    --color-text: #cdc6c3;
+    --gallery-gap: calc(var(--index) * 10);
   }
-
   @font-face {
-	  font-family: raleway_f;
+	  font-family: raleway_r;
 	  src: url(fonts/raleway-regular.woff2);
   }
   @font-face {
@@ -15,40 +17,38 @@ const GlobalStyle = createGlobalStyle`
 	  src: url(fonts/raleway-black.woff2);
 	  font-weight: ${({ theme }) => theme.fontWeights.secondary};
   }
-  
+  @font-face {
+    font-family: outfit_r;
+    src: url(fonts/outfit-regular.woff2);
+  }
   * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-  
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+  }
   body {
-    background-color: #010101;
-    font-family: raleway_f, sans-serif;
-    line-height: 1.55;
+    font-family: raleway_r, sans-serif;
     cursor: url('images/pointer-default.png'), auto;
   }
-  
   a,
   button {
     &:hover {
       cursor: url('images/pointer-hover.png'), auto;
     }
   }
-
+  h1, h2, h3, h4, h5, h6 {
+    font-family: outfit_r;
+  }
   ul {
     list-style: none;
   }
-  
   a {
     text-decoration: none;
   }
-  
   img {
     max-width: 100%;
     display: block;
   }
-  
   button,
   select {
     font: inherit;
