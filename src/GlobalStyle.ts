@@ -2,11 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
 const GlobalStyle = createGlobalStyle`
+  * {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+  }
   :root {
     --index: calc(1vw + 1vh);
     --color-header: #f4efec;
     --color-text: #cdc6c3;
-    --gallery-gap: calc(var(--index) * 10);
+    --gallery-gap: calc(var(--index) * 7.5);
   }
   @font-face {
 	  font-family: raleway_r;
@@ -21,11 +26,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: outfit_r;
     src: url(fonts/outfit-regular.woff2);
   }
-  * {
-	  margin: 0;
-	  padding: 0;
-	  box-sizing: border-box;
-  }
+  
   body {
     font-family: raleway_r, sans-serif;
     cursor: url('images/pointer-default.png'), auto;
