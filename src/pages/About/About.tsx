@@ -60,8 +60,8 @@ const About: FC = () => {
             x: 0,
             scrollTrigger: {
               trigger: item,
-              start: '-850',
-              end: '-100',
+              start: '-850px',
+              end: '-100px',
               scrub: true,
             },
           }
@@ -81,7 +81,7 @@ const About: FC = () => {
             x: 0,
             scrollTrigger: {
               trigger: item,
-              start: '-750',
+              start: '-750px',
               end: 'top',
               scrub: true,
             },
