@@ -1,4 +1,6 @@
-import { FC, useEffect } from 'react';
+import { FC, useLayoutEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   AboutWrapper,
   Container,
@@ -17,8 +19,6 @@ import {
   TextBlockH,
   TextBlockP,
 } from './About.styled';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const heroImage = 'images/about_images/hero.png';
 const galleryItem1 = 'images/about_images/examples/1.jpg';
@@ -29,7 +29,7 @@ const galleryItem5 = 'images/about_images/examples/5.jpg';
 const galleryItem6 = 'images/about_images/examples/6.jpg';
 
 const About: FC = () => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     if (ScrollTrigger.isTouch !== 1) {
@@ -89,6 +89,8 @@ const About: FC = () => {
         );
       });
     }
+
+    ScrollTrigger.refresh();
   }, []);
 
   return (
@@ -96,14 +98,14 @@ const About: FC = () => {
       <Content className="content">
         <HeroSection className="hero-section">
           <Hero
-            data-speed=".6"
+            data-speed="0.6"
             className="hero"
             src={heroImage}
             alt="hero image"
           />
 
           <Container>
-            <MainHeader data-speed=".75">
+            <MainHeader data-speed="0.75">
               <MainTitle>creative scroll</MainTitle>
             </MainHeader>
           </Container>
