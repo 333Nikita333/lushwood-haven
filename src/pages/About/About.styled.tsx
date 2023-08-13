@@ -5,12 +5,9 @@ export const AboutWrapper = styled.main`
   color: #fafafa;
   background-image: url(images/about_images/bg.jpg);
   background-size: 50px;
-`;
-
-export const Content = styled.div`
   will-change: transform;
 `;
-export const HeroSection = styled.header``;
+export const HeroSection = styled.div``;
 
 export const Hero = styled.img`
   position: absolute;
@@ -54,18 +51,8 @@ export const Gallery = styled.main`
     border-radius: 8px;
   }
 `;
-export const GalleryItem = styled.img`
-  max-width: calc(var(--index) * 21);
-  max-height: 180vh;
-  margin-bottom: var(--gallery-gap);
-  border-radius: 8px;
-`;
+export const GalleryImage = styled.img``;
 export const TextBlock = styled.div`
-  max-width: calc(var(--index) * 21);
-  max-height: 180vh;
-  margin-bottom: var(--gallery-gap);
-  border-radius: 8px;
-
   color: var(--color-text);
   position: relative;
 `;

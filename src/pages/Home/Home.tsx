@@ -2,10 +2,10 @@ import { FC, useEffect, useState } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
 import Hero from '../../components/Hero';
 import MainSection from '../../components/MainSection';
+import SoundBtn from '../../components/SoundBtn';
 import useSoundEffect from '../../hooks/useSoundEffect';
 import { SoundThemeType } from '../../types';
 import { Content } from './Home.styled';
-import SoundBtn from '../../components/SoundBtn';
 
 const Home: FC = () => {
   const [soundTheme, setSoundTheme] = useState<SoundThemeType>('forest');

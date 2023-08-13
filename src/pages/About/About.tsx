@@ -1,13 +1,12 @@
-import { FC, useLayoutEffect } from 'react';
+import { FC, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   AboutWrapper,
   Container,
   ContainerPortfolio,
-  Content,
   Gallery,
-  GalleryItem,
+  GalleryImage,
   GalleryLeft,
   GalleryRight,
   Hero,
@@ -29,6 +28,10 @@ const galleryItem5 = 'images/about_images/examples/5.jpg';
 const galleryItem6 = 'images/about_images/examples/6.jpg';
 
 const About: FC = () => {
+  const heroSectionRef = useRef<HTMLDivElement | null>(null);
+  const galleryLeftRef = useRef<HTMLDivElement | null>(null);
+  const galleryRightRef = useRef<HTMLDivElement | null>(null);
+
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -36,12 +39,12 @@ const About: FC = () => {
       ScrollTrigger.refresh();
 
       gsap.fromTo(
-        '.hero-section',
+        heroSectionRef.current,
         { opacity: 1 },
         {
           opacity: 0,
           scrollTrigger: {
-            trigger: '.hero-section',
+            trigger: heroSectionRef.current,
             start: 'center',
             end: '820px',
             scrub: true,
@@ -49,9 +52,7 @@ const About: FC = () => {
         }
       );
 
-      let itemsL = gsap.utils.toArray(
-        '.gallery__left .gallery__item'
-      ) as HTMLElement[];
+      const itemsL = galleryLeftRef.current!.querySelectorAll('.gallery__item');
 
       itemsL.forEach(item => {
         gsap.fromTo(
@@ -70,9 +71,8 @@ const About: FC = () => {
         );
       });
 
-      let itemsR = gsap.utils.toArray(
-        '.gallery__right .gallery__item'
-      ) as HTMLElement[];
+      const itemsR =
+        galleryRightRef.current!.querySelectorAll('.gallery__item');
 
       itemsR.forEach(item => {
         gsap.fromTo(
@@ -94,80 +94,78 @@ const About: FC = () => {
   }, []);
 
   return (
-    <AboutWrapper className="wrapper">
-      <Content className="content">
-        <HeroSection className="hero-section">
-          <Hero className="hero" src={heroImage} alt="hero image" />
+    <AboutWrapper>
+      <HeroSection ref={heroSectionRef}>
+        <Hero src={heroImage} alt="hero image" />
 
-          <Container>
-            <MainHeader className="main-header">
-              <MainTitle>creative scroll</MainTitle>
-            </MainHeader>
-          </Container>
-        </HeroSection>
+        <Container>
+          <MainHeader>
+            <MainTitle>creative scroll</MainTitle>
+          </MainHeader>
+        </Container>
+      </HeroSection>
 
-        <Portfolio>
-          <ContainerPortfolio>
-            <Gallery>
-              <GalleryLeft className="gallery__left">
-                <GalleryItem
-                  className="gallery__item"
-                  src={galleryItem1}
-                  alt="example 1"
-                />
-                <GalleryItem
-                  className="gallery__item"
-                  src={galleryItem2}
-                  alt="example 2"
-                />
+      <Portfolio>
+        <ContainerPortfolio>
+          <Gallery>
+            <GalleryLeft ref={galleryLeftRef}>
+              <GalleryImage
+                className="gallery__item"
+                src={galleryItem1}
+                alt="example 1"
+              />
+              <GalleryImage
+                className="gallery__item"
+                src={galleryItem2}
+                alt="example 2"
+              />
 
-                <TextBlock className="gallery__item">
-                  <TextBlockH>
-                    Creative floating scroll with amazing parallax effect
-                  </TextBlockH>
-                  <TextBlockP>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor amount scrolling.
-                  </TextBlockP>
-                </TextBlock>
+              <TextBlock className="gallery__item">
+                <TextBlockH>
+                  Creative floating scroll with amazing parallax effect
+                </TextBlockH>
+                <TextBlockP>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor amount scrolling.
+                </TextBlockP>
+              </TextBlock>
 
-                <GalleryItem
-                  className="gallery__item"
-                  src={galleryItem6}
-                  alt="example 6"
-                />
-              </GalleryLeft>
+              <GalleryImage
+                className="gallery__item"
+                src={galleryItem6}
+                alt="example 6"
+              />
+            </GalleryLeft>
 
-              <GalleryRight className="gallery__right">
-                <TextBlock className="gallery__item">
-                  <TextBlockH>
-                    Creative floating scroll with amazing parallax effect
-                  </TextBlockH>
-                  <TextBlockP>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor amount scrolling.
-                  </TextBlockP>
-                </TextBlock>
-                <GalleryItem
-                  className="gallery__item"
-                  src={galleryItem4}
-                  alt="example 4"
-                />
-                <GalleryItem
-                  className="gallery__item"
-                  src={galleryItem5}
-                  alt="example 5"
-                />
-                <GalleryItem
-                  className="gallery__item"
-                  src={galleryItem3}
-                  alt="example 3"
-                />
-              </GalleryRight>
-            </Gallery>
-          </ContainerPortfolio>
-        </Portfolio>
-      </Content>
+            <GalleryRight ref={galleryRightRef}>
+              <TextBlock className="gallery__item">
+                <TextBlockH>
+                  Creative floating scroll with amazing parallax effect
+                </TextBlockH>
+                <TextBlockP>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor amount scrolling.
+                </TextBlockP>
+              </TextBlock>
+              <GalleryImage
+                className="gallery__item"
+                src={galleryItem4}
+                alt="example 4"
+              />
+              <GalleryImage
+                className="gallery__item"
+                src={galleryItem5}
+                alt="example 5"
+              />
+              <GalleryImage
+                className="gallery__item"
+                src={galleryItem3}
+                alt="example 3"
+              />
+            </GalleryRight>
+          </Gallery>
+        </ContainerPortfolio>
+      </Portfolio>
     </AboutWrapper>
   );
 };

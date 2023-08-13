@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
-import { SoundProps } from '../../types/interfaces';
 import { Button } from './SoundBtn.styled';
+import { SoundProps } from '../../types';
 
 const SoundBtn: FC<SoundProps> = ({ isMuted, toggleMute }) => {
   return (
