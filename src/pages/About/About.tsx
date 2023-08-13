@@ -30,9 +30,17 @@ const galleryItem6 = 'images/about_images/examples/6.jpg';
 
 const About: FC = () => {
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
     if (ScrollTrigger.isTouch !== 1) {
+      ScrollTrigger.refresh();
+
+      ScrollSmoother.create({
+        wrapper: '.wrapper',
+        content: '.content',
+        smooth: 1.5,
+        effects: true,
+      });
       gsap.fromTo(
         '.hero-section',
         { opacity: 1 },
@@ -41,7 +49,7 @@ const About: FC = () => {
           scrollTrigger: {
             trigger: '.hero-section',
             start: 'center',
-            end: '820',
+            end: '820px',
             scrub: true,
           },
         }
@@ -89,8 +97,6 @@ const About: FC = () => {
         );
       });
     }
-
-    ScrollTrigger.refresh();
   }, []);
 
   return (
@@ -98,14 +104,14 @@ const About: FC = () => {
       <Content className="content">
         <HeroSection className="hero-section">
           <Hero
-            data-speed="0.6"
+            data-speed=".6"
             className="hero"
             src={heroImage}
             alt="hero image"
           />
 
           <Container>
-            <MainHeader data-speed="0.75">
+            <MainHeader className="main-header" data-speed=".75">
               <MainTitle>creative scroll</MainTitle>
             </MainHeader>
           </Container>
