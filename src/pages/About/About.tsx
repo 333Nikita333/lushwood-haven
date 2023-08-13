@@ -30,17 +30,11 @@ const galleryItem6 = 'images/about_images/examples/6.jpg';
 
 const About: FC = () => {
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    gsap.registerPlugin(ScrollTrigger);
 
     if (ScrollTrigger.isTouch !== 1) {
       ScrollTrigger.refresh();
 
-      ScrollSmoother.create({
-        wrapper: '.wrapper',
-        content: '.content',
-        smooth: 1.5,
-        effects: true,
-      });
       gsap.fromTo(
         '.hero-section',
         { opacity: 1 },
@@ -103,15 +97,10 @@ const About: FC = () => {
     <AboutWrapper className="wrapper">
       <Content className="content">
         <HeroSection className="hero-section">
-          <Hero
-            data-speed=".6"
-            className="hero"
-            src={heroImage}
-            alt="hero image"
-          />
+          <Hero className="hero" src={heroImage} alt="hero image" />
 
           <Container>
-            <MainHeader className="main-header" data-speed=".75">
+            <MainHeader className="main-header">
               <MainTitle>creative scroll</MainTitle>
             </MainHeader>
           </Container>
@@ -120,7 +109,7 @@ const About: FC = () => {
         <Portfolio>
           <ContainerPortfolio>
             <Gallery>
-              <GalleryLeft data-speed=".9" className="gallery__left">
+              <GalleryLeft className="gallery__left">
                 <GalleryItem
                   className="gallery__item"
                   src={galleryItem1}
@@ -149,7 +138,7 @@ const About: FC = () => {
                 />
               </GalleryLeft>
 
-              <GalleryRight data-speed="1.1" className="gallery__right">
+              <GalleryRight className="gallery__right">
                 <TextBlock className="gallery__item">
                   <TextBlockH>
                     Creative floating scroll with amazing parallax effect
