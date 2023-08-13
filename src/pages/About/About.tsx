@@ -9,8 +9,9 @@ import {
   GalleryImage,
   GalleryLeft,
   GalleryRight,
-  Hero,
+  HeroImage,
   HeroSection,
+  HeroVideo,
   MainHeader,
   MainTitle,
   Portfolio,
@@ -26,6 +27,8 @@ const galleryItem3 = 'images/about_images/examples/3.jpg';
 const galleryItem4 = 'images/about_images/examples/4.jpg';
 const galleryItem5 = 'images/about_images/examples/5.jpg';
 const galleryItem6 = 'images/about_images/examples/6.jpg';
+const bgHeroVideoMP4 = 'videos/background_video.mp4';
+const bgHeroVideoWEBM = 'videos/background_video.webm';
 
 const About: FC = () => {
   const heroSectionRef = useRef<HTMLDivElement | null>(null);
@@ -96,7 +99,12 @@ const About: FC = () => {
   return (
     <AboutWrapper>
       <HeroSection ref={heroSectionRef}>
-        <Hero src={heroImage} alt="hero image" />
+        <HeroVideo autoPlay muted loop>
+          <source src={bgHeroVideoMP4} type="video/mp4" />
+          <source src={bgHeroVideoWEBM} type="video/webm" />
+        </HeroVideo>
+
+        <HeroImage src={heroImage} alt="hero image" />
 
         <Container>
           <MainHeader>

@@ -5,8 +5,8 @@ const theme = {
   colors: {
     primary: '#ffffff',
     text: '#e7e7e0',
-    aboutSectionTitle: '#f4efec', //--color-header
-    aboutSectionText: '#cdc6c3', //--color-text
+    aboutSectionTitle: '#f4efec', // about title
+    aboutSectionText: '#cdc6c3', // about text
   },
   fontSizes: {
     primary: '18px',

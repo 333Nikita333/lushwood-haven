@@ -7,9 +7,18 @@ export const AboutWrapper = styled.main`
   background-size: 50px;
   will-change: transform;
 `;
-export const HeroSection = styled.div``;
-
-export const Hero = styled.img`
+export const HeroSection = styled.section`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+`;
+export const HeroVideo = styled.video`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+export const HeroImage = styled.img`
   position: absolute;
   top: 22vh;
   left: 37vw;
@@ -28,14 +37,14 @@ export const MainTitle = styled.h1`
   width: min-content;
   font-size: calc(var(--index) * 8);
   line-height: 0.9;
-  bottom: 12vh;
+  bottom: 32vh;
 `;
 
-export const Portfolio = styled.div``;
+export const Portfolio = styled.section``;
 export const ContainerPortfolio = styled.div``;
-export const Gallery = styled.main`
+export const Gallery = styled.div`
   display: flex;
-  padding: calc(var(--index) * 8) 0;
+  padding: calc(var(--index) * 2) 0;
 
   & > * {
     display: flex;
@@ -53,13 +62,13 @@ export const Gallery = styled.main`
 `;
 export const GalleryImage = styled.img``;
 export const TextBlock = styled.div`
-  color: var(--color-text);
+  color: ${({ theme }) => theme.colors.aboutSectionText};
   position: relative;
 `;
 export const TextBlockH = styled.h2`
   font-size: 2rem;
   line-height: 2.4rem;
-  color: var(--color-header);
+  color: ${({ theme }) => theme.colors.aboutSectionTitle};
   margin-bottom: 1.5rem;
 `;
 export const TextBlockP = styled.p`
