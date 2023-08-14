@@ -6,7 +6,7 @@ const theme = {
     primary: '#ffffff',
     text: '#e7e7e0',
     aboutSectionTitle: '#f4efec', // about title
-    aboutSectionText: '#cdc6c3', // about text
+    aboutSectionText: '#cdc9c9', // about text
   },
   fontSizes: {
     primary: '18px',

@@ -49,6 +49,10 @@ export const MainTitle = styled.h1`
   font-size: calc(var(--index) * 8);
   line-height: 0.9;
   bottom: 32vh;
+
+  font-weight: bold;
+  color: #67320c;
+  text-shadow: -4px 0 black,0 4px black,4px 0 black,0 -4px black
 `;
 
 export const Portfolio = styled.section``;
@@ -82,15 +86,19 @@ export const Gallery = styled.div`
     }
   }
   & img {
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+      rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+      rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+      rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+      rgba(0, 0, 0, 0.09) 0px 32px 16px;
   }
 `;
 export const GalleryImage = styled.img``;
 export const TextBlock = styled.div`
   color: ${({ theme }) => theme.colors.aboutSectionText};
   position: relative;
+  text-shadow: 7px 7px 3px rgba(0, 0, 0, 0.6);
 
   @media screen and (max-width: 768px) {
     text-align: center;
@@ -103,10 +111,15 @@ export const TextBlockH = styled.h2`
   margin-bottom: 1.5rem;
 `;
 export const TextBlockP = styled.p`
+  font-weight: 700;
   line-height: 1.75;
 `;
 export const GalleryLeft = styled.div`
   margin-top: calc(var(--gallery-gap) * 0.75);
+
+  @media screen and (min-width: 769px) {
+    margin-top: calc(var(--gallery-gap) * 1.75);
+  }
 `;
 export const GalleryRight = styled.div`
   & .gallery-item {

@@ -9,8 +9,6 @@ const GlobalStyle = createGlobalStyle`
   }
   :root {
     --index: calc(1vw + 1vh);
-    --color-header: #f4efec;
-    --color-text: #cdc6c3;
     --gallery-gap: calc(var(--index) * 5.5);
   }
   @font-face {
