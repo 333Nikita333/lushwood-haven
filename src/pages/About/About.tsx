@@ -21,12 +21,15 @@ import {
 } from './About.styled';
 
 const heroImage = 'images/about_images/hero.png';
-const galleryItem1 = 'images/about_images/examples/1.jpg';
-const galleryItem2 = 'images/about_images/examples/2.jpg';
-const galleryItem3 = 'images/about_images/examples/3.jpg';
-const galleryItem4 = 'images/about_images/examples/4.jpg';
-const galleryItem5 = 'images/about_images/examples/5.jpg';
-const galleryItem6 = 'images/about_images/examples/6.jpg';
+const galleryItem1 = 'images/about_images/image1.jpg';
+const galleryItem2 = 'images/about_images/image2.jpg';
+const galleryItem3 = 'images/about_images/image3.jpg';
+const galleryItem4 = 'images/about_images/image4.jpg';
+const galleryItem5 = 'images/about_images/image5.jpg';
+const galleryItem6 = 'images/about_images/image6.jpg';
+const galleryItem7 = 'images/about_images/image7.jpg';
+const galleryItem8 = 'images/about_images/image8.jpg';
+
 const bgHeroVideoMP4 = 'videos/background_video.mp4';
 const bgHeroVideoWEBM = 'videos/background_video.webm';
 
@@ -60,7 +63,7 @@ const About: FC = () => {
       itemsL.forEach(item => {
         gsap.fromTo(
           item,
-          { opacity: 0, x: -50 },
+          { opacity: 0, x: -150 },
           {
             opacity: 1,
             x: 0,
@@ -80,7 +83,7 @@ const About: FC = () => {
       itemsR.forEach(item => {
         gsap.fromTo(
           item,
-          { opacity: 0, x: 50 },
+          { opacity: 0, x: 150 },
           {
             opacity: 1,
             x: 0,
@@ -127,7 +130,6 @@ const About: FC = () => {
                 src={galleryItem2}
                 alt="example 2"
               />
-
               <TextBlock className="gallery__item">
                 <TextBlockH>
                   Creative floating scroll with amazing parallax effect
@@ -140,9 +142,23 @@ const About: FC = () => {
 
               <GalleryImage
                 className="gallery__item"
-                src={galleryItem6}
-                alt="example 6"
+                src={galleryItem3}
+                alt="example 3"
               />
+              <GalleryImage
+                className="gallery__item"
+                src={galleryItem4}
+                alt="example 4"
+              />
+              <TextBlock className="gallery__item">
+                <TextBlockH>
+                  Creative floating scroll with amazing parallax effect
+                </TextBlockH>
+                <TextBlockP>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor amount scrolling.
+                </TextBlockP>
+              </TextBlock>
             </GalleryLeft>
 
             <GalleryRight ref={galleryRightRef}>
@@ -157,18 +173,41 @@ const About: FC = () => {
               </TextBlock>
               <GalleryImage
                 className="gallery__item"
-                src={galleryItem4}
-                alt="example 4"
-              />
-              <GalleryImage
-                className="gallery__item"
                 src={galleryItem5}
                 alt="example 5"
               />
+              <TextBlock className="gallery__item">
+                <TextBlockH>
+                  Creative floating scroll with amazing parallax effect
+                </TextBlockH>
+                <TextBlockP>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor amount scrolling.
+                </TextBlockP>
+              </TextBlock>
               <GalleryImage
                 className="gallery__item"
-                src={galleryItem3}
-                alt="example 3"
+                src={galleryItem6}
+                alt="example 6"
+              />
+              <GalleryImage
+                className="gallery__item"
+                src={galleryItem7}
+                alt="example 7"
+              />
+              <TextBlock className="gallery__item">
+                <TextBlockH>
+                  Creative floating scroll with amazing parallax effect
+                </TextBlockH>
+                <TextBlockP>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor amount scrolling.
+                </TextBlockP>
+              </TextBlock>
+              <GalleryImage
+                className="gallery__item"
+                src={galleryItem8}
+                alt="example 8"
               />
             </GalleryRight>
           </Gallery>

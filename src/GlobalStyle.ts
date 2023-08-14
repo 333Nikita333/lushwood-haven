@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     --index: calc(1vw + 1vh);
     --color-header: #f4efec;
     --color-text: #cdc6c3;
-    --gallery-gap: calc(var(--index) * 7.5);
+    --gallery-gap: calc(var(--index) * 5.5);
   }
   @font-face {
 	  font-family: raleway_r;
