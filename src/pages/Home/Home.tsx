@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
-import Hero from '../../components/Hero';
+import HomeHero from '../../components/HomeHero';
 import MainSection from '../../components/MainSection';
 import SoundBtn from '../../components/SoundBtn';
 import useSoundEffect from '../../hooks/useSoundEffect';
@@ -48,7 +48,7 @@ const Home: FC = () => {
   return (
     <Content id="content">
       <SoundBtn isMuted={isMuted} toggleMute={toggleMute} />
-      <Hero />
+      <HomeHero />
       <MainSection />
     </Content>
   );

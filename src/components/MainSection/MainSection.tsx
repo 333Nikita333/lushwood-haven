@@ -13,12 +13,14 @@ const MainSection: FC = () => {
   return (
     <MainArticle style={{ backgroundImage: `url(${bgImageDungeon})` }}>
       <MainArticleContent>
-        <MainArticleTitle>To be continued</MainArticleTitle>
+        <MainArticleTitle>Discover the Enchanted Haven</MainArticleTitle>
         <MainArticleText>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. At, incidunt
-          veniam mollitia nobis voluptatem saepe quas dolore sequi inventore
-          maiores esse dolorum sit omnis temporibus pariatur veritatis vitae?
-          Corrupti, nobis?
+          Immerse yourself in the tranquil embrace of nature at Lushwood Haven.
+          Nestled deep within the heart of a lush forest, our haven offers you
+          an unparalleled escape from the mundane. Explore the serenity of the
+          woods during guided hikes, embark on thrilling cave expeditions, or
+          simply unwind in the comfort of our luxurious rooms. Our enchanting
+          retreat promises an experience like no other.
         </MainArticleText>
       </MainArticleContent>
       <Copy>© 2023. Mykyta Hilis</Copy>

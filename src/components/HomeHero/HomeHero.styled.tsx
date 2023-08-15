@@ -41,12 +41,12 @@ export const LayerHeader = styled.div`
 export const LayersCaption = styled.div`
   font-size: calc(var(--index) / 1.175);
   letter-spacing: calc(var(--index) / 3.5);
-  margin-top: calc(var(--index) * -0.75);
 `;
 
 export const LayersTitle = styled.div`
   font-size: calc(var(--index) * 2.65);
   letter-spacing: calc(var(--index) / 2.25);
+  margin-bottom: calc(var(--index) * 3.75);
 `;
 
 export const Layer = styled.div`

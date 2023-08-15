@@ -8,19 +8,19 @@ import {
   LayersCaption,
   LayersTitle,
   MainHeader,
-} from './Hero.styled';
+} from './HomeHero.styled';
 
 const bgImageLayerBase: string = 'images/layer-base.png';
 const bgImageLayerMiddle: string = 'images/layer-middle.png';
 const bgImageLayerFront: string = 'images/layer-front.png';
 
-const Hero: FC = () => {
+const HomeHero: FC = () => {
   return (
     <MainHeader>
       <Layers>
         <LayerHeader>
-          <LayersCaption>Welcome to Parallax!</LayersCaption>
-          <LayersTitle>Fairy Forest</LayersTitle>
+          <LayersCaption>Welcome to Us!</LayersCaption>
+          <LayersTitle>Lushwood Haven</LayersTitle>
         </LayerHeader>
         <LayerBase
           style={{ backgroundImage: `url(${bgImageLayerBase})` }}
@@ -36,4 +36,4 @@ const Hero: FC = () => {
   );
 };
 
-export default Hero;
+export default HomeHero;

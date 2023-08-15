@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const MainArticle = styled.article`
-  --main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+  --main-article-transform: translate3d(0, calc(var(--scrollTop) / -15.5), 0);
   position: relative;
   top: -1px;
   z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 10px;
   text-align: center;
   min-height: 100vh;
   background-size: cover;
@@ -17,6 +18,7 @@ export const MainArticle = styled.article`
 
 export const MainArticleContent = styled.div`
   will-change: transform;
+  text-shadow: 10px 10px 7px rgba(1, 0, 1, 0.8);
 `;
 
 export const MainArticleTitle = styled.h2`
@@ -29,8 +31,8 @@ export const MainArticleTitle = styled.h2`
 `;
 
 export const MainArticleText = styled.p`
-  max-width: calc(var(--index) * 30);
-  font-size: calc(var(--index) * 0.9);
+  max-width: calc(var(--index) * 35);
+  font-size: calc(var(--index) * 1.1);
   transform: var(--main-article-transform);
   will-change: transform;
 `;
