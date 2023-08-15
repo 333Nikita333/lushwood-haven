@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { AboutSectionProps } from '../../types';
 import {
   ContainerPortfolio,
   Gallery,
@@ -10,7 +11,6 @@ import {
   TextBlockH,
   TextBlockP,
 } from './AboutSection.styled';
-import { AboutSectionProps } from '../../types';
 
 const galleryItem1: string = 'images/about_images/image1.jpg';
 const galleryItem2: string = 'images/about_images/image2.jpg';

@@ -30,7 +30,7 @@ const Header: FC = () => {
   return (
     <HeaderContainer
       style={{
-        transform: isHeaderVisible ? 'translateY(0)' : 'translateY(-100%)',
+        transform: isHeaderVisible ? 'translateX(0)' : 'translateX(-100%)',
       }}
     >
       <Navigation />

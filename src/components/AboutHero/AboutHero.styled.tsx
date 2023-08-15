@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const HeroSection = styled.section`
   position: relative;
@@ -38,11 +38,11 @@ export const MainHeader = styled.div`
 export const MainTitle = styled.h1`
   position: absolute;
   width: min-content;
-  font-size: calc(var(--index) * 8);
+  font-size: calc(var(--index) * 7);
   line-height: 0.9;
   bottom: 32vh;
 
   font-weight: bold;
   color: #67320c;
-  text-shadow: -4px 0 black,0 4px black,4px 0 black,0 -4px black
+  text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
 `;

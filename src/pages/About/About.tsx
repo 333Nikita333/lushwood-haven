@@ -1,9 +1,9 @@
-import { FC, useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { AboutWrapper } from './About.styled';
+import { FC, useLayoutEffect, useRef } from 'react';
 import AboutHero from '../../components/AboutHero';
 import AboutSection from '../../components/AboutSection';
+import { AboutWrapper } from './About.styled';
 
 const About: FC = () => {
   const heroSectionRef = useRef<HTMLDivElement | null>(null);

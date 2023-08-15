@@ -1,6 +1,6 @@
 const theme = {
   paddings: {
-    small: '10px',
+    small: '15px',
   },
   colors: {
     primary: '#ffffff',

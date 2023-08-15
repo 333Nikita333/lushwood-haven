@@ -10,3 +10,6 @@ export interface AboutSectionProps {
   galleryLeftRef: RefObject<HTMLDivElement>;
   galleryRightRef: RefObject<HTMLDivElement>;
 }
+export interface NavLinkItemProps {
+  linkName: string;
+}

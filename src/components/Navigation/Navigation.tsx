@@ -1,24 +1,21 @@
 import { FC } from 'react';
-import { Link, LinkList, LinkListItem } from './Navigation.styled';
+import { LinkName } from '../../types';
+import NavLinkItem from '../NavLinkItem';
+import { LinkList, LinkListItem, Nav } from './Navigation.styled';
+
+const listLinkNames: LinkName[] = ['Home', 'About', 'Search', 'Gallery'];
 
 const Navigation: FC = () => {
   return (
-    <nav>
+    <Nav>
       <LinkList>
-        <LinkListItem>
-          <Link to="/">Home</Link>
-        </LinkListItem>
-        <LinkListItem>
-          <Link to="/about">About</Link>
-        </LinkListItem>
-        <LinkListItem>
-          <Link to="/search">Search</Link>
-        </LinkListItem>
-        <LinkListItem>
-          <Link to="/gallery">Gallery</Link>
-        </LinkListItem>
+        {listLinkNames.map(linkName => (
+          <LinkListItem key={linkName}>
+            <NavLinkItem linkName={linkName.toLowerCase()} />
+          </LinkListItem>
+        ))}
       </LinkList>
-    </nav>
+    </Nav>
   );
 };
 
