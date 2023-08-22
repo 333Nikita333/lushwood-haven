@@ -1,8 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import Navigation from '../Navigation';
 import { HeaderContainer } from './Header.styled';
+import Modal from '../Modal';
 
 const Header: FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);
 
@@ -27,6 +29,10 @@ const Header: FC = () => {
     };
   }, [prevScrollPos]);
 
+  const toggleModal = () => {
+    setIsModalOpen(prevState => !prevState);
+  };
+
   return (
     <HeaderContainer
       style={{
@@ -34,6 +40,13 @@ const Header: FC = () => {
       }}
     >
       <Navigation />
+
+      <button onClick={toggleModal}>Open Modal</button>
+      <Modal isOpen={isModalOpen} onClose={toggleModal}>
+        {/* Сюда можно передать любой компонент */}
+        <h2>Modal Content</h2>
+        <p>This is the content of the modal.</p>
+      </Modal>
     </HeaderContainer>
   );
 };

@@ -1,4 +1,4 @@
-import { RefObject } from 'react';
+import { ReactNode, RefObject } from 'react';
 export interface SoundProps {
   isMuted: boolean;
   toggleMute: () => void;
@@ -12,4 +12,9 @@ export interface AboutSectionProps {
 }
 export interface NavLinkItemProps {
   linkName: string;
+}
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
 }
