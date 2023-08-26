@@ -20,3 +20,13 @@ export type UseSoundEffectType = {
 };
 
 export type LinkName = 'Home' | 'About' | 'Search' | 'Gallery';
+
+export type OrderFormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  checkInDate: Date;
+  checkOutDate: Date;
+  roomType: string;
+};

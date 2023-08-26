@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import Navigation from '../Navigation';
 import { HeaderContainer } from './Header.styled';
 import Modal from '../Modal';
+import OrderForm from '../OrderForm';
 
 const Header: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -41,11 +42,9 @@ const Header: FC = () => {
     >
       <Navigation />
 
-      <button onClick={toggleModal}>Open Modal</button>
+      <button onClick={toggleModal}>Book a room</button>
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
-        {/* Сюда можно передать любой компонент */}
-        <h2>Modal Content</h2>
-        <p>This is the content of the modal.</p>
+        <OrderForm />
       </Modal>
     </HeaderContainer>
   );
