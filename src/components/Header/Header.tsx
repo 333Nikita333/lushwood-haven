@@ -1,13 +1,20 @@
 import { FC, useEffect, useState } from 'react';
 import Navigation from '../Navigation';
-import { HeaderContainer } from './Header.styled';
+import {
+  HeaderContainer,
+  MobileMenuButton,
+  OrderButton,
+} from './Header.styled';
 import Modal from '../Modal';
 import OrderForm from '../OrderForm';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import MobileMenuHeader from '../MobileMenuHeader';
 
 const Header: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -30,8 +37,12 @@ const Header: FC = () => {
     };
   }, [prevScrollPos]);
 
-  const toggleModal = () => {
+  const toggleModal = (): void => {
     setIsModalOpen(prevState => !prevState);
+  };
+
+  const toggleMobileMenu = (): void => {
+    setIsMobileMenuOpen(prevState => !prevState);
   };
 
   return (
@@ -40,9 +51,17 @@ const Header: FC = () => {
         transform: isHeaderVisible ? 'translateX(0)' : 'translateX(-100%)',
       }}
     >
+      {!isMobileMenuOpen && (
+        <MobileMenuButton onClick={toggleMobileMenu}>
+          <GiHamburgerMenu size={40} />
+        </MobileMenuButton>
+      )}
+
+      <MobileMenuHeader isOpen={isMobileMenuOpen} onClose={toggleMobileMenu} />
+
       <Navigation />
 
-      <button onClick={toggleModal}>Book a room</button>
+      <OrderButton onClick={toggleModal}>Book a room</OrderButton>
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
         <OrderForm />
       </Modal>

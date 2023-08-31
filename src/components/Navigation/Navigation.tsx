@@ -3,7 +3,7 @@ import { LinkName } from '../../types';
 import NavLinkItem from '../NavLinkItem';
 import { LinkList, LinkListItem, Nav } from './Navigation.styled';
 
-const listLinkNames: LinkName[] = ['Home', 'About', 'Search', 'Gallery'];
+export const listLinkNames: LinkName[] = ['Home', 'About', 'Search', 'Gallery'];
 
 const Navigation: FC = () => {
   return (

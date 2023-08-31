@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Nav = styled.nav``;
+export const Nav = styled.nav`
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+`;
 export const LinkList = styled.ul`
   display: flex;
   gap: calc(var(--gallery-gap) * 0.2);

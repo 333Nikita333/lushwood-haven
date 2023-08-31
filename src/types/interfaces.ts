@@ -1,20 +1,24 @@
 import { ReactNode, RefObject } from 'react';
-export interface SoundProps {
+export interface ISoundProps {
   isMuted: boolean;
   toggleMute: () => void;
 }
-export interface AboutHeroProps {
+export interface IAboutHeroProps {
   heroSectionRef: RefObject<HTMLDivElement>;
 }
-export interface AboutSectionProps {
+export interface IAboutSectionProps {
   galleryLeftRef: RefObject<HTMLDivElement>;
   galleryRightRef: RefObject<HTMLDivElement>;
 }
-export interface NavLinkItemProps {
+export interface INavLinkItemProps {
   linkName: string;
 }
-export interface ModalProps {
+export interface IModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
+}
+export interface IMobileMenuProps {
+  isOpen: boolean;
+  onClose: () => void;
 }

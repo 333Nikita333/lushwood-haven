@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { AboutSectionProps } from '../../types';
+import { IAboutSectionProps } from '../../types';
 import {
   ContainerPortfolio,
   Gallery,
@@ -21,7 +21,7 @@ const galleryItem6: string = 'images/about_images/image6.jpg';
 const galleryItem7: string = 'images/about_images/image7.jpg';
 const galleryItem8: string = 'images/about_images/image8.jpg';
 
-const AboutSection: FC<AboutSectionProps> = ({
+const AboutSection: FC<IAboutSectionProps> = ({
   galleryLeftRef,
   galleryRightRef,
 }) => {

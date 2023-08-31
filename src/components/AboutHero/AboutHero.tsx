@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { AboutHeroProps } from '../../types';
+import { IAboutHeroProps } from '../../types';
 import {
   Container,
   HeroImage,
@@ -13,7 +13,7 @@ const heroImage: string = 'images/about_images/hero.png';
 const bgHeroVideoMP4: string = 'videos/background_video.mp4';
 const bgHeroVideoWEBM: string = 'videos/background_video.webm';
 
-const AboutHero: FC<AboutHeroProps> = ({ heroSectionRef }) => {
+const AboutHero: FC<IAboutHeroProps> = ({ heroSectionRef }) => {
   return (
     <HeroSection ref={heroSectionRef}>
       <HeroVideo autoPlay muted loop>

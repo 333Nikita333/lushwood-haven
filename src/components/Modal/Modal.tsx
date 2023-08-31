@@ -1,9 +1,9 @@
 import { FC, useCallback, useEffect } from 'react';
-import { ModalProps } from '../../types';
+import { IModalProps } from '../../types';
 import { createPortal } from 'react-dom';
 import { Backdrop, ModalContainer } from './Modal.styled';
 
-const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
+const Modal: FC<IModalProps> = ({ isOpen, onClose, children }) => {
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
