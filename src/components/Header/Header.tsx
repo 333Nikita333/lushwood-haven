@@ -1,14 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import Navigation from '../Navigation';
-import {
-  HeaderContainer,
-  MobileMenuButton,
-  OrderButton,
-} from './Header.styled';
+import { HeaderContainer, MobileMenuButton } from './Header.styled';
 import Modal from '../Modal';
 import OrderForm from '../OrderForm';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import MobileMenuHeader from '../MobileMenuHeader';
+import BookRoomButton from '../BookRoomButton';
 
 const Header: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -61,7 +58,7 @@ const Header: FC = () => {
 
       <Navigation />
 
-      <OrderButton onClick={toggleModal}>Book a room</OrderButton>
+      <BookRoomButton toggleModal={toggleModal} />
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
         <OrderForm />
       </Modal>

@@ -22,3 +22,6 @@ export interface IMobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
+export interface IBookRoomButtonProps {
+  toggleModal: () => void;
+}
