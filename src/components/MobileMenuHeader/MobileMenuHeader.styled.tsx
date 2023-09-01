@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const MobileMenuContainer = styled.div<{ isOpen: boolean }>`
+export const MobileMenuContainer = styled.div<{ $isOpen: boolean }>`
   position: fixed;
   z-index: 9999;
   top: 0;
-  left: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+  left: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -44,7 +44,7 @@ export const CloseButton = styled.button`
   right: 10px;
   background-color: transparent;
   border: none;
-  font-size: 18px;
+  font-size: ${({ theme }) => theme.fontSizes.primary};
   margin-bottom: 20px;
   margin-left: auto;
   transition: color 0.3s ease-in-out, opacity 3s ease-in-out;
@@ -52,11 +52,11 @@ export const CloseButton = styled.button`
   & > svg {
     width: 40px;
     height: 40px;
-    color: black;
+    color: #000000;
     transition: color 0.3s ease-in-out;
   }
   &:hover > svg {
-    color: #fff;
+    color: #ffffff;
   }
 `;
 export const ListLinks = styled.ul`
@@ -73,7 +73,7 @@ export const LinkItem = styled.li`
   & > a {
     padding: 10px calc(var(--index) * 2);
     font-weight: 700;
-    color: black;
+    color: #000000;
     border: 2px solid #000000;
     background-color: #8b4513;
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,

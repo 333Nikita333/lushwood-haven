@@ -11,7 +11,7 @@ export const LinkList = styled.ul`
 `;
 export const LinkListItem = styled.li`
   & .active {
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.primary};
     background: #8b4513;
     border: 1px solid #8b4513;
     text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;

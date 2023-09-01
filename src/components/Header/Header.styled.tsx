@@ -28,14 +28,12 @@ export const OrderButton = styled.button`
   margin-left: auto;
 `;
 export const MobileMenuButton = styled.button`
-  color: white;
+  color: ${({ theme }) => theme.colors.primary};
   background: transparent;
   border: none;
-  font-size: 24px;
+  font-size: ${({ theme }) => theme.fontSizes.secondary};
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  
-  
   
   @media screen and (min-width: 481px) {
     display: none;

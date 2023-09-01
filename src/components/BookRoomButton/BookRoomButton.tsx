@@ -1,12 +1,13 @@
 import { FC } from 'react';
 import { IBookRoomButtonProps } from '../../types';
-import { Wrapper } from './BookRoomButton.styled';
+import { Wrapper, OrderIcon } from './BookRoomButton.styled';
 
 const BookRoomButton: FC<IBookRoomButtonProps> = ({ toggleModal }) => {
   return (
     <Wrapper>
       <button className="btn-content" onClick={toggleModal}>
         <span className="btn-title">Book a room</span>
+        <OrderIcon />
         <span className="icon-arrow">
           <svg
             width="66px"
@@ -19,9 +20,9 @@ const BookRoomButton: FC<IBookRoomButtonProps> = ({ toggleModal }) => {
             <g
               id="arrow"
               stroke="none"
-              stroke-width="1"
+              strokeWidth="1"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             >
               <path
                 id="arrow-icon-one"

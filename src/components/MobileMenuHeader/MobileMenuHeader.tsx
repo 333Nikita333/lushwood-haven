@@ -10,9 +10,9 @@ import {
   LinkItem,
 } from './MobileMenuHeader.styled';
 
-const MobileMenu: FC<IMobileMenuProps> = ({ isOpen, onClose }) => {
+const MobileMenuHeader: FC<IMobileMenuProps> = ({ isOpen, onClose }) => {
   return (
-    <MobileMenuContainer isOpen={isOpen}>
+    <MobileMenuContainer $isOpen={isOpen}>
       <CloseButton onClick={onClose}>
         <AiOutlineCloseCircle />
       </CloseButton>
@@ -27,4 +27,4 @@ const MobileMenu: FC<IMobileMenuProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default MobileMenu;
+export default MobileMenuHeader;

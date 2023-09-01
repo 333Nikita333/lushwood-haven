@@ -1,38 +1,51 @@
 import styled from 'styled-components';
+import { MdBorderColor } from 'react-icons/md';
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  --color-text: #ffffff;
-  --color-background: #ff135a;
-  --color-outline: #ff145b80;
+  align-items: center;
+  margin-left: auto;
   --color-shadow: #00000080;
 
   & .btn-content {
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 5px;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 30px;
-    color: var(--color-text);
-    background: var(--color-background);
+    font-size: calc(var(--index) * 1.5);
+    color: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.bookRoomBtnBgc};
     transition: 1s;
     border-radius: 100px;
-    box-shadow: 0 0 0.2em 0 var(--color-background);
+    border: 1px solid #ffffff80;
+    box-shadow: 0 0 0.2em 0 ${({ theme }) => theme.colors.bookRoomBtnBgc};
   }
-
   & .btn-content:hover,
-  .btn-content:focus {
+  & .btn-content:focus {
     transition: 0.5s;
     -webkit-animation: btn-content 1s;
     animation: btn-content 1s;
     outline: 0.1em solid transparent;
     outline-offset: 0.2em;
-    box-shadow: 0 0 0.4em 0 var(--color-background);
+    box-shadow: 0 0 0.4em 0 ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    transform: scale(1.1);
   }
-
+  & .btn-title {
+    position: absolute;
+    top: 110%;
+    display: none;
+    width: 110px;
+    opacity: 0;
+    text-shadow: 7px 7px 3px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover .btn-title,
+  &:focus .btn-title {
+    display: block;
+    opacity: 1;
+  }
   & .btn-content .icon-arrow {
     transition: 0.5s;
     margin-right: 0px;
@@ -46,7 +59,6 @@ export const Wrapper = styled.div`
 
   & .icon-arrow {
     width: 20px;
-    margin-left: 15px;
     position: relative;
     top: 6%;
   }
@@ -79,30 +91,35 @@ export const Wrapper = styled.div`
   /* SVG animations */
   @keyframes color_anim {
     0% {
-      fill: white;
+      fill: ${({ theme }) => theme.colors.primary};
     }
 
     50% {
-      fill: var(--color-background);
+      fill: ${({ theme }) => theme.colors.bookRoomBtnBgc};
     }
 
     100% {
-      fill: white;
+      fill: ${({ theme }) => theme.colors.primary};
     }
   }
 
   /* Button animations */
   @-webkit-keyframes btn-content {
     0% {
-      outline: 0.2em solid var(--color-background);
+      outline: 0.2em solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
       outline-offset: 0;
     }
   }
 
   @keyframes btn-content {
     0% {
-      outline: 0.2em solid var(--color-background);
+      outline: 0.2em solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
       outline-offset: 0;
     }
   }
+`;
+export const OrderIcon = styled(MdBorderColor)`
+  width: 30px;
+  height: 30px;
+  color: #000000;
 `;

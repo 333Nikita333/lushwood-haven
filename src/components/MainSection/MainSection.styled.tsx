@@ -8,7 +8,7 @@ export const MainArticle = styled.article`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 ${({ theme }) => theme.paddings.small};
   text-align: center;
   min-height: 100vh;
   background-size: cover;
