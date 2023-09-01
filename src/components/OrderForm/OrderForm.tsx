@@ -3,6 +3,16 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { OrderFormData } from '../../types';
+import {
+  FormContainer,
+  OrderFormContainer,
+  FormGroup,
+  Label,
+  Input,
+  ErrorText,
+  Select,
+  Button
+} from './OrderForm.styled';
 
 const OrderForm: FC = () => {
   const {
@@ -25,140 +35,145 @@ const OrderForm: FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label>First Name</label>
-        <Controller
-          name="firstName"
-          control={control}
-          defaultValue=""
-          rules={{ required: true }}
-          render={({ field }) => <input {...field} />}
-        />
-        {errors.firstName && <span>This field is required</span>}
-      </div>
-      <div>
-        <label>Last Name</label>
-        <Controller
-          name="lastName"
-          control={control}
-          defaultValue=""
-          rules={{ required: true }}
-          render={({ field }) => <input {...field} />}
-        />
-        {errors.lastName && <span>This field is required</span>}
-      </div>
-      <div>
-        <label>Phone Number</label>
-        <Controller
-          name="phoneNumber"
-          control={control}
-          defaultValue=""
-          rules={{ required: true, pattern: /^\+[0-9]+$/ }}
-          render={({ field }) => <input {...field} />}
-        />
-        {errors.phoneNumber?.type === 'required' && (
-          <span>This field is required</span>
-        )}
-        {errors.phoneNumber?.type === 'pattern' && (
-          <span>Invalid phone number</span>
-        )}
-      </div>
-      <div>
-        <label>Email</label>
-        <Controller
-          name="email"
-          control={control}
-          defaultValue=""
-          rules={{
-            required: true,
-            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-          }}
-          render={({ field }) => <input {...field} />}
-        />
-        {errors.email?.type === 'required' && (
-          <span>This field is required</span>
-        )}
-        {errors.email?.type === 'pattern' && <span>Invalid email address</span>}
-      </div>
-      <div>
-        <label>Check-in Date and Time</label>
-        <Controller
-          name="checkInDate"
-          control={control}
-          rules={{
-            required: true,
-            validate: value => {
-              const isValid = value && value <= checkOutDate && value >= today;
-              setShowCheckInError(!isValid);
-              return isValid;
-            },
-          }}
-          render={({ field }) => (
-            <div>
-              <DatePicker
-                selected={field.value}
-                onChange={date => setValue('checkInDate', date as Date)}
-                showTimeSelect
-                minDate={today}
-                maxDate={checkOutDate ? new Date(checkOutDate) : null}
-                timeFormat="HH:mm"
-                dateFormat="dd/MM/yyyy, HH:mm"
-              />
-              {showCheckInError && <span>Invalid check-in date</span>}
-            </div>
+    <FormContainer>
+      <OrderFormContainer onSubmit={handleSubmit(onSubmit)}>
+        <FormGroup>
+          <Label>First Name</Label>
+          <Controller
+            name="firstName"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => <Input {...field} />}
+          />
+          {errors.firstName && <ErrorText>This field is required</ErrorText>}
+        </FormGroup>
+        <FormGroup>
+          <Label>Last Name</Label>
+          <Controller
+            name="lastName"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => <Input {...field} />}
+          />
+          {errors.lastName && <ErrorText>This field is required</ErrorText>}
+        </FormGroup>
+        <FormGroup>
+          <Label>Phone Number</Label>
+          <Controller
+            name="phoneNumber"
+            control={control}
+            defaultValue=""
+            rules={{ required: true, pattern: /^\+[0-9]+$/ }}
+            render={({ field }) => <Input {...field} />}
+          />
+          {errors.phoneNumber?.type === 'required' && (
+            <ErrorText>This field is required</ErrorText>
           )}
-        />
-        {errors.checkInDate && <span>This field is required</span>}
-      </div>
-      <div>
-        <label>Check-out Date and Time</label>
-        <Controller
-          name="checkOutDate"
-          control={control}
-          rules={{
-            required: true,
-            validate: value => {
-              const isValid: boolean =
-                value && value >= checkInDate && value >= today;
-              setShowCheckOutError(!isValid);
-              return isValid;
-            },
-          }}
-          render={({ field }) => (
-            <div>
-              <DatePicker
-                selected={field.value}
-                onChange={date => setValue('checkOutDate', date as Date)}
-                showTimeSelect
-                minDate={checkInDate ? new Date(checkInDate) : today}
-                timeFormat="HH:mm"
-                dateFormat="dd/MM/yyyy, HH:mm"
-              />
-              {showCheckOutError && <span>Invalid check-out date</span>}
-            </div>
+          {errors.phoneNumber?.type === 'pattern' && (
+            <ErrorText>Invalid phone number</ErrorText>
           )}
-        />
-        {errors.checkOutDate && <span>This field is required</span>}
-      </div>
-      <div>
-        <label>Room Type</label>
-        <Controller
-          name="roomType"
-          control={control}
-          rules={{ required: true }}
-          render={({ field }) => (
-            <select {...field}>
-              <option value="standard">Standard</option>
-              <option value="suite">Family</option>
-              <option value="deluxe">Deluxe</option>
-            </select>
+        </FormGroup>
+        <FormGroup>
+          <Label>Email</Label>
+          <Controller
+            name="email"
+            control={control}
+            defaultValue=""
+            rules={{
+              required: true,
+              pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            }}
+            render={({ field }) => <Input {...field} />}
+          />
+          {errors.email?.type === 'required' && (
+            <ErrorText>This field is required</ErrorText>
           )}
-        />
-        {errors.roomType && <span>This field is required</span>}
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+          {errors.email?.type === 'pattern' && (
+            <ErrorText>Invalid email address</ErrorText>
+          )}
+        </FormGroup>
+        <FormGroup>
+          <Label>Check-in Date and Time</Label>
+          <Controller
+            name="checkInDate"
+            control={control}
+            rules={{
+              required: true,
+              validate: value => {
+                const isValid =
+                  value && value <= checkOutDate && value >= today;
+                setShowCheckInError(!isValid);
+                return isValid;
+              },
+            }}
+            render={({ field }) => (
+              <div>
+                <DatePicker
+                  selected={field.value}
+                  onChange={date => setValue('checkInDate', date as Date)}
+                  showTimeSelect
+                  minDate={today}
+                  maxDate={checkOutDate ? new Date(checkOutDate) : null}
+                  timeFormat="HH:mm"
+                  dateFormat="dd/MM/yyyy, HH:mm"
+                />
+                {showCheckInError && <ErrorText>Invalid check-in date</ErrorText>}
+              </div>
+            )}
+          />
+          {errors.checkInDate && <ErrorText>This field is required</ErrorText>}
+        </FormGroup>
+        <FormGroup>
+          <Label>Check-out Date and Time</Label>
+          <Controller
+            name="checkOutDate"
+            control={control}
+            rules={{
+              required: true,
+              validate: value => {
+                const isValid: boolean =
+                  value && value >= checkInDate && value >= today;
+                setShowCheckOutError(!isValid);
+                return isValid;
+              },
+            }}
+            render={({ field }) => (
+              <div>
+                <DatePicker
+                  selected={field.value}
+                  onChange={date => setValue('checkOutDate', date as Date)}
+                  showTimeSelect
+                  minDate={checkInDate ? new Date(checkInDate) : today}
+                  timeFormat="HH:mm"
+                  dateFormat="dd/MM/yyyy, HH:mm"
+                />
+                {showCheckOutError && <ErrorText>Invalid check-out date</ErrorText>}
+              </div>
+            )}
+          />
+          {errors.checkOutDate && <ErrorText>This field is required</ErrorText>}
+        </FormGroup>
+        <FormGroup>
+          <Label>Room Type</Label>
+          <Controller
+            name="roomType"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => (
+              <Select {...field}>
+                <option value="standard">Standard</option>
+                <option value="suite">Family</option>
+                <option value="deluxe">Deluxe</option>
+              </Select>
+            )}
+          />
+          {errors.roomType && <ErrorText>This field is required</ErrorText>}
+        </FormGroup>
+        <Button type="submit">Submit</Button>
+      </OrderFormContainer>
+    </FormContainer>
   );
 };
 

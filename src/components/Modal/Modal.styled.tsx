@@ -10,6 +10,7 @@ export const Backdrop = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  padding: 10px;
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
