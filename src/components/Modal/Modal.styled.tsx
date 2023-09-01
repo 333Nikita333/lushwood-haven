@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Backdrop = styled.div`
   position: fixed;
-  z-index: 1000;
+  z-index: 10000;
   top: 0;
   left: 0;
   display: flex;

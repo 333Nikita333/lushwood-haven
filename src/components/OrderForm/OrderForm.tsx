@@ -7,11 +7,9 @@ import {
   FormContainer,
   OrderFormContainer,
   FormGroup,
-  Label,
-  Input,
   ErrorText,
   Select,
-  Button
+  Button,
 } from './OrderForm.styled';
 
 const OrderForm: FC = () => {
@@ -38,36 +36,56 @@ const OrderForm: FC = () => {
     <FormContainer>
       <OrderFormContainer onSubmit={handleSubmit(onSubmit)}>
         <FormGroup>
-          <Label>First Name</Label>
           <Controller
             name="firstName"
             control={control}
             defaultValue=""
             rules={{ required: true }}
-            render={({ field }) => <Input {...field} />}
+            render={({ field }) => (
+              <input
+                className="form__field"
+                placeholder="First Name"
+                {...field}
+              />
+            )}
           />
+          <label className="form__label">First Name</label>
           {errors.firstName && <ErrorText>This field is required</ErrorText>}
         </FormGroup>
+
         <FormGroup>
-          <Label>Last Name</Label>
           <Controller
             name="lastName"
             control={control}
             defaultValue=""
             rules={{ required: true }}
-            render={({ field }) => <Input {...field} />}
+            render={({ field }) => (
+              <input
+                className="form__field"
+                placeholder="Last Name"
+                {...field}
+              />
+            )}
           />
+          <label className="form__label">Last Name</label>
           {errors.lastName && <ErrorText>This field is required</ErrorText>}
         </FormGroup>
+
         <FormGroup>
-          <Label>Phone Number</Label>
           <Controller
             name="phoneNumber"
             control={control}
             defaultValue=""
             rules={{ required: true, pattern: /^\+[0-9]+$/ }}
-            render={({ field }) => <Input {...field} />}
+            render={({ field }) => (
+              <input
+                className="form__field"
+                placeholder="Phone Number"
+                {...field}
+              />
+            )}
           />
+          <label className="form__label">Phone Number</label>
           {errors.phoneNumber?.type === 'required' && (
             <ErrorText>This field is required</ErrorText>
           )}
@@ -75,8 +93,8 @@ const OrderForm: FC = () => {
             <ErrorText>Invalid phone number</ErrorText>
           )}
         </FormGroup>
+
         <FormGroup>
-          <Label>Email</Label>
           <Controller
             name="email"
             control={control}
@@ -85,8 +103,11 @@ const OrderForm: FC = () => {
               required: true,
               pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
             }}
-            render={({ field }) => <Input {...field} />}
+            render={({ field }) => (
+              <input className="form__field" placeholder="Email" {...field} />
+            )}
           />
+          <label className="form__label">Email</label>
           {errors.email?.type === 'required' && (
             <ErrorText>This field is required</ErrorText>
           )}
@@ -94,8 +115,8 @@ const OrderForm: FC = () => {
             <ErrorText>Invalid email address</ErrorText>
           )}
         </FormGroup>
+
         <FormGroup>
-          <Label>Check-in Date and Time</Label>
           <Controller
             name="checkInDate"
             control={control}
@@ -119,14 +140,17 @@ const OrderForm: FC = () => {
                   timeFormat="HH:mm"
                   dateFormat="dd/MM/yyyy, HH:mm"
                 />
-                {showCheckInError && <ErrorText>Invalid check-in date</ErrorText>}
+                {showCheckInError && (
+                  <ErrorText>Invalid check-in date</ErrorText>
+                )}
               </div>
             )}
           />
+          <label className="form__label">Check-in Date and Time</label>
           {errors.checkInDate && <ErrorText>This field is required</ErrorText>}
         </FormGroup>
+
         <FormGroup>
-          <Label>Check-out Date and Time</Label>
           <Controller
             name="checkOutDate"
             control={control}
@@ -149,14 +173,17 @@ const OrderForm: FC = () => {
                   timeFormat="HH:mm"
                   dateFormat="dd/MM/yyyy, HH:mm"
                 />
-                {showCheckOutError && <ErrorText>Invalid check-out date</ErrorText>}
+                {showCheckOutError && (
+                  <ErrorText>Invalid check-out date</ErrorText>
+                )}
               </div>
             )}
           />
+          <label className="form__label">Check-out Date and Time</label>
           {errors.checkOutDate && <ErrorText>This field is required</ErrorText>}
         </FormGroup>
+
         <FormGroup>
-          <Label>Room Type</Label>
           <Controller
             name="roomType"
             control={control}
@@ -164,11 +191,12 @@ const OrderForm: FC = () => {
             render={({ field }) => (
               <Select {...field}>
                 <option value="standard">Standard</option>
-                <option value="suite">Family</option>
-                <option value="deluxe">Deluxe</option>
+                <option value="family">Family</option>
+                <option value="suite">Suite</option>
               </Select>
             )}
           />
+          <label className="form__label">Room Type</label>
           {errors.roomType && <ErrorText>This field is required</ErrorText>}
         </FormGroup>
         <Button type="submit">Submit</Button>

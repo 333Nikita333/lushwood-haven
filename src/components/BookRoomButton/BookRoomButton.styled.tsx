@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  --color-shadow: #00000080;
 
   & .btn-content {
     display: flex;
