@@ -8,7 +8,7 @@ import MobileMenuHeader from '../MobileMenuHeader';
 import BookRoomButton from '../BookRoomButton';
 
 const Header: FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);

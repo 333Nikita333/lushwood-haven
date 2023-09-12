@@ -9,20 +9,10 @@ const ScrollIndicator: FC = () => {
 
     const handleScroll = (): void => {
       animationFrameId = requestAnimationFrame(() => {
-        // Высота видимой области окна браузера
         const windowHeight = window.innerHeight;
-
-        // Высота всего документа
         const documentHeight = document.body.clientHeight;
-
-        // Текущая позиция вертикальной прокрутки
         const scrollY = window.scrollY;
-
-        // Максимально возможная вертикальная прокрутка
         const maxScroll = documentHeight - windowHeight;
-
-        // Вычисление процентного положения вертикальной прокрутки
-        // относительно максимальной прокрутки
         const percentage = (scrollY / maxScroll) * 100;
         setScrollPerсentage(percentage);
       });
@@ -36,11 +26,7 @@ const ScrollIndicator: FC = () => {
     };
   }, []);
 
-  return (
-    <ScrollIndicatorWrapper
-      style={{ width: `${scrollPerсentage}%` }}
-    ></ScrollIndicatorWrapper>
-  );
+  return <ScrollIndicatorWrapper style={{ width: `${scrollPerсentage}%` }} />;
 };
 
 export default ScrollIndicator;

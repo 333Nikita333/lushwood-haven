@@ -26,9 +26,36 @@ export const Backdrop = styled.div`
 `;
 
 export const ModalContainer = styled.div`
+  position: relative;
   padding: 20px;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.primary};
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   animation: ${scaleIn} 0.5s ease-in-out;
+`;
+export const ButtonClose = styled.button`
+  position: absolute;
+  z-index: 1000;
+  top: 15px;
+  right: 35px;
+  background-color: transparent;
+  border: none;
+  border-radius: 45px;
+  font-size: ${({ theme }) => theme.fontSizes.primary};
+  margin-bottom: 20px;
+  margin-left: auto;
+  transition: color 0.3s ease-in-out, opacity 3s ease-in-out;
+
+  & > svg {
+    width: 30px;
+    height: 30px;
+    border-radius: 45px;
+    border: none;
+    color: #000000;
+    background-color: transperent;
+    transition: transform 0.3s ease-in-out;
+  }
+  &:hover > svg {
+    transform: scale(1.1);
+  }
 `;

@@ -22,11 +22,11 @@ export type UseSoundEffectType = {
 export type LinkName = 'Home' | 'About' | 'Search' | 'Gallery';
 
 export type OrderFormData = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
   checkInDate: Date;
   checkOutDate: Date;
+  email: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
   roomType: string;
 };

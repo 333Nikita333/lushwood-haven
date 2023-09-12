@@ -13,7 +13,6 @@ const About: FC = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // if (ScrollTrigger.isTouch !== 1) {
       ScrollTrigger.refresh();
 
       gsap.fromTo(
@@ -68,7 +67,7 @@ const About: FC = () => {
           }
         );
       });
-    // }
+
   }, []);
 
   return (

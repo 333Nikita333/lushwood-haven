@@ -1,7 +1,8 @@
 import { FC, useCallback, useEffect } from 'react';
-import { IModalProps } from '../../types';
 import { createPortal } from 'react-dom';
-import { Backdrop, ModalContainer } from './Modal.styled';
+import { IModalProps } from '../../types';
+import { Backdrop, ButtonClose, ModalContainer } from './Modal.styled';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const Modal: FC<IModalProps> = ({ isOpen, onClose, children }) => {
   const handleKeyDown = useCallback(
@@ -41,7 +42,9 @@ const Modal: FC<IModalProps> = ({ isOpen, onClose, children }) => {
     <Backdrop onClick={handleBackdropClick}>
       <ModalContainer>
         {children}
-        <button onClick={onClose}>Close</button>
+        <ButtonClose onClick={onClose}>
+          <AiOutlineCloseCircle />
+        </ButtonClose>
       </ModalContainer>
     </Backdrop>,
     document.getElementById('modal-root')!

@@ -4,11 +4,13 @@ export const FormContainer = styled.div`
   max-width: 500px;
   max-height: 400px;
   overflow-y: auto;
+  padding: 5px;
 `;
 export const OrderFormContainer = styled.form`
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 30px;
 
   & input {
     padding: 5px;
@@ -51,7 +53,11 @@ export const OrderFormContainer = styled.form`
     padding-bottom: 6px;
     font-weight: 700;
     border-width: 3px;
-    border-image: linear-gradient(to right, #116399, #38caef);
+    border-image: linear-gradient(
+      to right,
+      #116399,
+      ${({ theme }) => theme.colors.bookRoomBtnBgc}
+    );
     border-image-slice: 1;
   }
 
@@ -61,7 +67,7 @@ export const OrderFormContainer = styled.form`
     display: block;
     font-size: 17px;
     font-weight: 700;
-    color: #38caef;
+    color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
     transition: 0.2s ease-in-out;
   }
 
@@ -76,6 +82,24 @@ export const FormGroup = styled.div`
   padding: 20px 0 0;
   width: 100%;
   max-width: 220px;
+
+  & .react-datepicker__navigation-icon::before {
+    border-color: black;
+  }
+
+  @media screen and (min-width: 400px) {
+    & .react-datepicker {
+      display: flex;
+    }
+  }
+  @media screen and (max-width: 399px) {
+    &
+      .react-datepicker__navigation--next--with-time:not(
+        .react-datepicker__navigation--next--with-today-button
+      ) {
+      right: 0;
+    }
+  }
 `;
 
 export const ErrorText = styled.span`
@@ -83,18 +107,85 @@ export const ErrorText = styled.span`
   font-size: 14px;
 `;
 
-export const Select = styled.select`
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
+export const Button = styled.button`
+  width: 120px;
+  height: 60px;
+  margin-top: auto;
+  margin-left: auto;
+  border: 1px solid #315cfd;
+  border-radius: 45px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: white;
+  font-size: 1.2em;
+  font-weight: 500;
+
+  &:hover {
+    background: #315cfd;
+    color: white;
+    font-size: 1.5em;
+  }
 `;
 
-export const Button = styled.button`
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
+export const RadioGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @media screen and (max-width: 400px) {
+    align-items: baseline;
+    flex-direction: column;
+  }
+`;
+
+export const RadioButton = styled.div`
+  display: inline-block;
+  position: relative;
   cursor: pointer;
+`;
+
+export const RadioLabel = styled.label`
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #9b9b9b;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+
+  & span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #9b9b9b;
+    transition: all 0.3s ease;
+  }
+  &:hover span {
+    transform: scale(1.2);
+    border-color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    box-shadow: 0 0 20px ${({ theme }) => theme.colors.bookRoomBtnBgc + 80};
+  }
+`;
+
+export const RadioInput = styled.input`
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked + ${RadioLabel} span {
+    background-color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    border-color: transparent;
+    transform: scale(0.8);
+    box-shadow: 0 0 20px ${({ theme }) => theme.colors.bookRoomBtnBgc + 80};
+  }
+  &:checked + ${RadioLabel} {
+    color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+  }
 `;

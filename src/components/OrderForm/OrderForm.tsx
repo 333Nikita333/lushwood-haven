@@ -4,13 +4,18 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { OrderFormData } from '../../types';
 import {
-  FormContainer,
-  OrderFormContainer,
-  FormGroup,
-  ErrorText,
-  Select,
   Button,
+  ErrorText,
+  FormContainer,
+  FormGroup,
+  OrderFormContainer,
+  RadioButton,
+  RadioGroup,
+  RadioInput,
+  RadioLabel,
 } from './OrderForm.styled';
+
+const radioButtons: ReadonlyArray<string> = ['Standart', 'Family', 'Suite'];
 
 const OrderForm: FC = () => {
   const {
@@ -189,11 +194,22 @@ const OrderForm: FC = () => {
             control={control}
             rules={{ required: true }}
             render={({ field }) => (
-              <Select {...field}>
-                <option value="standard">Standard</option>
-                <option value="family">Family</option>
-                <option value="suite">Suite</option>
-              </Select>
+              <RadioGroup>
+                {radioButtons.map(item => (
+                  <RadioButton key={item}>
+                    <RadioInput
+                      type="radio"
+                      {...field}
+                      value={item.toLowerCase()}
+                      id={item.toLowerCase()}
+                    />
+                    <RadioLabel htmlFor={item.toLowerCase()}>
+                      <span></span>
+                      {item}
+                    </RadioLabel>
+                  </RadioButton>
+                ))}
+              </RadioGroup>
             )}
           />
           <label className="form__label">Room Type</label>
