@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const scaleIn = keyframes`
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -19,4 +30,5 @@ export const ModalContainer = styled.div`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.primary};
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  animation: ${scaleIn} 0.5s ease-in-out;
 `;

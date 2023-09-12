@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const Button = styled.button`
   position: fixed;
   z-index: 1000;
-  top: 5%;
-  right: 5%;
-  width: calc(var(--index) * 2.1);
-  height: calc(var(--index) * 2.1);
+  top: 13%;
+  right: 20px;
+  width: calc(var(--index) * 3);
+  height: calc(var(--index) * 3);
   background-color: transparent;
   border: none;
   color: ${({ theme }) => theme.colors.primary};
@@ -15,7 +15,7 @@ export const Button = styled.button`
   transition: transform 0.3s ease;
 
   & svg {
-    width: calc(var(--index) * 2);
-    height: calc(var(--index) * 2);
+    width: 40px;
+    height: 40px;
   }
 `;
