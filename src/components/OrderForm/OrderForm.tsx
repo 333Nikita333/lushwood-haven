@@ -1,18 +1,23 @@
 import { FC, useState } from 'react';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import 'react-phone-input-2/lib/style.css';
 import { OrderFormData } from '../../types';
 import {
-  Button,
   ErrorText,
   FormContainer,
   FormGroup,
+  FormGroupButtons,
+  FormTitle,
   OrderFormContainer,
+  PhoneNumberInput,
   RadioButton,
+  RadioButtonsLabel,
   RadioGroup,
   RadioInput,
   RadioLabel,
+  SubmitButton,
 } from './OrderForm.styled';
 
 const radioButtons: ReadonlyArray<string> = ['Standart', 'Family', 'Suite'];
@@ -39,6 +44,7 @@ const OrderForm: FC = () => {
 
   return (
     <FormContainer>
+      <FormTitle>Room reservation</FormTitle>
       <OrderFormContainer onSubmit={handleSubmit(onSubmit)}>
         <FormGroup>
           <Controller
@@ -81,11 +87,13 @@ const OrderForm: FC = () => {
             name="phoneNumber"
             control={control}
             defaultValue=""
-            rules={{ required: true, pattern: /^\+[0-9]+$/ }}
+            rules={{ required: true }}
             render={({ field }) => (
-              <input
-                className="form__field"
-                placeholder="Phone Number"
+              <PhoneNumberInput
+                country={'us'}
+                preferredCountries={['us', 'ua']}
+                excludeCountries={['ru', 'by', 'hu', 'kp']}
+                enableSearch={true}
                 {...field}
               />
             )}
@@ -188,7 +196,10 @@ const OrderForm: FC = () => {
           {errors.checkOutDate && <ErrorText>This field is required</ErrorText>}
         </FormGroup>
 
-        <FormGroup>
+        <FormGroupButtons>
+          <RadioButtonsLabel className="form__label">
+            Room Type
+          </RadioButtonsLabel>
           <Controller
             name="roomType"
             control={control}
@@ -212,10 +223,9 @@ const OrderForm: FC = () => {
               </RadioGroup>
             )}
           />
-          <label className="form__label">Room Type</label>
           {errors.roomType && <ErrorText>This field is required</ErrorText>}
-        </FormGroup>
-        <Button type="submit">Submit</Button>
+        </FormGroupButtons>
+        <SubmitButton type="submit">Submit</SubmitButton>
       </OrderFormContainer>
     </FormContainer>
   );

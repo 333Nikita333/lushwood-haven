@@ -1,3 +1,4 @@
+import PhoneInput from 'react-phone-input-2';
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
@@ -5,12 +6,21 @@ export const FormContainer = styled.div`
   max-height: 400px;
   overflow-y: auto;
   padding: 5px;
+  color: ${({ theme }) => theme.colors.primaryBrown};
+`;
+export const FormTitle = styled.h3`
+  margin-bottom: 10px;
+  font-size: calc(var(--index) * 2);
+  text-align: center;
+  text-shadow: 7px 7px 5px rgba(0, 0, 0, 0.6);
+  color: #000000;
+  text-transform: uppercase;
 `;
 export const OrderFormContainer = styled.form`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
 
   & input {
     padding: 5px;
@@ -21,12 +31,11 @@ export const OrderFormContainer = styled.form`
     width: 100%;
     margin-bottom: 5px;
     padding: 7px;
-    font-size: 16px;
-    color: #000000;
+    font-size: 18px;
     background: transparent;
     outline: 0;
     border: none;
-    border-bottom: 2px solid #9b9b9b;
+    border-bottom: 2px solid ${({ theme }) => theme.colors.primaryBrown};
     transition: border-color 0.2s ease-in-out;
   }
   & .form__field::placeholder {
@@ -35,7 +44,7 @@ export const OrderFormContainer = styled.form`
 
   & .form__field:placeholder-shown ~ .form__label {
     top: 30px;
-    font-size: 17px;
+    font-size: 18px;
     cursor: text;
   }
 
@@ -44,7 +53,8 @@ export const OrderFormContainer = styled.form`
     top: 0;
     display: block;
     font-size: 17px;
-    color: #9b9b9b;
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.primaryBrown};
     pointer-events: none;
     transition: 0.2s ease-in-out;
   }
@@ -83,8 +93,11 @@ export const FormGroup = styled.div`
   width: 100%;
   max-width: 220px;
 
+  & > .react-tel-input:focus-within + label {
+    color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+  }
   & .react-datepicker__navigation-icon::before {
-    border-color: black;
+    border-color: #000000;
   }
 
   @media screen and (min-width: 400px) {
@@ -102,64 +115,77 @@ export const FormGroup = styled.div`
   }
 `;
 
+export const PhoneNumberInput = styled(PhoneInput)`
+  & .form-control {
+    width: 100%;
+    padding-left: 45px;
+    font-size: 17px;
+    border-radius: 8px;
+  }
+
+  & .flag-dropdown {
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+  }
+`;
 export const ErrorText = styled.span`
   color: red;
   font-size: 14px;
 `;
 
-export const Button = styled.button`
+export const SubmitButton = styled.button`
   width: 120px;
   height: 60px;
   margin-top: auto;
   margin-left: auto;
-  border: 1px solid #315cfd;
+  color: ${({ theme }) => theme.colors.primaryBrown};
+  border: 1px solid ${({ theme }) => theme.colors.primaryBrown};
+  background-color: #ffffff80;
   border-radius: 45px;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  background: white;
-  font-size: 1.2em;
-  font-weight: 500;
+  font-size: 1.3em;
+  font-weight: 700;
 
   &:hover {
     background: #315cfd;
-    color: white;
+    color: #ffffff;
     font-size: 1.5em;
+  }
+  @media screen and (max-width: 479px) {
+    margin-right: auto;
   }
 `;
 
 export const RadioGroup = styled.div`
   display: flex;
-  align-items: center;
-  gap: 24px;
+  gap: 15px;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 479px) {
     align-items: baseline;
     flex-direction: column;
   }
 `;
 
 export const RadioButton = styled.div`
-  display: inline-block;
+  display: flex;
+  align-items: center;
   position: relative;
   cursor: pointer;
 `;
 
 export const RadioLabel = styled.label`
   position: relative;
-  display: inline-block;
-  padding-left: 30px;
-  margin-bottom: 10px;
-  font-size: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
   font-weight: 600;
-  color: #9b9b9b;
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.3s ease;
 
   & span {
-    position: absolute;
-    top: 0;
-    left: 0;
+    margin-right: 10px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -186,6 +212,18 @@ export const RadioInput = styled.input`
     box-shadow: 0 0 20px ${({ theme }) => theme.colors.bookRoomBtnBgc + 80};
   }
   &:checked + ${RadioLabel} {
+    font-size: 17px;
     color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
   }
+`;
+
+export const RadioButtonsLabel = styled.label`
+  &.form__label {
+    position: static;
+  }
+  margin-bottom: 10px;
+`;
+
+export const FormGroupButtons = styled(FormGroup)`
+  padding: 0px;
 `;

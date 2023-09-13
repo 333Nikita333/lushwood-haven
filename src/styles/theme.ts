@@ -8,6 +8,7 @@ const theme = {
     aboutSectionTitle: '#f4efec', // about title
     aboutSectionText: '#cdc9c9', // about text
     bookRoomBtnBgc: '#43b72b', // book a room background color
+    primaryBrown: '#8b4513',
   },
   fontSizes: {
     primary: '18px',

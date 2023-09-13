@@ -28,8 +28,10 @@ export const Backdrop = styled.div`
 export const ModalContainer = styled.div`
   position: relative;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 16px;
   background-color: ${({ theme }) => theme.colors.primary};
+  background-image: url('images/about_images/bg-image-modal.png');
+  background-size: cover;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   animation: ${scaleIn} 0.5s ease-in-out;
 `;
