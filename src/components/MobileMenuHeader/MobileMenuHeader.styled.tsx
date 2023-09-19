@@ -75,7 +75,7 @@ export const LinkItem = styled.li`
     font-weight: 700;
     color: #000000;
     border: 2px solid #000000;
-    background-color: #8b4513;
+    background-color: ${({ theme }) => theme.colors.primaryBrown};
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
       rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
       rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,

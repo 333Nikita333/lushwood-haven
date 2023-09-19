@@ -1,18 +1,15 @@
-import { FC, useCallback, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { IModalProps } from '../../types';
 import { Backdrop, ButtonClose, ModalContainer } from './Modal.styled';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const Modal: FC<IModalProps> = ({ isOpen, onClose, children }) => {
-  const handleKeyDown = useCallback(
-    (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-    },
-    [onClose]
-  );
+  const handleKeyDown = (event: KeyboardEvent): void => {
+    if (event.key === 'Escape') {
+      onClose();
+    }
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -28,7 +25,7 @@ const Modal: FC<IModalProps> = ({ isOpen, onClose, children }) => {
     };
   }, [isOpen, handleKeyDown]);
 
-  const handleBackdropClick = (event: React.MouseEvent) => {
+  const handleBackdropClick = (event: React.MouseEvent): void => {
     if (event.target === event.currentTarget) {
       onClose();
     }

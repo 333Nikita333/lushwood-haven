@@ -4,16 +4,16 @@ import styled from 'styled-components';
 export const FormContainer = styled.div`
   max-width: 500px;
   max-height: 400px;
-  overflow-y: auto;
   padding: 5px;
+  overflow-y: auto;
   color: ${({ theme }) => theme.colors.primaryBrown};
 `;
 export const FormTitle = styled.h3`
   margin-bottom: 10px;
-  font-size: calc(var(--index) * 2);
   text-align: center;
-  text-shadow: 7px 7px 5px rgba(0, 0, 0, 0.6);
+  font-size: calc(var(--index) * 2);
   color: #000000;
+  text-shadow: 7px 7px 5px rgba(0, 0, 0, 0.6);
   text-transform: uppercase;
 `;
 export const OrderFormContainer = styled.form`
@@ -23,15 +23,15 @@ export const OrderFormContainer = styled.form`
   gap: 20px;
 
   & input {
-    padding: 5px;
     width: 100%;
+    padding: 5px;
     border-radius: 8px;
   }
   & .form__field {
     width: 100%;
     margin-bottom: 5px;
     padding: 7px;
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.fontSizes.primary};
     background: transparent;
     outline: 0;
     border: none;
@@ -44,7 +44,7 @@ export const OrderFormContainer = styled.form`
 
   & .form__field:placeholder-shown ~ .form__label {
     top: 30px;
-    font-size: 18px;
+    font-size: ${({ theme }) => theme.fontSizes.primary};
     cursor: text;
   }
 
@@ -138,14 +138,14 @@ export const SubmitButton = styled.button`
   height: 60px;
   margin-top: auto;
   margin-left: auto;
+  font-size: 1.3em;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.primaryBrown};
   border: 1px solid ${({ theme }) => theme.colors.primaryBrown};
   background-color: #ffffff80;
   border-radius: 45px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  font-size: 1.3em;
-  font-weight: 700;
 
   &:hover {
     background: #315cfd;
@@ -168,9 +168,9 @@ export const RadioGroup = styled.div`
 `;
 
 export const RadioButton = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
   cursor: pointer;
 `;
 

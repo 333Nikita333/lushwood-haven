@@ -35,6 +35,7 @@ export const ModalContainer = styled.div`
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   animation: ${scaleIn} 0.5s ease-in-out;
 `;
+
 export const ButtonClose = styled.button`
   position: absolute;
   z-index: 1000;
