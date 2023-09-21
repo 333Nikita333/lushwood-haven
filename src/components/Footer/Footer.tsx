@@ -1,6 +1,4 @@
 import { FC } from 'react';
-import { BsInstagram, BsGithub, BsLinkedin } from 'react-icons/bs';
-import { BiLogoGmail } from 'react-icons/bi';
 import {
   ButtonSubmit,
   Container,
@@ -13,43 +11,20 @@ import {
   LinksRight,
   LinksSite,
   LinksSiteList,
-  LogoWrapper,
-  SocialLink,
-  SocialListItem,
-  SocialListLinks,
+  LinksWrapper,
+  Logo,
   Text,
   TextArea,
-  TextWrapper,
 } from './Footer.styled';
-
-const socialLinks = [
-  {
-    link: 'https://link.com',
-    icon: <BsInstagram />,
-  },
-  {
-    link: 'https://link.com',
-    icon: <BsGithub />,
-  },
-  {
-    link: 'https://link.com',
-    icon: <BiLogoGmail />,
-  },
-  {
-    link: 'https://link.com',
-    icon: <BsLinkedin />,
-  },
-];
+import FooterSocialLinks from '../FooterSocialLinks';
 
 const Footer: FC = () => {
   return (
     <FooterWrapper>
       <Container>
         <ContentWrapper>
-          <LinksSite>
-            <LogoWrapper>
-              <img src="logo.png" alt="logo" />
-            </LogoWrapper>
+          <LinksWrapper>
+            <Logo src="images/logo.png" alt="logo" />
 
             <LinksSite>
               <LinksLeft>
@@ -80,23 +55,11 @@ const Footer: FC = () => {
               </LinksRight>
             </LinksSite>
 
-            <SocialListLinks>
-              {socialLinks.map(({ link, icon }) => (
-                <SocialListItem>
-                  <SocialLink href={link} target="_blank" rel="noreferrer noopener nofollow">
-                    {icon}
-                  </SocialLink>
-                </SocialListItem>
-              ))}
-            </SocialListLinks>
-            <br />
-          </LinksSite>
-          <TextWrapper>
-            <Text>Contact Us</Text>
-            <hr />
-          </TextWrapper>
+            <FooterSocialLinks />
+          </LinksWrapper>
 
           <FormWrapper>
+            <Text>Contact Us</Text>
             <form>
               <FormGroup>
                 <Input type="email" id="exampleInputEmail1" placeholder="Enter email" />

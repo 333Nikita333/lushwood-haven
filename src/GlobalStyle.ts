@@ -7,8 +7,8 @@ const GlobalStyle = createGlobalStyle`
 	  padding: 0;
 	  box-sizing: border-box;
     -webkit-box-sizing: border-box;
-	  -moz-box-sizing: border-box;
-	  -ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
   }
   :root {
     --index: calc(1vw + 1vh);
