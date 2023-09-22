@@ -1,81 +1,38 @@
 import { FC } from 'react';
 import {
-  ButtonSubmit,
-  Container,
-  ContentWrapper,
   FooterWrapper,
-  FormGroup,
-  FormWrapper,
-  Input,
-  LinksLeft,
-  LinksRight,
-  LinksSite,
-  LinksSiteList,
+  ContentWrapper,
   LinksWrapper,
   Logo,
-  Text,
-  TextArea,
+  LinksSite,
+  LinksSiteItem,
 } from './Footer.styled';
+import FooterContactForm from '../FooterContactForm';
 import FooterSocialLinks from '../FooterSocialLinks';
+
+const linksSite: readonly string[] = ['Home', 'Blog', 'Pricing', 'About', 'FAQ', 'Contact'];
 
 const Footer: FC = () => {
   return (
     <FooterWrapper>
-      <Container>
-        <ContentWrapper>
-          <LinksWrapper>
-            <Logo src="images/logo.png" alt="logo" />
+      <ContentWrapper>
+        <LinksWrapper>
+          <Logo src="images/logo.png" alt="logo" />
 
-            <LinksSite>
-              <LinksLeft>
-                <LinksSiteList>
-                  <li>
-                    <a href="#">Home</a>
-                  </li>
-                  <li>
-                    <a href="#">Blog</a>
-                  </li>
-                  <li>
-                    <a href="#">Pricing</a>
-                  </li>
-                </LinksSiteList>
-              </LinksLeft>
-              <LinksRight>
-                <LinksSiteList>
-                  <li>
-                    <a href="#">About</a>
-                  </li>
-                  <li>
-                    <a href="#">FAQ</a>
-                  </li>
-                  <li>
-                    <a href="#">Contact</a>
-                  </li>
-                </LinksSiteList>
-              </LinksRight>
-            </LinksSite>
+          <FooterSocialLinks />
 
-            <FooterSocialLinks />
-          </LinksWrapper>
+          <LinksSite>
+            {linksSite.map(link => (
+              <LinksSiteItem key={link + new Date()}>
+                <a href="#">{link}</a>
+              </LinksSiteItem>
+            ))}
+          </LinksSite>
+        </LinksWrapper>
 
-          <FormWrapper>
-            <Text>Contact Us</Text>
-            <form>
-              <FormGroup>
-                <Input type="email" id="exampleInputEmail1" placeholder="Enter email" />
-              </FormGroup>
-              <FormGroup>
-                <TextArea id="exampleMessage" placeholder="Message"></TextArea>
-              </FormGroup>
-              <FormGroup className="text-xs-right">
-                <ButtonSubmit type="button" className="btn btn-secondary-outline btn-lg">
-                  Send
-                </ButtonSubmit>
-              </FormGroup>
-            </form>
-          </FormWrapper>
-        </ContentWrapper>
-      </Container>
+        <FooterContactForm />
+      </ContentWrapper>
+      <p>&copy;2023 Mykyta Hilis | All Rights Reserved</p>
     </FooterWrapper>
   );
 };

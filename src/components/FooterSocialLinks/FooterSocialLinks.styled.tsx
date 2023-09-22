@@ -13,8 +13,8 @@ export const Link = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
   outline: none;
   border: none;
   background: #ffffff;
@@ -23,14 +23,24 @@ export const Link = styled.a`
   transition: all 0.2s ease-in-out;
 
   & svg {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
   }
   &:hover {
     scale: 1.1;
   }
   &:hover svg {
     fill: #ffffff;
+  }
+
+  @media (min-width: 900px) {
+    width: 80px;
+    height: 80px;
+
+    & svg {
+      width: 35px;
+      height: 35px;
+    }
   }
 `;
 export const LinkInst = styled(Link)`
@@ -41,8 +51,8 @@ export const LinkInst = styled(Link)`
     box-shadow: -5px -5px 30px 5px #cc39a4;
   }
   & svg {
-    margin-top: 1.5em;
-    margin-left: 1.2em;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
     fill: #cc39a4;
   }
 `;
@@ -54,8 +64,8 @@ export const LinkLinkedin = styled(Link)`
     box-shadow: 5px -5px 30px 5px #1877f2;
   }
   & svg {
-    margin-top: 1.5em;
-    margin-left: -0.9em;
+    margin-top: 0.5em;
+    margin-left: -0.5em;
     fill: #1877f2;
   }
 `;
@@ -67,8 +77,8 @@ export const LinkGithub = styled(Link)`
     box-shadow: -5px 5px 30px 5px #1c1c1c;
   }
   & svg {
-    margin-top: -0.6em;
-    margin-left: 1.2em;
+    margin-top: -0.5em;
+    margin-left: 0.5em;
     fill: #1c1c1c;
   }
 `;
@@ -80,8 +90,8 @@ export const LinkGmail = styled(Link)`
     box-shadow: 5px 5px 30px 5px #f14336;
   }
   & svg {
-    margin-top: -0.9em;
-    margin-left: -1.2em;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
     fill: #f14336;
   }
 `;
