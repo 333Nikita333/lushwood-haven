@@ -27,11 +27,6 @@ export const Backdrop = styled.div`
 
 export const ModalContainer = styled.div`
   position: relative;
-  padding: 20px;
-  border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.primary};
-  background-image: url('images/about_images/bg-image-modal.png');
-  background-size: cover;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   animation: ${scaleIn} 0.5s ease-in-out;
 `;
@@ -40,7 +35,7 @@ export const ButtonClose = styled.button`
   position: absolute;
   z-index: 1000;
   top: 15px;
-  right: 35px;
+  right: 15px;
   background-color: transparent;
   border: none;
   border-radius: 45px;

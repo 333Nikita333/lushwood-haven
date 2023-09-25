@@ -4,9 +4,13 @@ import styled from 'styled-components';
 export const FormContainer = styled.div`
   max-width: 500px;
   max-height: 400px;
-  padding: 5px;
+  padding: 20px;
   overflow-y: auto;
   color: ${({ theme }) => theme.colors.primaryBrown};
+  background-color: ${({ theme }) => theme.colors.primary};
+  background-image: url('images/about_images/bg-image-modal.png');
+  background-size: cover;
+  border-radius: 16px;
 `;
 export const FormTitle = styled.h3`
   margin-bottom: 10px;

@@ -13,28 +13,26 @@ export const FooterWrapper = styled.footer`
 export const ContentWrapper = styled.div`
   display: flex;
   gap: 15px;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 30px;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
-  @media (max-width: 899px) {
-    align-items: center;
-  }
-`;
-export const LinksWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  gap: 20px;
-  justify-content: space-around;
-  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-evenly;
 
-  @media (min-width: 900px) {
-    flex-direction: row;
+  @media (max-width: 767px) {
+    margin-bottom: 30px;
+  }
+`;
+export const Logo = styled.img`
+  width: 200px;
+  height: 200px;
+`;
+export const LinksWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 `;
 export const LinksSite = styled.ul`
@@ -42,17 +40,19 @@ export const LinksSite = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   gap: 35px;
-  text-align: center;
   font-size: calc(var(--index) * 2);
 
-  @media (max-width: 767px) {
-    & li {
-      width: calc(33.33% - 25px);
-    }
+  @media (min-width: 768px) {
+    font-size: calc(var(--index) * 1.2);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
   }
   @media (min-width: 900px) {
-    justify-content: start;
-    margin-top: -5rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
 `;
 export const LinksSiteItem = styled.li`
@@ -69,31 +69,4 @@ export const LinksSiteItem = styled.li`
     color: #fff;
     text-decoration: underline;
   }
-`;
-export const Logo = styled.img`
-  width: 200px;
-  height: 200px;
-`;
-export const Text = styled.h3`
-  font-size: calc(var(--index) * 2);
-  margin-bottom: 10px;
-`;
-export const FormWrapper = styled.div`
-  text-align: center;
-`;
-export const Input = styled.input`
-  background-color: #1f2022;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-  border: none;
-  resize: none;
-  color: #d1d2d2;
-  padding: 0.7em 1em;
-`;
-export const TextArea = styled.textarea`
-  background-color: #1f2022;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-  border: none;
-  resize: none;
-  color: #d1d2d2;
-  padding: 0.7em 1em;
 `;

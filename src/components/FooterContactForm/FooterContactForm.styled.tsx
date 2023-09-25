@@ -7,6 +7,12 @@ export const FormContainer = styled.div`
   border: 3px solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
   border-radius: 20px;
 
+  & form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
   & form:focus-within span {
     animation-play-state: paused;
   }
