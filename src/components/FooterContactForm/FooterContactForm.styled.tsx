@@ -11,7 +11,6 @@ export const FormContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    text-align: center;
   }
   & form:focus-within span {
     animation-play-state: paused;
@@ -42,12 +41,20 @@ const textAnimation = keyframes`
 export const Heading = styled.span`
   display: block;
   color: #bbb;
+  margin-bottom: 20px;
   font-size: calc(var(--index) * 2);
   font-weight: 800;
-  margin-bottom: 20px;
+  text-align: center;
   animation: ${textAnimation} 1.5s ease-in-out infinite;
 `;
+export const FormGroup = styled.div`
+  width: 100%;
+  text-align: center;
 
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+`;
 export const Input = styled.input`
   width: 100%;
   color: #fff;
@@ -55,21 +62,24 @@ export const Input = styled.input`
   border: none;
   outline: none;
   padding: 10px;
-  margin-bottom: 20px;
   font-weight: bold;
+  font-style: italic;
   transition: all 0.2s ease-in-out;
   border-left: 1px solid transparent;
 
   &::placeholder {
+    font-style: normal;
     color: #bbb;
   }
   &:focus {
     border-left: 5px solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
   }
 `;
-
+export const ErrorText = styled.span`
+  color: red;
+  font-size: 14px;
+`;
 export const TextArea = styled.textarea`
-  margin-bottom: 20px;
   width: 100%;
   max-height: 150px;
   padding: 10px;

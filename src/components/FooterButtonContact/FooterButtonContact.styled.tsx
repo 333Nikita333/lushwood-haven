@@ -22,16 +22,16 @@ export const ButtonSubmit = styled.button`
     content: 'Contact Us';
     height: 50px;
     width: calc(var(--index) * 10);
-    background-color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
-    color: #fff;
     position: absolute;
     top: 0%;
     left: 0%;
-    transform: translateY(50px);
-    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 600;
+    color: #fff;
+    background-color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    transform: translateY(50px);
     transition: all 0.5s ease-in-out;
   }
   &:hover::after {

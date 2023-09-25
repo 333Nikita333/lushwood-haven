@@ -30,3 +30,8 @@ export type OrderFormData = {
   phoneNumber: string;
   roomType: string;
 };
+export type ContactFormData = {
+  email: string;
+  name: string;
+  message: string;
+};

@@ -12,7 +12,16 @@ import FooterSocialLinks from '../FooterSocialLinks';
 import FooterButtonContact from '../FooterButtonContact';
 import Modal from '../Modal';
 
-const linksSite: readonly string[] = ['Home', 'Blog', 'Pricing', 'About', 'FAQ', 'Contact', 'Stock', 'Pricing'];
+const linksSite: readonly string[] = [
+  'Home',
+  'About',
+  'Blog',
+  'Stock',
+  'Pricing',
+  'Gallery',
+  'Contact',
+  'FAQ',
+];
 
 const Footer: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
