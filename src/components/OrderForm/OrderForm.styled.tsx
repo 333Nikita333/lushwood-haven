@@ -67,11 +67,7 @@ export const OrderFormContainer = styled.form`
     padding-bottom: 6px;
     font-weight: 700;
     border-width: 3px;
-    border-image: linear-gradient(
-      to right,
-      #116399,
-      ${({ theme }) => theme.colors.bookRoomBtnBgc}
-    );
+    border-image: linear-gradient(to right, #116399, ${({ theme }) => theme.colors.bookRoomBtnBgc});
     border-image-slice: 1;
   }
 

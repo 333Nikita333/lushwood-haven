@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
   position: fixed;
-  z-index: 10000;
+  z-index: 0;
   display: flex;
   gap: 15px;
   padding: ${({ theme }) => theme.paddings.small};
@@ -34,7 +34,7 @@ export const MobileMenuButton = styled.button`
   font-size: ${({ theme }) => theme.fontSizes.secondary};
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  
+
   @media screen and (min-width: 481px) {
     display: none;
   }

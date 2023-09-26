@@ -8,8 +8,7 @@ export const FooterWrapper = styled.footer`
 
   & p {
     font-size: calc(var(--index) * 1.2);
-    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
-    0px -4px 10px rgba(255,255,255,0.3);
+    text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.3);
   }
 `;
 export const ContentWrapper = styled.div`
@@ -65,8 +64,7 @@ export const LinksSiteItem = styled.li`
   }
   & a {
     color: #999;
-    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
-    0px -4px 10px rgba(255,255,255,0.3);
+    text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.3);
   }
   & a:hover,
   & a:focus {

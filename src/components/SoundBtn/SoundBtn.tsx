@@ -4,11 +4,7 @@ import { ISoundProps } from '../../types';
 import { Button } from './SoundBtn.styled';
 
 const SoundBtn: FC<ISoundProps> = ({ isMuted, toggleMute }) => {
-  return (
-    <Button onClick={toggleMute}>
-      {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
-    </Button>
-  );
+  return <Button onClick={toggleMute}>{isMuted ? <FaVolumeMute /> : <FaVolumeUp />}</Button>;
 };
 
 export default SoundBtn;

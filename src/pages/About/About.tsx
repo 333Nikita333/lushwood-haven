@@ -5,7 +5,7 @@ import AboutHero from '../../components/AboutHero';
 import AboutSection from '../../components/AboutSection';
 import { AboutWrapper } from './About.styled';
 
-const About: FC = () => {
+const AboutPage: FC = () => {
   const heroSectionRef = useRef<HTMLDivElement | null>(null);
   const galleryLeftRef = useRef<HTMLDivElement | null>(null);
   const galleryRightRef = useRef<HTMLDivElement | null>(null);
@@ -81,4 +81,4 @@ const About: FC = () => {
   );
 };
 
-export default About;
+export default AboutPage;

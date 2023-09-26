@@ -15,8 +15,8 @@ const Layout: FC = () => {
 
       <Suspense fallback={null}>
         <Outlet />
+        {shouldDisplayFooter && <Footer />}
       </Suspense>
-      {shouldDisplayFooter && <Footer />}
     </>
   );
 };

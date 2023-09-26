@@ -1,9 +1,7 @@
 import { FC } from 'react';
+import { IFooterButtonContactProps } from '../../types';
 import { ButtonSubmit } from './FooterButtonContact.styled';
 
-interface IFooterButtonContactProps {
-  toggleModal: () => void;
-}
 const FooterButtonContact: FC<IFooterButtonContactProps> = ({ toggleModal }) => {
   return <ButtonSubmit type="submit" onClick={toggleModal}></ButtonSubmit>;
 };

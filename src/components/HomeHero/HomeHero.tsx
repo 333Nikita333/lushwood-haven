@@ -22,15 +22,9 @@ const HomeHero: FC = () => {
           <LayersCaption>Welcome to Us!</LayersCaption>
           <LayersTitle>Lushwood Haven</LayersTitle>
         </LayerHeader>
-        <LayerBase
-          style={{ backgroundImage: `url(${bgImageLayerBase})` }}
-        ></LayerBase>
-        <LayerMiddle
-          style={{ backgroundImage: `url(${bgImageLayerMiddle})` }}
-        ></LayerMiddle>
-        <LayerFront
-          style={{ backgroundImage: `url(${bgImageLayerFront})` }}
-        ></LayerFront>
+        <LayerBase style={{ backgroundImage: `url(${bgImageLayerBase})` }}></LayerBase>
+        <LayerMiddle style={{ backgroundImage: `url(${bgImageLayerMiddle})` }}></LayerMiddle>
+        <LayerFront style={{ backgroundImage: `url(${bgImageLayerFront})` }}></LayerFront>
       </Layers>
     </MainHeader>
   );

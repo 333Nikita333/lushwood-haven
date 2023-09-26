@@ -50,6 +50,15 @@ const GlobalStyle = createGlobalStyle`
   img {
     max-width: 100%;
     display: block;
+    /* margin-left: auto;
+    margin-right: auto; */
+  }
+  img.react-images__view-image.react-images__view-image--isModal {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  div.react-photo-gallery--gallery img {
+    cursor: inherit;
   }
   button,
   select {

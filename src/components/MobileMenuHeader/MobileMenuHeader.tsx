@@ -3,12 +3,7 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { IMobileMenuProps } from '../../types';
 import NavLinkItem from '../NavLinkItem';
 import { listLinkNames } from '../Navigation/Navigation';
-import {
-  CloseButton,
-  MobileMenuContainer,
-  ListLinks,
-  LinkItem,
-} from './MobileMenuHeader.styled';
+import { CloseButton, MobileMenuContainer, ListLinks, LinkItem } from './MobileMenuHeader.styled';
 
 const MobileMenuHeader: FC<IMobileMenuProps> = ({ isOpen, onClose }) => {
   return (

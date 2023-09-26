@@ -7,7 +7,7 @@ import useSoundEffect from '../../hooks/useSoundEffect';
 import { SoundThemeType } from '../../types';
 import { Content } from './Home.styled';
 
-const Home: FC = () => {
+const HomePage: FC = () => {
   const [soundTheme, setSoundTheme] = useState<SoundThemeType>('forest');
   const { isMuted, toggleMute } = useSoundEffect(soundTheme);
   const [viewportHeight, setViewportHeight] = useState<number>(0);
@@ -53,4 +53,4 @@ const Home: FC = () => {
     </Content>
   );
 };
-export default Home;
+export default HomePage;

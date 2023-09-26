@@ -1,4 +1,8 @@
 import { FC, useState } from 'react';
+import FooterContactForm from '../FooterContactForm';
+import FooterSocialLinks from '../FooterSocialLinks';
+import FooterButtonContact from '../FooterButtonContact';
+import Modal from '../Modal';
 import {
   FooterWrapper,
   ContentWrapper,
@@ -7,10 +11,6 @@ import {
   LinksSite,
   LinksSiteItem,
 } from './Footer.styled';
-import FooterContactForm from '../FooterContactForm';
-import FooterSocialLinks from '../FooterSocialLinks';
-import FooterButtonContact from '../FooterButtonContact';
-import Modal from '../Modal';
 
 const linksSite: readonly string[] = [
   'Home',

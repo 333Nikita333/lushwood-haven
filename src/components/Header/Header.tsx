@@ -1,11 +1,11 @@
 import { FC, useEffect, useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import Navigation from '../Navigation';
-import { HeaderContainer, MobileMenuButton } from './Header.styled';
 import Modal from '../Modal';
 import OrderForm from '../OrderForm';
-import { GiHamburgerMenu } from 'react-icons/gi';
 import MobileMenuHeader from '../MobileMenuHeader';
 import BookRoomButton from '../BookRoomButton';
+import { HeaderContainer, MobileMenuButton } from './Header.styled';
 
 const Header: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);

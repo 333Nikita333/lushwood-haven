@@ -1,4 +1,6 @@
 import { FC } from 'react';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { ContactFormData } from '../../types';
 import {
   ErrorText,
   FormContainer,
@@ -8,8 +10,6 @@ import {
   SendButton,
   TextArea,
 } from './FooterContactForm.styled';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { ContactFormData } from '../../types';
 
 const FooterContactForm: FC = () => {
   const {

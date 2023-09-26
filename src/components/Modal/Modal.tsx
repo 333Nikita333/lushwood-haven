@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { IModalProps } from '../../types';
 import { Backdrop, ButtonClose, ModalContainer } from './Modal.styled';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const Modal: FC<IModalProps> = ({ isOpen, onClose, children }) => {
   const handleKeyDown = (event: KeyboardEvent): void => {

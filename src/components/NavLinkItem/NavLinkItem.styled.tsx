@@ -19,8 +19,7 @@ export const Link = styled(NavLink)`
     background: ${({ theme }) => theme.colors.primaryBrown};
     border: 1px solid ${({ theme }) => theme.colors.primaryBrown};
     text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-    box-shadow: 0 0 5px #8b4513, 0 0 20px #8b4513, 0 0 50px #8b4513,
-      0 0 100px #8b4513;
+    box-shadow: 0 0 5px #8b4513, 0 0 20px #8b4513, 0 0 50px #8b4513, 0 0 100px #8b4513;
   }
 
   &.active {
@@ -28,7 +27,6 @@ export const Link = styled(NavLink)`
     background: ${({ theme }) => theme.colors.primaryBrown};
     border: 1px solid ${({ theme }) => theme.colors.primaryBrown};
     text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
-    box-shadow: 0 0 5px #8b4513, 0 0 20px #8b4513, 0 0 50px #8b4513,
-      0 0 100px #8b4513;
+    box-shadow: 0 0 5px #8b4513, 0 0 20px #8b4513, 0 0 50px #8b4513, 0 0 100px #8b4513;
   }
 `;

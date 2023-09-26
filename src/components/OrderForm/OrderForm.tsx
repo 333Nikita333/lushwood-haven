@@ -53,11 +53,7 @@ const OrderForm: FC = () => {
             defaultValue=""
             rules={{ required: true }}
             render={({ field }) => (
-              <input
-                className="form__field"
-                placeholder="First Name"
-                {...field}
-              />
+              <input className="form__field" placeholder="First Name" {...field} />
             )}
           />
           <label className="form__label">First Name</label>
@@ -71,11 +67,7 @@ const OrderForm: FC = () => {
             defaultValue=""
             rules={{ required: true }}
             render={({ field }) => (
-              <input
-                className="form__field"
-                placeholder="Last Name"
-                {...field}
-              />
+              <input className="form__field" placeholder="Last Name" {...field} />
             )}
           />
           <label className="form__label">Last Name</label>
@@ -99,12 +91,8 @@ const OrderForm: FC = () => {
             )}
           />
           <label className="form__label">Phone Number</label>
-          {errors.phoneNumber?.type === 'required' && (
-            <ErrorText>This field is required</ErrorText>
-          )}
-          {errors.phoneNumber?.type === 'pattern' && (
-            <ErrorText>Invalid phone number</ErrorText>
-          )}
+          {errors.phoneNumber?.type === 'required' && <ErrorText>This field is required</ErrorText>}
+          {errors.phoneNumber?.type === 'pattern' && <ErrorText>Invalid phone number</ErrorText>}
         </FormGroup>
 
         <FormGroup>
@@ -116,17 +104,11 @@ const OrderForm: FC = () => {
               required: true,
               pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
             }}
-            render={({ field }) => (
-              <input className="form__field" placeholder="Email" {...field} />
-            )}
+            render={({ field }) => <input className="form__field" placeholder="Email" {...field} />}
           />
           <label className="form__label">Email</label>
-          {errors.email?.type === 'required' && (
-            <ErrorText>This field is required</ErrorText>
-          )}
-          {errors.email?.type === 'pattern' && (
-            <ErrorText>Invalid email address</ErrorText>
-          )}
+          {errors.email?.type === 'required' && <ErrorText>This field is required</ErrorText>}
+          {errors.email?.type === 'pattern' && <ErrorText>Invalid email address</ErrorText>}
         </FormGroup>
 
         <FormGroup>
@@ -136,8 +118,7 @@ const OrderForm: FC = () => {
             rules={{
               required: true,
               validate: value => {
-                const isValid =
-                  value && value <= checkOutDate && value >= today;
+                const isValid = value && value <= checkOutDate && value >= today;
                 setShowCheckInError(!isValid);
                 return isValid;
               },
@@ -153,9 +134,7 @@ const OrderForm: FC = () => {
                   timeFormat="HH:mm"
                   dateFormat="dd/MM/yyyy, HH:mm"
                 />
-                {showCheckInError && (
-                  <ErrorText>Invalid check-in date</ErrorText>
-                )}
+                {showCheckInError && <ErrorText>Invalid check-in date</ErrorText>}
               </div>
             )}
           />
@@ -170,8 +149,7 @@ const OrderForm: FC = () => {
             rules={{
               required: true,
               validate: value => {
-                const isValid: boolean =
-                  value && value >= checkInDate && value >= today;
+                const isValid: boolean = value && value >= checkInDate && value >= today;
                 setShowCheckOutError(!isValid);
                 return isValid;
               },
@@ -186,9 +164,7 @@ const OrderForm: FC = () => {
                   timeFormat="HH:mm"
                   dateFormat="dd/MM/yyyy, HH:mm"
                 />
-                {showCheckOutError && (
-                  <ErrorText>Invalid check-out date</ErrorText>
-                )}
+                {showCheckOutError && <ErrorText>Invalid check-out date</ErrorText>}
               </div>
             )}
           />
@@ -197,9 +173,7 @@ const OrderForm: FC = () => {
         </FormGroup>
 
         <FormGroupButtons>
-          <RadioButtonsLabel className="form__label">
-            Room Type
-          </RadioButtonsLabel>
+          <RadioButtonsLabel className="form__label">Room Type</RadioButtonsLabel>
           <Controller
             name="roomType"
             control={control}
