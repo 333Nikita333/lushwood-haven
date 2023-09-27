@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
   position: fixed;
-  z-index: 0;
+  z-index: 1;
   display: flex;
   gap: 15px;
   padding: ${({ theme }) => theme.paddings.small};
