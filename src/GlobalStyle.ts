@@ -50,8 +50,6 @@ const GlobalStyle = createGlobalStyle`
   img {
     max-width: 100%;
     display: block;
-    /* margin-left: auto;
-    margin-right: auto; */
   }
   div.react-photo-gallery--gallery img {
     cursor: inherit;
