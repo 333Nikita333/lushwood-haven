@@ -35,8 +35,3 @@ export type ContactFormData = {
   name: string;
   message: string;
 };
-export type PhotoType = {
-  src: string;
-  width: number;
-  height: number;
-};

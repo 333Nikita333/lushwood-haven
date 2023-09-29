@@ -10,9 +10,9 @@ import {
   MainHeader,
 } from './HomeHero.styled';
 
-const bgImageLayerBase: string = 'images/layer-base.png';
-const bgImageLayerMiddle: string = 'images/layer-middle.png';
-const bgImageLayerFront: string = 'images/layer-front.png';
+const bgImageLayerBase: string = 'images/home_images/layer-base.png';
+const bgImageLayerMiddle: string = 'images/home_images/layer-middle.png';
+const bgImageLayerFront: string = 'images/home_images/layer-front.png';
 
 const HomeHero: FC = () => {
   return (

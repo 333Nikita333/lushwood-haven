@@ -1,6 +1,6 @@
 import { ReactNode, RefObject } from 'react';
 import { ComponentOptionsType as FancyboxOptionsType } from '@fancyapps/ui/types/Fancybox/options';
-import { PhotoType } from '.';
+
 export interface ISoundProps {
   isMuted: boolean;
   toggleMute: () => void;
@@ -32,8 +32,4 @@ export interface IFancyboxProps {
   children?: ReactNode;
   delegate?: string;
   options?: Partial<FancyboxOptionsType>;
-}
-export interface IRenderImageProps {
-  photo: PhotoType;
-  index: number;
 }

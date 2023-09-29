@@ -7,7 +7,7 @@ import {
   MainArticleTitle,
 } from './MainSection.styled';
 
-const bgImageDungeon: string = 'images/dungeon.jpg';
+const bgImageDungeon: string = 'images/home_images/dungeon.jpg';
 
 const MainSection: FC = () => {
   return (
