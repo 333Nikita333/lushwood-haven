@@ -35,3 +35,13 @@ export type ContactFormData = {
   name: string;
   message: string;
 };
+export type PhotoType = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+export type ValidationImagesType = {
+  isLoading: boolean;
+  validPhotos: PhotoType[];
+};
