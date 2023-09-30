@@ -15,11 +15,10 @@ const MainSection: FC = () => {
       <MainArticleContent>
         <MainArticleTitle>Discover the Enchanted Haven</MainArticleTitle>
         <MainArticleText>
-          Immerse yourself in the tranquil embrace of nature at Lushwood Haven.
-          Nestled deep within the heart of a lush forest, our haven offers you
-          an unparalleled escape from the mundane. Explore the serenity of the
-          woods during guided hikes, embark on thrilling cave expeditions, or
-          simply unwind in the comfort of our luxurious rooms. Our enchanting
+          Immerse yourself in the tranquil embrace of nature at Lushwood Haven. Nestled deep within
+          the heart of a lush forest, our haven offers you an unparalleled escape from the mundane.
+          Explore the serenity of the woods during guided hikes, embark on thrilling cave
+          expeditions, or simply unwind in the comfort of our luxurious rooms. Our enchanting
           retreat promises an experience like no other.
         </MainArticleText>
       </MainArticleContent>

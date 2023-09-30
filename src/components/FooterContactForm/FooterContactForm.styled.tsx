@@ -12,9 +12,6 @@ export const FormContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
   }
-  & form:focus-within span {
-    animation-play-state: paused;
-  }
 `;
 const textAnimation = keyframes`
     0% {  
@@ -42,10 +39,14 @@ export const Heading = styled.span`
   display: block;
   color: #bbb;
   margin-bottom: 20px;
-  font-size: calc(var(--index) * 2);
+  font-size: calc(var(--index) * 1.8);
   font-weight: 800;
   text-align: center;
   animation: ${textAnimation} 1.5s ease-in-out infinite;
+
+  ${FormContainer}:focus-within & {
+    animation: paused;
+  }
 `;
 export const FormGroup = styled.div`
   width: 100%;

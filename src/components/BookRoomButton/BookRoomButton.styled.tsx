@@ -62,7 +62,6 @@ export const Wrapper = styled.div`
     top: 6%;
   }
 
-  /* SVG */
   #arrow-icon-one {
     transition: 0.4s;
     transform: translateX(-60%);
@@ -87,7 +86,6 @@ export const Wrapper = styled.div`
     animation: color_anim 1s infinite 0.4s;
   }
 
-  /* SVG animations */
   @keyframes color_anim {
     0% {
       fill: ${({ theme }) => theme.colors.primary};
@@ -102,7 +100,6 @@ export const Wrapper = styled.div`
     }
   }
 
-  /* Button animations */
   @-webkit-keyframes btn-content {
     0% {
       outline: 0.2em solid ${({ theme }) => theme.colors.bookRoomBtnBgc};

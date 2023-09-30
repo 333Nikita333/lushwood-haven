@@ -2,7 +2,7 @@ import PhoneInput from 'react-phone-input-2';
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  max-width: 500px;
+  max-width: 600px;
   max-height: 400px;
   padding: 20px;
   overflow-y: auto;
@@ -15,10 +15,14 @@ export const FormContainer = styled.div`
 export const FormTitle = styled.h3`
   margin-bottom: 10px;
   text-align: center;
-  font-size: calc(var(--index) * 2);
+  font-size: 22px;
   color: #000000;
   text-shadow: 7px 7px 5px rgba(0, 0, 0, 0.6);
   text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    font-size: calc(var(--index) * 1.8);
+  }
 `;
 export const OrderFormContainer = styled.form`
   display: flex;

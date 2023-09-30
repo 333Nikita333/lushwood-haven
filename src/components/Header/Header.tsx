@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Navigation from '../Navigation';
-import Modal from '../Modal';
+import Modal from '../../utils/Modal';
 import OrderForm from '../OrderForm';
 import MobileMenuHeader from '../MobileMenuHeader';
 import BookRoomButton from '../BookRoomButton';

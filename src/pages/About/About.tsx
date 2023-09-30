@@ -13,70 +13,65 @@ const AboutPage: FC = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-      ScrollTrigger.refresh();
+    ScrollTrigger.refresh();
 
+    gsap.fromTo(
+      heroSectionRef.current,
+      { opacity: 1 },
+      {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: heroSectionRef.current,
+          start: '50px',
+          end: '820px',
+          scrub: true,
+        },
+      }
+    );
+
+    const itemsL = galleryLeftRef.current!.querySelectorAll('.gallery__item');
+
+    itemsL.forEach(item => {
       gsap.fromTo(
-        heroSectionRef.current,
-        { opacity: 1 },
+        item,
+        { opacity: 0, x: -150 },
         {
-          opacity: 0,
+          opacity: 1,
+          x: 0,
           scrollTrigger: {
-            trigger: heroSectionRef.current,
-            start: '50px',
-            end: '820px',
+            trigger: item,
+            start: '-850px',
+            end: '-100px',
             scrub: true,
           },
         }
       );
+    });
 
-      const itemsL = galleryLeftRef.current!.querySelectorAll('.gallery__item');
+    const itemsR = galleryRightRef.current!.querySelectorAll('.gallery__item');
 
-      itemsL.forEach(item => {
-        gsap.fromTo(
-          item,
-          { opacity: 0, x: -150 },
-          {
-            opacity: 1,
-            x: 0,
-            scrollTrigger: {
-              trigger: item,
-              start: '-850px',
-              end: '-100px',
-              scrub: true,
-            },
-          }
-        );
-      });
-
-      const itemsR =
-        galleryRightRef.current!.querySelectorAll('.gallery__item');
-
-      itemsR.forEach(item => {
-        gsap.fromTo(
-          item,
-          { opacity: 0, x: 150 },
-          {
-            opacity: 1,
-            x: 0,
-            scrollTrigger: {
-              trigger: item,
-              start: '-750px',
-              end: 'top',
-              scrub: true,
-            },
-          }
-        );
-      });
-
+    itemsR.forEach(item => {
+      gsap.fromTo(
+        item,
+        { opacity: 0, x: 150 },
+        {
+          opacity: 1,
+          x: 0,
+          scrollTrigger: {
+            trigger: item,
+            start: '-750px',
+            end: 'top',
+            scrub: true,
+          },
+        }
+      );
+    });
   }, []);
 
   return (
     <AboutWrapper>
       <AboutHero heroSectionRef={heroSectionRef} />
-      <AboutSection
-        galleryLeftRef={galleryLeftRef}
-        galleryRightRef={galleryRightRef}
-      />
+      <AboutSection galleryLeftRef={galleryLeftRef} galleryRightRef={galleryRightRef} />
     </AboutWrapper>
   );
 };

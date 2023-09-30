@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-export const Portfolio = styled.section``;
-export const ContainerPortfolio = styled.div``;
 export const Gallery = styled.div`
   display: flex;
   padding: calc(var(--index) * 2) 0;
@@ -38,7 +36,6 @@ export const Gallery = styled.div`
       rgba(0, 0, 0, 0.09) 0px 32px 16px;
   }
 `;
-export const GalleryImage = styled.img``;
 export const TextBlock = styled.div`
   color: ${({ theme }) => theme.colors.aboutSectionText};
   position: relative;

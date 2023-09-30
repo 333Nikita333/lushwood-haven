@@ -24,10 +24,7 @@ const HomePage: FC = () => {
   useEffect(() => {
     setViewportHeight(window.innerHeight);
     const handleScroll = (): void => {
-      document.documentElement.style.setProperty(
-        '--scrollTop',
-        `${window.scrollY}px`
-      );
+      document.documentElement.style.setProperty('--scrollTop', `${window.scrollY}px`);
       setScrollPosition(window.scrollY);
     };
 

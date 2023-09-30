@@ -1,12 +1,9 @@
 import { FC } from 'react';
 import { IAboutSectionProps } from '../../types';
 import {
-  ContainerPortfolio,
   Gallery,
-  GalleryImage,
   GalleryLeft,
   GalleryRight,
-  Portfolio,
   TextBlock,
   TextBlockH,
   TextBlockP,
@@ -23,8 +20,8 @@ const galleryItem8: string = 'images/about_images/image8.jpg';
 
 const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef }) => {
   return (
-    <Portfolio>
-      <ContainerPortfolio>
+    <section>
+      <div>
         <Gallery>
           <GalleryLeft ref={galleryLeftRef}>
             <TextBlock className="gallery__item">
@@ -35,7 +32,7 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
                 and enjoy true relaxation
               </TextBlockP>
             </TextBlock>
-            <GalleryImage className="gallery__item" src={galleryItem5} alt="example 5" />
+            <img className="gallery__item" src={galleryItem5} alt="example 5" />
             <TextBlock className="gallery__item">
               <TextBlockH>Forest harmony in every detail</TextBlockH>
               <TextBlockP>
@@ -44,7 +41,7 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
                 have everything for an unforgettable holiday
               </TextBlockP>
             </TextBlock>
-            <GalleryImage className="gallery__item" src={galleryItem2} alt="example 2" />
+            <img className="gallery__item" src={galleryItem2} alt="example 2" />
             <TextBlock className="gallery__item">
               <TextBlockH>Extreme in the heart of nature: caving</TextBlockH>
               <TextBlockP>
@@ -53,11 +50,11 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
                 history and adrenaline is in full swing
               </TextBlockP>
             </TextBlock>
-            <GalleryImage className="gallery__item" src={galleryItem7} alt="example 7" />
+            <img className="gallery__item" src={galleryItem7} alt="example 7" />
           </GalleryLeft>
 
           <GalleryRight ref={galleryRightRef}>
-            <GalleryImage className="gallery__item" src={galleryItem1} alt="example 1" />
+            <img className="gallery__item" src={galleryItem1} alt="example 1" />
             <TextBlock className="gallery__item">
               <TextBlockH>Inspiration from nature: a hotel overlooking the forest</TextBlockH>
               <TextBlockP>
@@ -66,8 +63,8 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
                 with harmony with nature
               </TextBlockP>
             </TextBlock>
-            <GalleryImage className="gallery__item" src={galleryItem3} alt="example 3" />
-            <GalleryImage className="gallery__item" src={galleryItem4} alt="example 4" />
+            <img className="gallery__item" src={galleryItem3} alt="example 3" />
+            <img className="gallery__item" src={galleryItem4} alt="example 4" />
             <TextBlock className="gallery__item">
               <TextBlockH>Forest hiking trips</TextBlockH>
               <TextBlockP>
@@ -76,12 +73,12 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
                 create unforgettable memories
               </TextBlockP>
             </TextBlock>
-            <GalleryImage className="gallery__item" src={galleryItem6} alt="example 6" />
-            <GalleryImage className="gallery__item" src={galleryItem8} alt="example 8" />
+            <img className="gallery__item" src={galleryItem6} alt="example 6" />
+            <img className="gallery__item" src={galleryItem8} alt="example 8" />
           </GalleryRight>
         </Gallery>
-      </ContainerPortfolio>
-    </Portfolio>
+      </div>
+    </section>
   );
 };
 export default AboutSection;

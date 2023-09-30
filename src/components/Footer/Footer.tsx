@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import FooterContactForm from '../FooterContactForm';
 import FooterSocialLinks from '../FooterSocialLinks';
 import FooterButtonContact from '../FooterButtonContact';
-import Modal from '../Modal';
+import Modal from '../../utils/Modal';
 import {
   FooterWrapper,
   ContentWrapper,
