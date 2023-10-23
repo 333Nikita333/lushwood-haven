@@ -9,7 +9,7 @@ export const MainHeader = styled.div`
     z-index: 100;
     width: 100%;
     height: calc(var(--index) * 10);
-    background-image: url('images/ground.png');
+    background-image: url('images/home_images/ground.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
