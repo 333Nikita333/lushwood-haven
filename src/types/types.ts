@@ -19,7 +19,7 @@ export type UseSoundEffectType = {
   toggleMute: () => void;
 };
 
-export type LinkName = 'Home' | 'About' | 'Search' | 'Gallery';
+export type LinkName = 'Home' | 'About' | 'Search' | 'Gallery' | 'Services';
 
 export type OrderFormData = {
   checkInDate: Date;

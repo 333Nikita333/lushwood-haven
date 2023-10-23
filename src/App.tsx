@@ -5,6 +5,7 @@ import Layout from './Layout';
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
 const GalleryPage = lazy(() => import('./pages/Gallery'));
+const ServicePage = lazy(() => import('./pages/Services'));
 
 const App: FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: FC = () => {
         <Route index element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/services" element={<ServicePage />} />
       </Route>
     </Routes>
   );

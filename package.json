@@ -1,8 +1,8 @@
 {
-  "name": "parallax-project",
+  "name": "lushwood-haven",
   "private": true,
   "version": "0.0.1",
-  "homepage": "https://333nikita333.github.io/parallax-project/",
+  "homepage": "https://333nikita333.github.io/lushwood-haven/",
   "type": "module",
   "scripts": {
     "dev": "vite",
