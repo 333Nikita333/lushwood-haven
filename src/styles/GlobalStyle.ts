@@ -16,26 +16,26 @@ const GlobalStyle = createGlobalStyle`
   }
   @font-face {
 	  font-family: raleway_r;
-	  src: url(fonts/raleway-regular.woff2);
+	  src: url(/fonts/raleway-regular.woff2);
   }
   @font-face {
 	  font-family: raleway_b;
-	  src: url(fonts/raleway-black.woff2);
+	  src: url(/fonts/raleway-black.woff2);
 	  font-weight: ${({ theme }) => theme.fontWeights.secondary};
   }
   @font-face {
     font-family: outfit_r;
-    src: url(fonts/outfit-regular.woff2);
+    src: url(/fonts/outfit-regular.woff2);
   }
   
   body {
     font-family: raleway_r, sans-serif;
-    cursor: url('images/pointer-default.png'), auto;
+    cursor: url('/images/pointer-default.png'), auto;
   }
   a,
   button {
     &:hover {
-      cursor: url('images/pointer-hover.png'), auto;
+      cursor: url('/images/pointer-hover.png'), auto;
     }
   }
   h1, h2, h3, h4, h5, h6 {

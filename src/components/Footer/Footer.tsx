@@ -33,7 +33,7 @@ const Footer: FC = () => {
   return (
     <FooterWrapper>
       <ContentWrapper>
-        <Logo src="images/logo.png" alt="logo" />
+        <Logo src="/images/logo.png" alt="logo" />
         <LinksWrapper>
           <LinksSite>
             {linksSite.map(link => (

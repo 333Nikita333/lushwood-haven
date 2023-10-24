@@ -45,3 +45,22 @@ export type ValidationImagesType = {
   isLoading: boolean;
   validPhotos: PhotoType[];
 };
+export type OptionsBgImageType = {
+  bgImagePath: string;
+  bgImageDesc: string;
+  strength: number;
+  blur?: { min: number; max: number };
+};
+export type RoomType = {
+  id: string,
+  image: string;
+  type: string;
+  perNight: number;
+  descriptions: {
+    people: number;
+    amenities: string[];
+    view: string;
+    bedType: string;
+    size: string;
+  };
+};

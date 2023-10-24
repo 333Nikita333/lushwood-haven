@@ -1,5 +1,6 @@
 import { ReactNode, RefObject } from 'react';
 import { ComponentOptionsType as FancyboxOptionsType } from '@fancyapps/ui/types/Fancybox/options';
+import { OptionsBgImageType, RoomType } from '.';
 
 export interface ISoundProps {
   isMuted: boolean;
@@ -32,4 +33,14 @@ export interface IFancyboxProps {
   children?: ReactNode;
   delegate?: string;
   options?: Partial<FancyboxOptionsType>;
+}
+export interface ServiceBgParallaxContainerProps {
+  options: OptionsBgImageType;
+  children: ReactNode;
+}
+export interface ServiceRoomItemProps {
+  roomData: RoomType;
+}
+export interface ServiceRoomListProps {
+  roomList: RoomType[];
 }
