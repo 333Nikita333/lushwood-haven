@@ -1,17 +1,28 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import { ServiceRoomItemProps } from '../../types';
-import { Wrapper } from './ServiceRoomItem.styled';
+import {
+  LinkDetails,
+  RoomPrice,
+  RoomTitle,
+  Wrapper,
+} from './ServiceRoomItem.styled';
+import ImageSlider from '../ImageSlider';
 
 const ServiceRoomItem: FC<ServiceRoomItemProps> = ({ roomData }) => {
-  const { id, type, image, perNight } = roomData;
-  
+  const { id, type, images, perNight } = roomData;
+
   return (
     <Wrapper>
-      <img src={image} alt="" />
-      <p>{type}</p>
-      <p>`{perNight}.00$ / per night`</p>
-      <Link to={`/services/rooms/${id}`}>Details</Link>
+      {/* <SliderWrapper> */}
+        <ImageSlider images={images} />
+      {/* </SliderWrapper> */}
+
+      {/* <RoomImage src={image} alt={type} /> */}
+      <RoomTitle>{type}</RoomTitle>
+      <RoomPrice>
+        <span>{perNight}.00$</span> / per night
+      </RoomPrice>
+      <LinkDetails to={`/services/rooms/${id}`}>Details</LinkDetails>
     </Wrapper>
   );
 };

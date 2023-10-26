@@ -53,7 +53,7 @@ export type OptionsBgImageType = {
 };
 export type RoomType = {
   id: string,
-  image: string;
+  images: string[];
   type: string;
   perNight: number;
   descriptions: {

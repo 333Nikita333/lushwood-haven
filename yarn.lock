@@ -1664,6 +1664,11 @@ react-onclickoutside@^6.13.0:
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.13.0.tgz#e165ea4e5157f3da94f4376a3ab3e22a565f4ffc"
   integrity sha512-ty8So6tcUpIb+ZE+1HAhbLROvAIJYyJe/1vRrrcmW+jLsaM+/powDRqxzo6hSh9CuRZGSL1Q8mvcF5WRD93a0A==
 
+react-parallax-tilt@^1.7.171:
+  version "1.7.171"
+  resolved "https://registry.yarnpkg.com/react-parallax-tilt/-/react-parallax-tilt-1.7.171.tgz#cc1d54a1993e8771d5d93b8a88da0b7412ca9ab1"
+  integrity sha512-vUxBvIxi9sqvCDlk17w7gx5oYIUiowfS5DDCLFKroAYCoUNdjAKlzFmDYNF0MwmlDTkpzyScNeGpW6/RXJtnUg==
+
 react-parallax@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/react-parallax/-/react-parallax-3.5.1.tgz#73071679371b7738e21ffac8daa0bc3cb7e5174d"
@@ -1891,6 +1896,11 @@ supports-color@^7.1.0:
   integrity sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==
   dependencies:
     has-flag "^4.0.0"
+
+swiper@^11.0.1:
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.0.1.tgz#27f1369212ced1fb494f330709aa1a89a9738efd"
+  integrity sha512-pxVygCS5CVL2pRYSnv8RbjlOC/nN+JrAn5/JM0WBQzIWisv9FYe1s69KEB82TOeqh/T3zc9zks/gxctY6G/XMg==
 
 text-table@^0.2.0:
   version "0.2.0"

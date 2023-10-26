@@ -23,11 +23,13 @@
     "react-icons": "^4.10.1",
     "react-imgr": "^1.1.4",
     "react-parallax": "^3.5.1",
+    "react-parallax-tilt": "^1.7.171",
     "react-phone-input-2": "^2.15.1",
     "react-photo-gallery": "^8.0.0",
     "react-router-dom": "^6.14.2",
     "react-scroll": "^1.8.9",
-    "styled-components": "^6.0.5"
+    "styled-components": "^6.0.5",
+    "swiper": "^11.0.1"
   },
   "devDependencies": {
     "@types/howler": "^2.2.7",

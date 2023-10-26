@@ -7,9 +7,7 @@ const ServiceRoomList: FC<ServiceRoomListProps> = ({ roomList }) => {
   return (
     <Wrapper>
       {roomList.map((item, index) => (
-        <li style={{ height: 200, width: 200, backgroundColor: 'white' }} key={index}>
-          <ServiceRoomItem roomData={item} />
-        </li>
+        <ServiceRoomItem key={index} roomData={item} />
       ))}
     </Wrapper>
   );
