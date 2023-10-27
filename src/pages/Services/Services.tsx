@@ -7,20 +7,17 @@ import ServiceMainInfo from '../../components/ServiceMainInfo';
 const oneOptions = {
   bgImagePath: 'images/services_images/page1.png',
   bgImageDesc: 'wood',
-  strength: 400,
-  blur: { min: -4, max: 4 },
+  strength: 500,
 };
 const twoOptions = {
   bgImagePath: 'images/services_images/page2.png',
   bgImageDesc: 'hotel',
-  strength: 400,
-  blur: { min: -4, max: 4 },
+  strength: 500,
 };
 const threeOptions = {
   bgImagePath: 'images/services_images/page3.png',
   bgImageDesc: 'sauna',
-  strength: 400,
-  blur: { min: -4, max: 4 },
+  strength: 500,
 };
 
 export const standartRoomList = [
