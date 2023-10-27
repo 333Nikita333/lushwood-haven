@@ -1,20 +1,18 @@
 import { FC } from 'react';
-import { Autoplay, FreeMode, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
+import { Autoplay, FreeMode, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { SliderProps } from '../../types';
 import { Wrapper } from './ImageSlider.styled';
-
-interface SliderProps {
-  images: string[];
-}
 
 const ImageSlider: FC<SliderProps> = ({ images }) => {
   return (
     <Wrapper>
       <Swiper
         slidesPerView={1}
+        grabCursor={true}
         freeMode={true}
         navigation
         autoplay={{

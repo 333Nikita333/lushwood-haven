@@ -1,31 +1,36 @@
 import { FC } from 'react';
 import ServiceBgParallaxContainer from '../../components/ServiceBgParallaxContainer';
 import ServiceRoomList from '../../components/ServiceRoomList';
-import { WrapperOuter } from './Services.styled';
+import { InfoWrapper, WrapperOuter } from './Services.styled';
+import ServiceMainInfo from '../../components/ServiceMainInfo';
 
 const oneOptions = {
   bgImagePath: 'images/services_images/page1.png',
   bgImageDesc: 'wood',
-  strength: 300,
-  blur: { min: -5, max: 5 },
+  strength: 400,
+  blur: { min: -4, max: 4 },
 };
 const twoOptions = {
   bgImagePath: 'images/services_images/page2.png',
   bgImageDesc: 'hotel',
-  strength: 300,
-  blur: { min: -5, max: 5 },
+  strength: 400,
+  blur: { min: -4, max: 4 },
 };
 const threeOptions = {
   bgImagePath: 'images/services_images/page3.png',
   bgImageDesc: 'sauna',
-  strength: 300,
-  blur: { min: -5, max: 5 },
+  strength: 400,
+  blur: { min: -4, max: 4 },
 };
 
 export const standartRoomList = [
   {
     id: 'standart-single',
-    images: ['images/services_images/page1.png', 'images/services_images/page2.png', 'images/services_images/page3.png'],
+    images: [
+      'images/services_images/page1.png',
+      'images/services_images/page2.png',
+      'images/services_images/page3.png',
+    ],
     type: 'Standard Single Room',
     perNight: 119,
     descriptions: {
@@ -38,7 +43,11 @@ export const standartRoomList = [
   },
   {
     id: 'standart-double',
-    images: ['images/services_images/page1.png', 'images/services_images/page2.png', 'images/services_images/page3.png'],
+    images: [
+      'images/services_images/page1.png',
+      'images/services_images/page2.png',
+      'images/services_images/page3.png',
+    ],
     type: 'Standard Double Room',
     perNight: 159,
     descriptions: {
@@ -51,7 +60,11 @@ export const standartRoomList = [
   },
   {
     id: 'standart-max',
-    images: ['images/services_images/page1.png', 'images/services_images/page2.png', 'images/services_images/page3.png'],
+    images: [
+      'images/services_images/page1.png',
+      'images/services_images/page2.png',
+      'images/services_images/page3.png',
+    ],
     type: 'Standard Max Room',
     perNight: 179,
     descriptions: {
@@ -66,7 +79,11 @@ export const standartRoomList = [
 export const familyRoomList = [
   {
     id: 'family-double',
-    images: ['images/services_images/page1.png', 'images/services_images/page2.png', 'images/services_images/page3.png'],
+    images: [
+      'images/services_images/page1.png',
+      'images/services_images/page2.png',
+      'images/services_images/page3.png',
+    ],
     type: 'Family Double Room',
     perNight: 169,
     descriptions: {
@@ -79,7 +96,11 @@ export const familyRoomList = [
   },
   {
     id: 'family-triple',
-    images: ['images/services_images/page1.png', 'images/services_images/page2.png', 'images/services_images/page3.png'],
+    images: [
+      'images/services_images/page1.png',
+      'images/services_images/page2.png',
+      'images/services_images/page3.png',
+    ],
     type: 'Family Triple Room',
     perNight: 189,
     descriptions: {
@@ -99,7 +120,11 @@ export const familyRoomList = [
   },
   {
     id: 'family-max',
-    images: ['images/services_images/page1.png', 'images/services_images/page2.png', 'images/services_images/page3.png'],
+    images: [
+      'images/services_images/page1.png',
+      'images/services_images/page2.png',
+      'images/services_images/page3.png',
+    ],
     type: 'Family Max Room',
     perNight: 189,
     descriptions: {
@@ -121,7 +146,11 @@ export const familyRoomList = [
 export const suiteRoomList = [
   {
     id: 'suite-single',
-    images: ['images/services_images/page1.png', 'images/services_images/page2.png', 'images/services_images/page3.png'],
+    images: [
+      'images/services_images/page1.png',
+      'images/services_images/page2.png',
+      'images/services_images/page3.png',
+    ],
     type: 'Suite Single Room',
     perNight: 215,
     descriptions: {
@@ -142,7 +171,11 @@ export const suiteRoomList = [
   },
   {
     id: 'suite-double',
-    images: ['images/services_images/page1.png', 'images/services_images/page2.png', 'images/services_images/page3.png'],
+    images: [
+      'images/services_images/page1.png',
+      'images/services_images/page2.png',
+      'images/services_images/page3.png',
+    ],
     type: 'Suite Double Room',
     perNight: 235,
     descriptions: {
@@ -171,11 +204,19 @@ const Services: FC = () => {
           <ServiceRoomList roomList={standartRoomList} />
         </div>
       </ServiceBgParallaxContainer>
-      <h1>| | |</h1>
+
+      <InfoWrapper>
+        <ServiceMainInfo />
+      </InfoWrapper>
+
       <ServiceBgParallaxContainer options={twoOptions}>
         <ServiceRoomList roomList={familyRoomList} />
       </ServiceBgParallaxContainer>
-      <h1>| | |</h1>
+
+      <InfoWrapper>
+        <ServiceMainInfo />
+      </InfoWrapper>
+
       <ServiceBgParallaxContainer options={threeOptions}>
         <ServiceRoomList roomList={suiteRoomList} />
       </ServiceBgParallaxContainer>

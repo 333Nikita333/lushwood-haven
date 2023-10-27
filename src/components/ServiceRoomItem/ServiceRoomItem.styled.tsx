@@ -5,25 +5,14 @@ export const Wrapper = styled.li`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 480px;
   padding: 10px;
   border-radius: 0.5rem;
   background-color: #8b451390;
   backdrop-filter: blur(5px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
   color: #fff;
-
-  & img {
-    border-radius: 0.5rem;
-  }
-
-  @media (min-width: 768px) {
-    max-width: calc(100% / var(--index));
-  }
 `;
-export const SliderWrapper = styled.div`
-  width: 100%;
-`;
+
 export const RoomTitle = styled.h3`
   text-transform: uppercase;
   font-size: 18px;
@@ -50,30 +39,28 @@ export const RoomPrice = styled.p`
 `;
 
 export const LinkDetails = styled(Link)`
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid #1a1a1a;
-  border-radius: 15px;
-  color: #fff;
+  padding: 15px 20px;
   max-width: 150px;
   font-size: 18px;
   font-weight: 600;
-
-  outline: none;
-  padding: 15px 20px;
   text-align: center;
-  text-decoration: none;
+  color: #fff;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  background-color: #8b451390;
   transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+  appearance: none;
+  touch-action: manipulation;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: manipulation;
-  will-change: transform;
 
   &:disabled {
     pointer-events: none;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: #fff;
     background-color: #1a1a1a;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;

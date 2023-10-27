@@ -6,7 +6,7 @@ export const Wrapper = styled.ul`
   grid-gap: 50px;
   justify-items: center;
   padding: 20px;
-
+  
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     padding: 40px;
@@ -14,5 +14,6 @@ export const Wrapper = styled.ul`
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
+    padding: 100px;
   }
 `;

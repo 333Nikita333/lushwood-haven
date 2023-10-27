@@ -1,5 +1,5 @@
-import { ReactNode, RefObject } from 'react';
 import { ComponentOptionsType as FancyboxOptionsType } from '@fancyapps/ui/types/Fancybox/options';
+import { ReactNode, RefObject } from 'react';
 import { OptionsBgImageType, RoomType } from '.';
 
 export interface ISoundProps {
@@ -43,4 +43,7 @@ export interface ServiceRoomItemProps {
 }
 export interface ServiceRoomListProps {
   roomList: RoomType[];
+}
+export interface SliderProps {
+  images: string[];
 }
