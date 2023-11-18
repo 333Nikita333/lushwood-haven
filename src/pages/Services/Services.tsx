@@ -1,21 +1,26 @@
 import { FC } from 'react';
+import { FaGuitar, FaSpa, FaUserShield, FaWifi } from 'react-icons/fa';
+import { GiHomeGarage } from 'react-icons/gi';
+import { IoRestaurantOutline } from 'react-icons/io5';
+import { MdLocalBar, MdOutlineCleaningServices, MdPool } from 'react-icons/md';
+import { TbAirConditioning } from 'react-icons/tb';
 import ServiceBgParallaxContainer from '../../components/ServiceBgParallaxContainer';
+import ServiceMainInfo from '../../components/ServiceMainInfo';
 import ServiceRoomList from '../../components/ServiceRoomList';
 import { InfoWrapper, WrapperOuter } from './Services.styled';
-import ServiceMainInfo from '../../components/ServiceMainInfo';
 
 const oneOptions = {
-  bgImagePath: 'images/services_images/page1.png',
+  bgImagePath: '/images/services_images/page1.png',
   bgImageDesc: 'wood',
   strength: 500,
 };
 const twoOptions = {
-  bgImagePath: 'images/services_images/page2.png',
+  bgImagePath: '/images/services_images/page2.png',
   bgImageDesc: 'hotel',
   strength: 500,
 };
 const threeOptions = {
-  bgImagePath: 'images/services_images/page3.png',
+  bgImagePath: '/images/services_images/page3.png',
   bgImageDesc: 'sauna',
   strength: 500,
 };
@@ -24,9 +29,9 @@ export const standartRoomList = [
   {
     id: 'standart-single',
     images: [
-      'images/services_images/page1.png',
-      'images/services_images/page2.png',
-      'images/services_images/page3.png',
+      '/images/services_images/page1.png',
+      '/images/services_images/page2.png',
+      '/images/services_images/page3.png',
     ],
     type: 'Standard Single Room',
     perNight: 119,
@@ -41,9 +46,9 @@ export const standartRoomList = [
   {
     id: 'standart-double',
     images: [
-      'images/services_images/page1.png',
-      'images/services_images/page2.png',
-      'images/services_images/page3.png',
+      '/images/services_images/page1.png',
+      '/images/services_images/page2.png',
+      '/images/services_images/page3.png',
     ],
     type: 'Standard Double Room',
     perNight: 159,
@@ -58,9 +63,9 @@ export const standartRoomList = [
   {
     id: 'standart-max',
     images: [
-      'images/services_images/page1.png',
-      'images/services_images/page2.png',
-      'images/services_images/page3.png',
+      '/images/services_images/page1.png',
+      '/images/services_images/page2.png',
+      '/images/services_images/page3.png',
     ],
     type: 'Standard Max Room',
     perNight: 179,
@@ -77,9 +82,9 @@ export const familyRoomList = [
   {
     id: 'family-double',
     images: [
-      'images/services_images/page1.png',
-      'images/services_images/page2.png',
-      'images/services_images/page3.png',
+      '/images/services_images/page1.png',
+      '/images/services_images/page2.png',
+      '/images/services_images/page3.png',
     ],
     type: 'Family Double Room',
     perNight: 169,
@@ -94,9 +99,9 @@ export const familyRoomList = [
   {
     id: 'family-triple',
     images: [
-      'images/services_images/page1.png',
-      'images/services_images/page2.png',
-      'images/services_images/page3.png',
+      '/images/services_images/page1.png',
+      '/images/services_images/page2.png',
+      '/images/services_images/page3.png',
     ],
     type: 'Family Triple Room',
     perNight: 189,
@@ -118,9 +123,9 @@ export const familyRoomList = [
   {
     id: 'family-max',
     images: [
-      'images/services_images/page1.png',
-      'images/services_images/page2.png',
-      'images/services_images/page3.png',
+      '/images/services_images/page1.png',
+      '/images/services_images/page2.png',
+      '/images/services_images/page3.png',
     ],
     type: 'Family Max Room',
     perNight: 189,
@@ -144,9 +149,9 @@ export const suiteRoomList = [
   {
     id: 'suite-single',
     images: [
-      'images/services_images/page1.png',
-      'images/services_images/page2.png',
-      'images/services_images/page3.png',
+      '/images/services_images/page1.png',
+      '/images/services_images/page2.png',
+      '/images/services_images/page3.png',
     ],
     type: 'Suite Single Room',
     perNight: 215,
@@ -169,9 +174,9 @@ export const suiteRoomList = [
   {
     id: 'suite-double',
     images: [
-      'images/services_images/page1.png',
-      'images/services_images/page2.png',
-      'images/services_images/page3.png',
+      '/images/services_images/page1.png',
+      '/images/services_images/page2.png',
+      '/images/services_images/page3.png',
     ],
     type: 'Suite Double Room',
     perNight: 235,
@@ -193,17 +198,60 @@ export const suiteRoomList = [
   },
 ];
 
+const listServicesOne = [
+  {
+    icon: <FaWifi />,
+    name: 'Free Wi-Fi',
+  },
+  {
+    icon: <IoRestaurantOutline />,
+    name: 'Restaurant',
+  },
+  {
+    icon: <MdLocalBar />,
+    name: 'Bar',
+  },
+  {
+    icon: <FaSpa />,
+    name: 'Spa and wellness services',
+  },
+  {
+    icon: <TbAirConditioning />,
+    name: 'Air conditioning',
+  },
+];
+const listServicesTwo = [
+  {
+    icon: <MdOutlineCleaningServices />,
+    name: 'Room service',
+  },
+  {
+    icon: <FaGuitar />,
+    name: 'Entertainment activities',
+  },
+  {
+    icon: <MdPool />,
+    name: 'Swimming pools',
+  },
+  {
+    icon: <GiHomeGarage />,
+    name: 'Parking',
+  },
+  {
+    icon: <FaUserShield />,
+    name: 'Security',
+  },
+];
+
 const Services: FC = () => {
   return (
     <WrapperOuter>
       <ServiceBgParallaxContainer options={oneOptions}>
-        <div style={{ marginTop: '85px' }}>
-          <ServiceRoomList roomList={standartRoomList} />
-        </div>
+        <ServiceRoomList roomList={standartRoomList} />
       </ServiceBgParallaxContainer>
 
       <InfoWrapper>
-        <ServiceMainInfo />
+        <ServiceMainInfo listServices={listServicesOne} />
       </InfoWrapper>
 
       <ServiceBgParallaxContainer options={twoOptions}>
@@ -211,7 +259,7 @@ const Services: FC = () => {
       </ServiceBgParallaxContainer>
 
       <InfoWrapper>
-        <ServiceMainInfo />
+        <ServiceMainInfo listServices={listServicesTwo} />
       </InfoWrapper>
 
       <ServiceBgParallaxContainer options={threeOptions}>

@@ -5,11 +5,11 @@ export const Wrapper = styled.ul`
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 50px;
   justify-items: center;
-  padding: 20px;
-  
+  padding: 100px 20px;
+
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    padding: 40px;
+    padding: 100px 40px;
   }
 
   @media (min-width: 1024px) {

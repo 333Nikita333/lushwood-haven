@@ -47,3 +47,9 @@ export interface ServiceRoomListProps {
 export interface SliderProps {
   images: string[];
 }
+export interface ServiceMainInfoProps {
+  listServices: {
+    icon: JSX.Element;
+    name: string;
+  }[];
+}

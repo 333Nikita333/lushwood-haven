@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container } from './ServiceRoomPage.styled';
-import { standartRoomList, familyRoomList, suiteRoomList } from '../Services/Services';
 import { RoomType } from '../../types/types';
+import { familyRoomList, standartRoomList, suiteRoomList } from '../Services/Services';
+import { Container } from './ServiceRoomPage.styled';
 
 const allRoomList = [...standartRoomList, ...familyRoomList, ...suiteRoomList];
 
