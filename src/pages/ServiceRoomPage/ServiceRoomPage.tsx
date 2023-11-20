@@ -1,45 +1,63 @@
-import { FC } from 'react';
-import { useParams } from 'react-router-dom';
+import { FC, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { RoomType } from '../../types/types';
 import { familyRoomList, standartRoomList, suiteRoomList } from '../Services/Services';
-import { Container } from './ServiceRoomPage.styled';
+import { PriceDetails, RoomDetails, RoomTypeTitle, Wrapper } from './ServiceRoomPage.styled';
+import RoomImagesSlider from '../../components/RoomImagesSlider';
 
 const allRoomList = [...standartRoomList, ...familyRoomList, ...suiteRoomList];
 
 const ServiceRoomPage: FC = () => {
   const { roomId } = useParams();
+  const [roomData, setRoomData] = useState<RoomType | null>(null);
 
-  const roomData = allRoomList.find((room: RoomType) => roomId === room.id);
+  useEffect(() => {
+    const searchRoomData = (roomId: string) => {
+      try {
+        const curRoom: RoomType | undefined = allRoomList.find(
+          (room: RoomType) => roomId === room.id
+        );
 
-  console.log(roomData);
-  
+        if (!curRoom) {
+          throw new Error('Not found any room');
+        }
+
+        setRoomData(curRoom);
+      } catch (error) {
+        console.log(error);
+        setRoomData(null);
+      }
+    };
+
+    searchRoomData(roomId as string);
+
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, [roomId]);
+
+  console.log('roomData =>', roomData);
+
   if (!roomData) {
-    return <Container>Not found any room</Container>;
+    return <Wrapper>Not found any room</Wrapper>;
   }
 
-  return <Container>Room Page - {roomId}</Container>;
+  return (
+    <Wrapper>
+      <RoomImagesSlider />
+      <RoomDetails>
+        <RoomTypeTitle>{roomData.type}</RoomTypeTitle>
+        <PriceDetails>
+          <ul>
+            {roomData.descriptions.amenities.map((description, index) => (
+              <li key={index}>{description}</li>
+            ))}
+          </ul>
+        </PriceDetails>
+      </RoomDetails>
+      <Link to="/services">Go Back</Link>
+    </Wrapper>
+  );
 };
 
 export default ServiceRoomPage;
-
-{
-  /* <ImageWrapper>
-        <img src="/public/images/services_images/page3.png" alt="" />
-      </ImageWrapper>
-
-      <DescriptionWrapper>
-        <RoomDetails>
-          <RoomTypeTitle>Standard Single Room</RoomTypeTitle>
-          <p>
-            Standard Single Rooms are designed in open-concept living area and have many facilities.
-          </p>
-        </RoomDetails>
-
-        <PriceDetails>
-          <p>
-            <span>112$</span> / per night
-          </p>
-          <a href="">View Details</a>
-        </PriceDetails>
-      </DescriptionWrapper> */
-}

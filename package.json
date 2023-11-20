@@ -29,7 +29,7 @@
     "react-router-dom": "^6.14.2",
     "react-scroll": "^1.8.9",
     "styled-components": "^6.0.5",
-    "swiper": "^11.0.1"
+    "swiper": "^11.0.4"
   },
   "devDependencies": {
     "@types/howler": "^2.2.7",

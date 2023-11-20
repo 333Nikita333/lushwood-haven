@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
-import Gallery, { RenderImageProps } from 'react-photo-gallery';
 import 'react-imgr/dist/styles.min.css';
+import Gallery, { RenderImageProps } from 'react-photo-gallery';
 import { photos } from '../../data/photos';
 import useImageValidation from '../../hooks/useImageValidation';
 import FancyboxWrapper from '../../utils/FancyboxWrapper';

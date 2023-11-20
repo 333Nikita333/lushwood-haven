@@ -14,10 +14,10 @@ export const Wrapper = styled.div`
     max-width: calc(var(--index) * 15);
   }
 
-  & img {
+  & .swiper {
+    height: auto;
     border-radius: 0.5rem;
   }
-
   & .swiper-button-prev,
   & .swiper-button-next {
     transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);

@@ -1,13 +1,14 @@
 import { FC } from 'react';
+import Tilt from 'react-parallax-tilt';
 import { ServiceRoomItemProps } from '../../types';
 import ImageSlider from '../ImageSlider';
-import { LinkDetails, RoomPrice, RoomTitle, Item } from './ServiceRoomItem.styled';
-import Tilt from 'react-parallax-tilt';
+import { Item, LinkDetails, RoomPrice, RoomTitle } from './ServiceRoomItem.styled';
+
 const ServiceRoomItem: FC<ServiceRoomItemProps> = ({ roomData }) => {
   const { id, type, images, perNight } = roomData;
   const userAgent = navigator.userAgent;
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-
+  
   if (isMobile) {
     return (
       <Item>
@@ -20,7 +21,7 @@ const ServiceRoomItem: FC<ServiceRoomItemProps> = ({ roomData }) => {
       </Item>
     );
   }
-
+  
   return (
     <Tilt scale={1.1} transitionSpeed={1000}>
       <Item>
@@ -34,4 +35,5 @@ const ServiceRoomItem: FC<ServiceRoomItemProps> = ({ roomData }) => {
     </Tilt>
   );
 };
+
 export default ServiceRoomItem;

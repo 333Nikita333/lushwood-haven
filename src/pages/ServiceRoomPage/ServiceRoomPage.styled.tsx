@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  padding: 10px;
+export const Wrapper = styled.main`
   display: flex;
   flex-wrap: wrap;
   background-color: white;
 `;
-export const ImageWrapper = styled.div`
+export const RoomImages = styled.div`
   margin-bottom: 2.5rem;
   width: 100%;
 `;
@@ -42,6 +41,7 @@ export const RoomTypeTitle = styled.h2`
     background: #c1b086;
   }
 `;
+
 export const PriceDetails = styled.div`
   display: inline-flex;
   flex-wrap: wrap;

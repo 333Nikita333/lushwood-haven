@@ -15,15 +15,15 @@ const ImageSlider: FC<SliderProps> = ({ images }) => {
         grabCursor={true}
         freeMode={true}
         navigation
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 3500,
+        //   disableOnInteraction: false,
+        // }}
         modules={[Autoplay, FreeMode, Navigation]}
       >
         {images.map((image, index) => (
           <SwiperSlide style={{ width: 480 }} key={image} virtualIndex={index}>
-            <img src={image} alt={`Slide ${index}`} />
+            <img src={image} alt={`Slide ${index}`} style={{ height: '100%' }} />
           </SwiperSlide>
         ))}
       </Swiper>

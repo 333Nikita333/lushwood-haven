@@ -1,11 +1,13 @@
 import { FC, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
+
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
 const GalleryPage = lazy(() => import('./pages/Gallery'));
 const ServicePage = lazy(() => import('./pages/Services'));
 const ServiceRoomPage = lazy(() => import('./pages/ServiceRoomPage'));
+
 const App: FC = () => {
   return (
     <Routes>
@@ -19,4 +21,5 @@ const App: FC = () => {
     </Routes>
   );
 };
+
 export default App;
