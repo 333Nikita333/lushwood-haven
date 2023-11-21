@@ -1,8 +1,8 @@
 import { FC, Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import ScrollIndicator from './components/ScrollIndicator';
-import Footer from './components/Footer';
 
 const Layout: FC = () => {
   const location = useLocation();

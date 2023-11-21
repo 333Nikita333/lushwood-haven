@@ -24,4 +24,3 @@ export const Link = styled.a`
   }
 `;
 export const Photo = styled(Image)``;
-6;

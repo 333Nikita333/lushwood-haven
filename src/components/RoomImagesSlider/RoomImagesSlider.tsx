@@ -4,11 +4,14 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import 'swiper/css/effect-fade';
+import { EffectFade, FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { SliderProps } from '../../types';
 import './styles.css';
+import FancyboxWrapper from '../../utils/FancyboxWrapper';
 
-const RoomImagesSlider: FC = () => {
+const RoomImagesSlider: FC<SliderProps> = ({ images }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   return (
@@ -16,20 +19,22 @@ const RoomImagesSlider: FC = () => {
       <Swiper
         spaceBetween={10}
         navigation={true}
+        effect={'fade'}
         thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
+        modules={[EffectFade, FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
       >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <FancyboxWrapper>
+              <a href={image} data-fancybox="room-gallery">
+                <img src={image} alt="room image" />
+              </a>
+            </FancyboxWrapper>
+          </SwiperSlide>
+        ))}
       </Swiper>
+
       <Swiper
         onSwiper={setThumbsSwiper}
         spaceBetween={10}
@@ -37,17 +42,13 @@ const RoomImagesSlider: FC = () => {
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
+        className="mySwiper2"
       >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <img src={image} alt="room image" />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

@@ -9,4 +9,5 @@ const NavLinkItem: FC<INavLinkItemProps> = ({ linkName }) => {
     </Link>
   );
 };
+
 export default NavLinkItem;

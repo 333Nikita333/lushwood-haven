@@ -14,26 +14,21 @@ export const FormContainer = styled.div`
   }
 `;
 const textAnimation = keyframes`
-    0% {  
-        transform: translateY(0);
-    }
-
-    20% {  
-        transform: translateY(-1em);
-    }
-
-    40% {  
-        transform: translateY(0.5em);
-    }
-    
-   60% {
-        transform: translateY(-0.25em);
-    }
-
-    80% {  
-        transform: translateY(0);
-    }
-    
+  0% {  
+      transform: translateY(0);
+  }
+  20% {  
+      transform: translateY(-1em);
+  }
+  40% {  
+      transform: translateY(0.5em);
+  }
+  60% {
+      transform: translateY(-0.25em);
+  }
+  80% {  
+      transform: translateY(0);
+  } 
 `;
 export const Heading = styled.span`
   display: block;

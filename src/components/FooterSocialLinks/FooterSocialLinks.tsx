@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import {
-  Wrapper,
-  WrapperLinks,
   LinkGithub,
+  LinkGmail,
   LinkInst,
   LinkLinkedin,
-  LinkGmail,
+  Wrapper,
+  WrapperLinks,
 } from './FooterSocialLinks.styled';
 
 const FooterSocialLinks: FC = () => {

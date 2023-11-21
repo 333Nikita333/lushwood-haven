@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import 'react-phone-input-2/lib/style.css';
 import { OrderFormData } from '../../types';
 import {

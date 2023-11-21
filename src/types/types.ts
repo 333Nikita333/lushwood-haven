@@ -52,7 +52,7 @@ export type OptionsBgImageType = {
   blur?: { min: number; max: number };
 };
 export type RoomType = {
-  id: string,
+  id: string;
   images: string[];
   type: string;
   perNight: number;

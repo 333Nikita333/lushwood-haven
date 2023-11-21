@@ -15,10 +15,10 @@ const ImageSlider: FC<SliderProps> = ({ images }) => {
         grabCursor={true}
         freeMode={true}
         navigation
-        // autoplay={{
-        //   delay: 3500,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
         modules={[Autoplay, FreeMode, Navigation]}
       >
         {images.map((image, index) => (

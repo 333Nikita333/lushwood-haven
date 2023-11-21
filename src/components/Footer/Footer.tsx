@@ -1,15 +1,15 @@
 import { FC, useState } from 'react';
+import Modal from '../../utils/Modal';
+import FooterButtonContact from '../FooterButtonContact';
 import FooterContactForm from '../FooterContactForm';
 import FooterSocialLinks from '../FooterSocialLinks';
-import FooterButtonContact from '../FooterButtonContact';
-import Modal from '../../utils/Modal';
 import {
-  FooterWrapper,
   ContentWrapper,
-  LinksWrapper,
-  Logo,
+  FooterWrapper,
   LinksSite,
   LinksSiteItem,
+  LinksWrapper,
+  Logo,
 } from './Footer.styled';
 
 const linksSite: readonly string[] = [

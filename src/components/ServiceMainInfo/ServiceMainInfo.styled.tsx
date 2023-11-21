@@ -65,7 +65,7 @@ export const InfoItem = styled.li`
     border-radius: 15px;
     z-index: -1;
   }
-  
+
   &::after {
     content: '';
     position: absolute;

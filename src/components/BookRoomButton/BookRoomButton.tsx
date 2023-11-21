@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { IBookRoomButtonProps } from '../../types';
-import { Wrapper, OrderIcon } from './BookRoomButton.styled';
+import { OrderIcon, Wrapper } from './BookRoomButton.styled';
 
 const BookRoomButton: FC<IBookRoomButtonProps> = ({ toggleModal }) => {
   return (

@@ -1,7 +1,7 @@
-import { useRef, useEffect } from 'react';
 import { Fancybox as NativeFancybox } from '@fancyapps/ui';
-import { IFancyboxProps } from '../types';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
+import { useEffect, useRef } from 'react';
+import { IFancyboxProps } from '../types';
 
 export default function FancyboxWrapper(props: IFancyboxProps) {
   const containerRef = useRef(null);
@@ -14,6 +14,7 @@ export default function FancyboxWrapper(props: IFancyboxProps) {
       },
     },
   };
+
   useEffect(() => {
     const container = containerRef.current;
     const delegate = props.delegate || '[data-fancybox]';

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { MdBorderColor } from 'react-icons/md';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
