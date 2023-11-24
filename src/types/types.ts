@@ -1,4 +1,5 @@
 import { Howl } from 'howler';
+import { ReactNode } from 'react';
 
 export type SoundThemeType = 'forest' | 'dungeon';
 
@@ -57,10 +58,11 @@ export type RoomType = {
   type: string;
   perNight: number;
   descriptions: {
-    people: number;
-    amenities: string[];
+    people: string;
+    amenities: { icon: ReactNode; desc: string }[];
     view: string;
     bedType: string;
     size: string;
+    text: string
   };
 };

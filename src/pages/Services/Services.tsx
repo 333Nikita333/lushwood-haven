@@ -1,8 +1,14 @@
 import { FC } from 'react';
-import { FaGuitar, FaSpa, FaUserShield, FaWifi } from 'react-icons/fa';
+import { FaGuitar, FaSpa, FaUserShield, FaWifi, FaFan } from 'react-icons/fa';
+import { BsTelephone } from 'react-icons/bs';
 import { GiHomeGarage } from 'react-icons/gi';
 import { IoRestaurantOutline } from 'react-icons/io5';
-import { MdLocalBar, MdOutlineCleaningServices, MdPool } from 'react-icons/md';
+import {
+  MdLocalBar,
+  MdOutlineCleaningServices,
+  MdPool,
+  MdOutlineLocalLaundryService,
+} from 'react-icons/md';
 import { TbAirConditioning } from 'react-icons/tb';
 import ServiceBgParallaxContainer from '../../components/ServiceBgParallaxContainer';
 import ServiceMainInfo from '../../components/ServiceMainInfo';
@@ -39,11 +45,29 @@ export const standartRoomList = [
     type: 'Standard Single Room',
     perNight: 119,
     descriptions: {
-      people: 1 - 2,
-      amenities: ['free wi-fi', 'in-room safety', 'laundry', 'telephone'],
+      people: '1 - 2',
+      amenities: [
+        {
+          icon: <FaWifi />,
+          desc: 'Free Wi-Fi',
+        },
+        {
+          icon: <FaUserShield />,
+          desc: 'In-room safety',
+        },
+        {
+          icon: <MdOutlineLocalLaundryService />,
+          desc: 'Laundry',
+        },
+        {
+          icon: <BsTelephone />,
+          desc: 'Telephone',
+        },
+      ],
       view: 'Beach',
-      bedType: 'queen bed',
-      size: '20m&sup2',
+      bedType: 'Queen bed',
+      size: '20m²',
+      text: 'A cozy room with a queen bed, suitable for 1-2 people. Enjoy amenities like free Wi-Fi, in-room safety, laundry, and telephone. The room offers a view of the beach and has a size of 20 square meters.',
     },
   },
   {
@@ -56,11 +80,33 @@ export const standartRoomList = [
     type: 'Standard Double Room',
     perNight: 159,
     descriptions: {
-      people: 1 - 3,
-      amenities: ['free wi-fi', 'in-room safety', 'laundry', 'telephone', 'minibar'],
+      people: '1 - 3',
+      amenities: [
+        {
+          icon: <FaWifi />,
+          desc: 'Free Wi-Fi',
+        },
+        {
+          icon: <FaUserShield />,
+          desc: 'In-room safety',
+        },
+        {
+          icon: <MdOutlineLocalLaundryService />,
+          desc: 'Laundry',
+        },
+        {
+          icon: <BsTelephone />,
+          desc: 'Telephone',
+        },
+        {
+          icon: <MdLocalBar />,
+          desc: 'Minibar',
+        },
+      ],
       view: 'Beach',
-      bedType: 'queen bed',
-      size: '25m&sup2',
+      bedType: 'Queen bed',
+      size: '25m²',
+      text: 'A comfortable room with a queen bed, suitable for 1-3 people. Enjoy amenities like free Wi-Fi, in-room safety, laundry, telephone, and minibar. The room offers a view of the beach and has a size of 25 square meters.',
     },
   },
   {
@@ -73,11 +119,33 @@ export const standartRoomList = [
     type: 'Standard Max Room',
     perNight: 179,
     descriptions: {
-      people: 1 - 3,
-      amenities: ['free wi-fi', 'in-room safety', 'laundry', 'telephone', 'minibar', 'mini-bar'],
+      people: '1 - 3',
+      amenities: [
+        {
+          icon: <FaWifi />,
+          desc: 'Free Wi-Fi',
+        },
+        {
+          icon: <FaUserShield />,
+          desc: 'In-room safety',
+        },
+        {
+          icon: <MdOutlineLocalLaundryService />,
+          desc: 'Laundry',
+        },
+        {
+          icon: <BsTelephone />,
+          desc: 'Telephone',
+        },
+        {
+          icon: <MdLocalBar />,
+          desc: 'Minibar',
+        },
+      ],
       view: 'Beach',
-      bedType: 'queen bed',
-      size: '35m&sup2',
+      bedType: 'Queen bed',
+      size: '35m²',
+      text: 'A spacious room with a queen bed, suitable for 1-3 people. Enjoy amenities like free Wi-Fi, in-room safety, laundry, telephone, minibar, and mini-bar. The room offers a view of the beach and has a size of 35 square meters.',
     },
   },
 ];
@@ -92,11 +160,33 @@ export const familyRoomList = [
     type: 'Family Double Room',
     perNight: 169,
     descriptions: {
-      people: 3 - 4,
-      amenities: ['air-conditioning', 'free wi-fi', 'in-room safety', 'laundry', 'telephone'],
+      people: '3 - 4',
+      amenities: [
+        {
+          icon: <TbAirConditioning />,
+          desc: 'Air-conditioning',
+        },
+        {
+          icon: <FaWifi />,
+          desc: 'Free Wi-Fi',
+        },
+        {
+          icon: <FaUserShield />,
+          desc: 'In-room safety',
+        },
+        {
+          icon: <MdOutlineLocalLaundryService />,
+          desc: 'Laundry',
+        },
+        {
+          icon: <BsTelephone />,
+          desc: 'Telephone',
+        },
+      ],
       view: 'Beach',
-      bedType: 'queen bed',
-      size: '25m&sup2',
+      bedType: 'Queen bed',
+      size: '25m²',
+      text: 'A spacious family room with a queen bed, suitable for 3-4 people. Enjoy amenities like air-conditioning, free Wi-Fi, in-room safety, laundry, and telephone. The room offers a view of the beach and has a size of 25 square meters.',
     },
   },
   {
@@ -109,18 +199,37 @@ export const familyRoomList = [
     type: 'Family Triple Room',
     perNight: 189,
     descriptions: {
-      people: 3 - 6,
+      people: '3 - 6',
       amenities: [
-        'air-conditioning',
-        'free wi-fi',
-        'hairdryer',
-        'in-room safety',
-        'laundry',
-        'telephone',
+        {
+          icon: <TbAirConditioning />,
+          desc: 'Air-conditioning',
+        },
+        {
+          icon: <FaWifi />,
+          desc: 'Free Wi-Fi',
+        },
+        {
+          icon: <FaFan />,
+          desc: 'Hairdryer',
+        },
+        {
+          icon: <FaUserShield />,
+          desc: 'In-room safety',
+        },
+        {
+          icon: <MdOutlineLocalLaundryService />,
+          desc: 'Laundry',
+        },
+        {
+          icon: <BsTelephone />,
+          desc: 'Telephone',
+        },
       ],
       view: 'Forest',
-      bedType: 'queen bed',
-      size: '40m&sup2',
+      bedType: 'Queen bed',
+      size: '40m²',
+      text: 'A spacious family room with a queen bed, suitable for 3-6 people. Enjoy amenities like air-conditioning, free Wi-Fi, hairdryer, in-room safety, laundry, and telephone. The room offers a view of the forest and has a size of 40 square meters.',
     },
   },
   {
@@ -133,18 +242,37 @@ export const familyRoomList = [
     type: 'Family Max Room',
     perNight: 189,
     descriptions: {
-      people: 3 - 6,
+      people: '3 - 6',
       amenities: [
-        'air-conditioning',
-        'free wi-fi',
-        'hairdryer',
-        'in-room safety',
-        'laundry',
-        'telephone',
+        {
+          icon: <TbAirConditioning />,
+          desc: 'Air-conditioning',
+        },
+        {
+          icon: <FaWifi />,
+          desc: 'Free Wi-Fi',
+        },
+        {
+          icon: <FaFan />,
+          desc: 'Hairdryer',
+        },
+        {
+          icon: <FaUserShield />,
+          desc: 'In-room safety',
+        },
+        {
+          icon: <MdOutlineLocalLaundryService />,
+          desc: 'Laundry',
+        },
+        {
+          icon: <BsTelephone />,
+          desc: 'Telephone',
+        },
       ],
       view: 'Forest',
-      bedType: 'queen bed',
-      size: '40m&sup2',
+      bedType: 'Queen bed',
+      size: '40m²',
+      text: 'A spacious family room with a queen bed, suitable for 3-6 people. Enjoy amenities like air-conditioning, free Wi-Fi, hairdryer, in-room safety, laundry, and telephone. The room offers a view of the forest and has a size of 40 square meters.',
     },
   },
 ];
@@ -159,19 +287,41 @@ export const suiteRoomList = [
     type: 'Suite Single Room',
     perNight: 215,
     descriptions: {
-      people: 1 - 2,
+      people: '1 - 2',
       amenities: [
-        'air-conditioning',
-        'free wi-fi',
-        'hairdryer',
-        'in-room safety',
-        'laundry',
-        'minibar',
-        'telephone',
+        {
+          icon: <TbAirConditioning />,
+          desc: 'Air-conditioning',
+        },
+        {
+          icon: <FaWifi />,
+          desc: 'Free Wi-Fi',
+        },
+        {
+          icon: <FaFan />,
+          desc: 'Hairdryer',
+        },
+        {
+          icon: <FaUserShield />,
+          desc: 'In-room safety',
+        },
+        {
+          icon: <MdOutlineLocalLaundryService />,
+          desc: 'Laundry',
+        },
+        {
+          icon: <MdLocalBar />,
+          desc: 'Minibar',
+        },
+        {
+          icon: <BsTelephone />,
+          desc: 'Telephone',
+        },
       ],
       view: 'Waterfall',
-      bedType: 'queen bed',
-      size: '40m&sup2',
+      bedType: 'Queen bed',
+      size: '40m²',
+      text: 'A luxurious suite for one or two guests. This suite offers amenities such as air-conditioning, free Wi-Fi, a hairdryer, in-room safety, laundry facilities, minibar, and telephone. Enjoy the view of the waterfall from this spacious 40 square meters suite.',
     },
   },
   {
@@ -184,19 +334,41 @@ export const suiteRoomList = [
     type: 'Suite Double Room',
     perNight: 235,
     descriptions: {
-      people: 1 - 3,
+      people: '1 - 3',
       amenities: [
-        'air-conditioning',
-        'free wi-fi',
-        'hairdryer',
-        'in-room safety',
-        'laundry',
-        'minibar',
-        'telephone',
+        {
+          icon: <TbAirConditioning />,
+          desc: 'Air-conditioning',
+        },
+        {
+          icon: <FaWifi />,
+          desc: 'Free Wi-Fi',
+        },
+        {
+          icon: <FaFan />,
+          desc: 'Hairdryer',
+        },
+        {
+          icon: <FaUserShield />,
+          desc: 'In-room safety',
+        },
+        {
+          icon: <MdOutlineLocalLaundryService />,
+          desc: 'Laundry',
+        },
+        {
+          icon: <MdLocalBar />,
+          desc: 'Minibar',
+        },
+        {
+          icon: <BsTelephone />,
+          desc: 'Telephone',
+        },
       ],
       view: 'Waterfall',
-      bedType: 'queen bed',
-      size: '40m&sup2',
+      bedType: 'Queen bed',
+      size: '40m²',
+      text: 'A luxurious suite for one to three guests. This suite offers amenities such as air-conditioning, free Wi-Fi, a hairdryer, in-room safety, laundry facilities, minibar, and telephone. Enjoy the view of the waterfall from this spacious 40 square meters suite.',
     },
   },
 ];

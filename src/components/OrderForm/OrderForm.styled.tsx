@@ -8,7 +8,7 @@ export const FormContainer = styled.div`
   overflow-y: auto;
   color: ${({ theme }) => theme.colors.primaryBrown};
   background-color: ${({ theme }) => theme.colors.primary};
-  background-image: url('images/about_images/bg-image-modal.png');
+  background-image: url('/images/about_images/bg-image-modal.png');
   background-size: cover;
   border-radius: 16px;
 `;

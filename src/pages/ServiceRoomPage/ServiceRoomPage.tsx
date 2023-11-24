@@ -3,7 +3,22 @@ import { Link, useParams } from 'react-router-dom';
 import RoomImagesSlider from '../../components/RoomImagesSlider';
 import { RoomType } from '../../types/types';
 import { familyRoomList, standartRoomList, suiteRoomList } from '../Services/Services';
-import { PriceDetails, RoomDetails, RoomTypeTitle, Wrapper } from './ServiceRoomPage.styled';
+import {
+  ContentInfo,
+  RoomAmentitiesItem,
+  RoomAmentitiesList,
+  RoomAmentitiesTitle,
+  RoomAmentitiesWrapper,
+  RoomDescription,
+  RoomInfo,
+  RoomPriceLabel,
+  RoomPriceNumber,
+  RoomPriceWrapper,
+  RoomServicesItem,
+  RoomServicesList,
+  RoomTitle,
+  Wrapper,
+} from './ServiceRoomPage.styled';
 
 const allRoomList = [...standartRoomList, ...familyRoomList, ...suiteRoomList];
 
@@ -51,18 +66,37 @@ const ServiceRoomPage: FC = () => {
       <Wrapper>
         <RoomImagesSlider images={roomData.images} />
 
-        <RoomDetails>
+        <ContentInfo>
           <Link to="/services">Go Back</Link>
-          <RoomTypeTitle>{roomData.type}</RoomTypeTitle>
+          <RoomInfo>
+            <RoomTitle>{roomData.type}</RoomTitle>
+            <RoomDescription>Description: {roomData.descriptions.text}</RoomDescription>
+            <RoomServicesList>
+              <RoomServicesItem>
+                Max number of guests: {roomData.descriptions.people}
+              </RoomServicesItem>
+              <RoomServicesItem>Room size: {roomData.descriptions.size}</RoomServicesItem>
+              <RoomServicesItem>Bed type: {roomData.descriptions.bedType}</RoomServicesItem>
+              <RoomServicesItem>View of: {roomData.descriptions.view}</RoomServicesItem>
+            </RoomServicesList>
+          </RoomInfo>
 
-          <PriceDetails>
-            <ul>
-              {roomData.descriptions.amenities.map((description, index) => (
-                <li key={index}>{description}</li>
+          <RoomAmentitiesWrapper>
+            <RoomAmentitiesList>
+              {roomData.descriptions.amenities.map(({ icon, desc }, index) => (
+                <RoomAmentitiesItem key={index}>
+                  {icon}
+                  <RoomAmentitiesTitle>{desc}</RoomAmentitiesTitle>
+                </RoomAmentitiesItem>
               ))}
-            </ul>
-          </PriceDetails>
-        </RoomDetails>
+            </RoomAmentitiesList>
+          </RoomAmentitiesWrapper>
+
+          <RoomPriceWrapper>
+            <RoomPriceLabel>Price per night</RoomPriceLabel>
+            <RoomPriceNumber>{roomData.perNight}$</RoomPriceNumber>
+          </RoomPriceWrapper>
+        </ContentInfo>
       </Wrapper>
     );
   }
