@@ -22,13 +22,13 @@ const RoomImagesSlider: FC<SliderProps> = ({ images }) => {
         effect={'fade'}
         thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
         modules={[EffectFade, FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
+        className="mySwiper swiperActive"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             <FancyboxWrapper>
               <a href={image} data-fancybox="room-gallery">
-                <img src={image} alt="room image" />
+                <img style={{ borderRadius: 'none' }} src={image} alt="room image" />
               </a>
             </FancyboxWrapper>
           </SwiperSlide>

@@ -57,12 +57,6 @@ export type RoomType = {
   images: string[];
   type: string;
   perNight: number;
-  descriptions: {
-    people: string;
-    amenities: { icon: ReactNode; desc: string }[];
-    view: string;
-    bedType: string;
-    size: string;
-    text: string
-  };
+  description: string;
+  amenities: { icon: ReactNode; desc: string }[];
 };

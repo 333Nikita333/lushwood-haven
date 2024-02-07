@@ -37,7 +37,7 @@
 }
 
 .mySwiper2 {
-  max-height: 20vh;
+  max-height: 25vh;
   box-sizing: border-box;
   padding: 10px 0;
 }
@@ -46,15 +46,24 @@
   width: 25%;
   height: 100%;
   opacity: 0.4;
+  border-radius: 15px;
 }
 
 .mySwiper2 .swiper-slide-thumb-active {
   opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+.swiperActive .swiper-slide img {
+  border-radius: 0;
 }
-
 .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 15px;
+}
+.swiperActive {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Wrapper = styled.main`
   display: flex;
   flex-wrap: wrap;
-  background-color: white;
+  background: rgb(25, 69, 8);
+  background-image: linear-gradient(to right, #00b09b, #96c93d);
 `;
 export const ContentInfo = styled.section`
   display: grid;
@@ -20,29 +21,54 @@ export const ContentInfo = styled.section`
     padding: 0 25px;
   }
 `;
-export const RoomInfo = styled.div`
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.5;
-`;
 export const RoomTitle = styled.h2`
-  font-size: 2.255rem;
+  font-size: calc(var(--index) * 2.6);
   font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: calc(var(--index) * 2.7);
+  line-height: 1.5;
+  background: linear-gradient(to right, #095609, #000000);
+  background-clip: text;
+  color: transparent;
+  
+  @media screen and (min-width: 481px) {
+    font-size: calc(var(--index) * 2.5);
+  }
 `;
-export const RoomDescription = styled.p``;
-export const RoomServicesList = styled.ul`
-  margin-top: calc(30 / 16 + rem);
-  margin-bottom: calc(20 / 16 + rem);
+export const RoomInfo = styled.div``;
+export const RoomDescriptionTitle = styled.h3`
+  font-size: calc(var(--index) * 2);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    border-bottom: 3px solid ${({ theme }) => theme.colors.primaryBrown};
+  }
 `;
-export const RoomServicesItem = styled.li``;
+export const RoomDescription = styled.p`
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 25px 25px 25px 0;
+  border: 2px solid ${({ theme }) => theme.colors.primaryBrown};
+  padding: 5px;
+`;
 export const RoomAmentitiesWrapper = styled.div`
   margin-top: calc(40 / 16 + rem);
+`;
+export const RoomAmentitiesTitle = styled.h3`
+  font-size: calc(var(--index) * 2);
 `;
 export const RoomAmentitiesList = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding-top: calc(30 / 16 + rem);
-  border-top: 1px solid #e4e4e4;
 `;
 export const RoomAmentitiesItem = styled.li`
   display: flex;
@@ -56,7 +82,7 @@ export const RoomAmentitiesItem = styled.li`
     height: 24px;
   }
 `;
-export const RoomAmentitiesTitle = styled.span`
+export const RoomAmentitieTitle = styled.span`
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.5;

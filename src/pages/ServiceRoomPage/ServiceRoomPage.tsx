@@ -5,17 +5,17 @@ import { RoomType } from '../../types/types';
 import { familyRoomList, standartRoomList, suiteRoomList } from '../Services/Services';
 import {
   ContentInfo,
+  RoomAmentitieTitle,
   RoomAmentitiesItem,
   RoomAmentitiesList,
   RoomAmentitiesTitle,
   RoomAmentitiesWrapper,
   RoomDescription,
+  RoomDescriptionTitle,
   RoomInfo,
   RoomPriceLabel,
   RoomPriceNumber,
   RoomPriceWrapper,
-  RoomServicesItem,
-  RoomServicesList,
   RoomTitle,
   Wrapper,
 } from './ServiceRoomPage.styled';
@@ -57,7 +57,7 @@ const ServiceRoomPage: FC = () => {
     return <Wrapper>Not found any room</Wrapper>;
   }
 
-  if (isLoading) {
+  if (isLoading && roomData) {
     return <div style={{ fontSize: '32px', textAlign: 'center' }}>Loading...</div>;
   }
 
@@ -68,25 +68,19 @@ const ServiceRoomPage: FC = () => {
 
         <ContentInfo>
           <Link to="/services">Go Back</Link>
+          <RoomTitle>{roomData.type}</RoomTitle>
           <RoomInfo>
-            <RoomTitle>{roomData.type}</RoomTitle>
-            <RoomDescription>Description: {roomData.descriptions.text}</RoomDescription>
-            <RoomServicesList>
-              <RoomServicesItem>
-                Max number of guests: {roomData.descriptions.people}
-              </RoomServicesItem>
-              <RoomServicesItem>Room size: {roomData.descriptions.size}</RoomServicesItem>
-              <RoomServicesItem>Bed type: {roomData.descriptions.bedType}</RoomServicesItem>
-              <RoomServicesItem>View of: {roomData.descriptions.view}</RoomServicesItem>
-            </RoomServicesList>
+            <RoomDescriptionTitle>Description</RoomDescriptionTitle>
+            <RoomDescription>{roomData.description}</RoomDescription>
           </RoomInfo>
 
           <RoomAmentitiesWrapper>
+            <RoomAmentitiesTitle>Amenities</RoomAmentitiesTitle>
             <RoomAmentitiesList>
-              {roomData.descriptions.amenities.map(({ icon, desc }, index) => (
+              {roomData.amenities.map(({ icon, desc }, index) => (
                 <RoomAmentitiesItem key={index}>
                   {icon}
-                  <RoomAmentitiesTitle>{desc}</RoomAmentitiesTitle>
+                  <RoomAmentitieTitle>{desc}</RoomAmentitieTitle>
                 </RoomAmentitiesItem>
               ))}
             </RoomAmentitiesList>
