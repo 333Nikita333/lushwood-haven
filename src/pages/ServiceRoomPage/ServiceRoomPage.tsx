@@ -5,9 +5,11 @@ import { RoomType } from '../../types/types';
 import { familyRoomList, standartRoomList, suiteRoomList } from '../Services/Services';
 import {
   ContentInfo,
+  MainInfo,
   RoomAmentitieTitle,
   RoomAmentitiesItem,
-  RoomAmentitiesList,
+  RoomAmentitiesRow,
+  RoomAmentitiesTable,
   RoomAmentitiesTitle,
   RoomAmentitiesWrapper,
   RoomDescription,
@@ -37,6 +39,8 @@ const ServiceRoomPage: FC = () => {
         }
 
         setRoomData(curRoom);
+        document.title = curRoom.type || 'Room of Lushwood Haven';
+
         setIsLoading(false);
       } catch (error) {
         console.log(error);
@@ -51,14 +55,16 @@ const ServiceRoomPage: FC = () => {
     };
   }, [roomId]);
 
-  console.log('roomData =>', roomData);
-
   if (!roomData && !isLoading) {
     return <Wrapper>Not found any room</Wrapper>;
   }
 
   if (isLoading && roomData) {
-    return <div style={{ fontSize: '32px', textAlign: 'center' }}>Loading...</div>;
+    return (
+      <Wrapper>
+        <div style={{ fontSize: '32px', textAlign: 'center' }}>Loading...</div>
+      </Wrapper>
+    );
   }
 
   if (roomData && !isLoading) {
@@ -69,27 +75,33 @@ const ServiceRoomPage: FC = () => {
         <ContentInfo>
           <Link to="/services">Go Back</Link>
           <RoomTitle>{roomData.type}</RoomTitle>
-          <RoomInfo>
-            <RoomDescriptionTitle>Description</RoomDescriptionTitle>
-            <RoomDescription>{roomData.description}</RoomDescription>
-          </RoomInfo>
+          <MainInfo>
+            <RoomInfo>
+              <RoomDescriptionTitle>Description</RoomDescriptionTitle>
+              <RoomDescription>{roomData.description}</RoomDescription>
+            </RoomInfo>
 
-          <RoomAmentitiesWrapper>
-            <RoomAmentitiesTitle>Amenities</RoomAmentitiesTitle>
-            <RoomAmentitiesList>
-              {roomData.amenities.map(({ icon, desc }, index) => (
-                <RoomAmentitiesItem key={index}>
-                  {icon}
-                  <RoomAmentitieTitle>{desc}</RoomAmentitieTitle>
-                </RoomAmentitiesItem>
-              ))}
-            </RoomAmentitiesList>
-          </RoomAmentitiesWrapper>
+            <RoomAmentitiesWrapper>
+              <RoomAmentitiesTitle>Amenities</RoomAmentitiesTitle>
+              <RoomAmentitiesTable>
+                <tbody>
+                  {roomData.amenities.map(({ icon, desc }, index) => (
+                    <RoomAmentitiesRow key={index}>
+                      <RoomAmentitiesItem>{icon}</RoomAmentitiesItem>
+                      <RoomAmentitiesItem>
+                        <RoomAmentitieTitle>{desc}</RoomAmentitieTitle>
+                      </RoomAmentitiesItem>
+                    </RoomAmentitiesRow>
+                  ))}
+                </tbody>
+              </RoomAmentitiesTable>
+            </RoomAmentitiesWrapper>
 
-          <RoomPriceWrapper>
-            <RoomPriceLabel>Price per night</RoomPriceLabel>
-            <RoomPriceNumber>{roomData.perNight}$</RoomPriceNumber>
-          </RoomPriceWrapper>
+            <RoomPriceWrapper>
+              <RoomPriceLabel>Price per night</RoomPriceLabel>
+              <RoomPriceNumber>{roomData.perNight}$</RoomPriceNumber>
+            </RoomPriceWrapper>
+          </MainInfo>
         </ContentInfo>
       </Wrapper>
     );

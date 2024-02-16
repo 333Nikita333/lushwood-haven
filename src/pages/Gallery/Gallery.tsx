@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import 'react-imgr/dist/styles.min.css';
 import Gallery, { RenderImageProps } from 'react-photo-gallery';
 import { photos } from '../../data/photos';
@@ -8,6 +8,10 @@ import { GalleryWrapper, Link, Photo } from './Gallery.styled';
 
 const GalleryPage: FC = () => {
   const { isLoading, validPhotos } = useImageValidation(photos);
+
+  useEffect(() => {
+    document.title = 'Gallery';
+  }, []);
 
   const renderImage = useCallback(
     ({ photo, index }: RenderImageProps) => {

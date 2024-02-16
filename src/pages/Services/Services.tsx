@@ -1,8 +1,7 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { BsTelephone } from 'react-icons/bs';
 import { FaFan, FaGuitar, FaSpa, FaUserShield, FaWifi } from 'react-icons/fa';
-import { GiHomeGarage } from 'react-icons/gi';
-import { GrOverview } from 'react-icons/gr';
+import { GiHomeGarage, GiBinoculars } from 'react-icons/gi';
 import { IoIosPeople } from 'react-icons/io';
 import { IoBed, IoRestaurantOutline } from 'react-icons/io5';
 import {
@@ -55,7 +54,7 @@ export const standartRoomList = [
         desc: '1 - 2 Persons',
       },
       {
-        icon: <GrOverview />,
+        icon: <GiBinoculars />,
         desc: 'Beach view',
       },
       {
@@ -101,7 +100,7 @@ export const standartRoomList = [
         desc: '1 - 3 Persons',
       },
       {
-        icon: <GrOverview />,
+        icon: <GiBinoculars />,
         desc: 'Beach view',
       },
       {
@@ -151,7 +150,7 @@ export const standartRoomList = [
         desc: '1 - 3 Persons',
       },
       {
-        icon: <GrOverview />,
+        icon: <GiBinoculars />,
         desc: 'Beach view',
       },
       {
@@ -203,7 +202,7 @@ export const familyRoomList = [
         desc: '3 - 4 Persons',
       },
       {
-        icon: <GrOverview />,
+        icon: <GiBinoculars />,
         desc: 'Beach view',
       },
       {
@@ -253,7 +252,7 @@ export const familyRoomList = [
         desc: '3 - 6 Persons',
       },
       {
-        icon: <GrOverview />,
+        icon: <GiBinoculars />,
         desc: 'Forest',
       },
       {
@@ -307,7 +306,7 @@ export const familyRoomList = [
         desc: '3 - 6 Persons',
       },
       {
-        icon: <GrOverview />,
+        icon: <GiBinoculars />,
         desc: 'Forest',
       },
       {
@@ -363,7 +362,7 @@ export const suiteRoomList = [
         desc: '1 - 2 Persons',
       },
       {
-        icon: <GrOverview />,
+        icon: <GiBinoculars />,
         desc: 'Waterfall',
       },
       {
@@ -401,7 +400,7 @@ export const suiteRoomList = [
       {
         icon: <BsTelephone />,
         desc: 'Telephone',
-      }
+      },
     ],
   },
   {
@@ -421,7 +420,7 @@ export const suiteRoomList = [
         desc: '1 - 3 Persons',
       },
       {
-        icon: <GrOverview />,
+        icon: <GiBinoculars />,
         desc: 'Waterfall',
       },
       {
@@ -510,6 +509,10 @@ const listServicesTwo = [
 ];
 
 const Services: FC = () => {
+  useEffect(() => {
+    document.title = 'Services';
+  }, []);
+
   return (
     <WrapperOuter>
       <ServiceBgParallaxContainer options={oneOptions}>

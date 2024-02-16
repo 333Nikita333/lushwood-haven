@@ -34,6 +34,14 @@ const Header: FC = () => {
     };
   }, [prevScrollPos]);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isMobileMenuOpen]);
+
   const toggleModal = (): void => {
     setIsModalOpen(prevState => !prevState);
   };
@@ -44,6 +52,7 @@ const Header: FC = () => {
 
   return (
     <HeaderContainer
+      $isMobileMenuOpen={isMobileMenuOpen}
       style={{
         transform: isHeaderVisible ? 'translateX(0)' : 'translateX(-100%)',
       }}
@@ -54,7 +63,7 @@ const Header: FC = () => {
         </MobileMenuButton>
       )}
 
-      <MobileMenuHeader isOpen={isMobileMenuOpen} onClose={toggleMobileMenu} />
+      <MobileMenuHeader isMobileMenuOpen={isMobileMenuOpen} onClose={toggleMobileMenu} />
 
       <Navigation />
 

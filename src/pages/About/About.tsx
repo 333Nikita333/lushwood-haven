@@ -11,6 +11,8 @@ const AboutPage: FC = () => {
   const galleryRightRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
+    document.title = 'About';
+
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.refresh();

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.header<{ $isMobileMenuOpen: boolean }>`
   position: fixed;
   z-index: 2;
   display: flex;
@@ -11,6 +11,21 @@ export const HeaderContainer = styled.header`
   color: ${({ theme }) => theme.colors.primary};
   background: transparent;
   transition: transform 0.3s ease-in-out;
+  
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: ${({ $isMobileMenuOpen }) => ($isMobileMenuOpen ? '1' : '0')};
+    pointer-events: ${({ $isMobileMenuOpen }) => ($isMobileMenuOpen ? 'auto' : 'none')};
+    transition: opacity 0.3s ease-in-out;
+    z-index: -1;
+  }
 `;
 export const Wrapper = styled.div`
   display: flex;

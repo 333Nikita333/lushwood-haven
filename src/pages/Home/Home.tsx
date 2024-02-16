@@ -22,6 +22,8 @@ const HomePage: FC = () => {
   }, [scrollPosition, viewportHeight]);
 
   useEffect(() => {
+    document.title = 'Lushwood Haven';
+
     setViewportHeight(window.innerHeight);
     const handleScroll = (): void => {
       document.documentElement.style.setProperty('--scrollTop', `${window.scrollY}px`);
@@ -50,4 +52,5 @@ const HomePage: FC = () => {
     </Content>
   );
 };
+
 export default HomePage;

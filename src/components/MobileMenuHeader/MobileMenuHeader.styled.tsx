@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const MobileMenuContainer = styled.div<{ $isOpen: boolean }>`
+export const MobileMenuContainer = styled.div<{ $isMobileMenuOpen: boolean }>`
   position: fixed;
   z-index: 9999;
   top: 0;
-  left: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
+  left: ${({ $isMobileMenuOpen }) => ($isMobileMenuOpen ? '0' : '-100%')};
   display: flex;
   flex-direction: column;
   padding: 20px;

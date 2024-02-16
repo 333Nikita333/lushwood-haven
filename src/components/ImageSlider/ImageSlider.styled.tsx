@@ -13,6 +13,9 @@ export const Wrapper = styled.div`
   @media (min-width: 1024px) {
     max-width: calc(var(--index) * 15);
   }
+  .swiper-slide {
+    border-radius: 15px;
+  }
 
   & .swiper {
     height: auto;

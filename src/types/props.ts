@@ -22,7 +22,7 @@ export interface IModalProps {
   children: ReactNode;
 }
 export interface IMobileMenuProps {
-  isOpen: boolean;
+  isMobileMenuOpen: boolean;
   onClose: () => void;
 }
 export interface IBookRoomButtonProps {

@@ -22,7 +22,7 @@ const ImageSlider: FC<SliderProps> = ({ images }) => {
         modules={[Autoplay, FreeMode, Navigation]}
       >
         {images.map((image, index) => (
-          <SwiperSlide style={{ width: 480 }} key={image} virtualIndex={index}>
+          <SwiperSlide style={{ width: 480 }} key={index} virtualIndex={index}>
             <img src={image} alt={`Slide ${index}`} style={{ height: '100%' }} />
           </SwiperSlide>
         ))}

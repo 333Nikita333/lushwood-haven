@@ -7,18 +7,25 @@ export const Wrapper = styled.main`
   background-image: linear-gradient(to right, #00b09b, #96c93d);
 `;
 export const ContentInfo = styled.section`
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: calc(40 / 16 + rem);
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px;
-
-  @media screen and (min-width: 1025px) {
-    grid-template-columns: 2fr 380px;
-    column-gap: calc(45 / 16 + rem);
+  text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.3);
+  
+  @media screen and (min-width: 1200px) {
     padding: 0 25px;
+  }
+`;
+export const MainInfo = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 10px;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 2fr 380px;
   }
 `;
 export const RoomTitle = styled.h2`
@@ -28,20 +35,21 @@ export const RoomTitle = styled.h2`
   margin-bottom: 20px;
   font-size: calc(var(--index) * 2.7);
   line-height: 1.5;
-  background: linear-gradient(to right, #095609, #000000);
-  background-clip: text;
-  color: transparent;
-  
+  color: #2f3817;
+
   @media screen and (min-width: 481px) {
     font-size: calc(var(--index) * 2.5);
   }
 `;
-export const RoomInfo = styled.div``;
+export const RoomInfo = styled.div`
+  margin-bottom: 30px;
+`;
 export const RoomDescriptionTitle = styled.h3`
   font-size: calc(var(--index) * 2);
   padding-bottom: 5px;
   margin-bottom: 10px;
   position: relative;
+  color: #2f3817;
 
   &::after {
     content: '';
@@ -55,40 +63,73 @@ export const RoomDescriptionTitle = styled.h3`
 export const RoomDescription = styled.p`
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
-  border-radius: 25px 25px 25px 0;
+  border-radius: 45px 45px 45px 0;
   border: 2px solid ${({ theme }) => theme.colors.primaryBrown};
-  padding: 5px;
+  padding: 15px;
+  font-size: calc(var(--index) * 1.6);
+  color: #2f3817;
 `;
 export const RoomAmentitiesWrapper = styled.div`
   margin-top: calc(40 / 16 + rem);
 `;
+
 export const RoomAmentitiesTitle = styled.h3`
   font-size: calc(var(--index) * 2);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  position: relative;
+  color: #2f3817;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    border-bottom: 3px solid ${({ theme }) => theme.colors.primaryBrown};
+  }
 `;
-export const RoomAmentitiesList = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding-top: calc(30 / 16 + rem);
-`;
-export const RoomAmentitiesItem = styled.li`
+export const RoomAmentitiesTable = styled.table`
+  width: 100%;
+  border-collapse: collapse;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 
-  &:not(:nth-of-type(n + 9)) {
-    margin-bottom: calc(25 / 16 + rem);
-  }
-  & > svg {
-    width: 24px;
-    height: 24px;
+  & > tbody {
+    @media screen and (min-width: 481px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 480px;
+      gap: 5px;
+    }
   }
 `;
-export const RoomAmentitieTitle = styled.span`
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.5;
+export const RoomAmentitiesRow = styled.tr``;
+export const RoomAmentitiesItem = styled.td`
+  padding: 5px;
 
-  margin-left: calc(10 / 16 + rem);
+  & svg {
+    width: 50px;
+    height: 50px;
+    box-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 5px;
+    border: 1px solid #2f3817;
+    color: #2f3817;
+  }
 `;
+
+export const RoomAmentitieTitle = styled.p`
+  font-size: calc(var(--index) * 1.8);
+  font-weight: 900;
+  font-style: italic;
+  color: #2f3817;
+
+  @media screen and (min-width: 481px) {
+    font-size: calc(var(--index) * 1.2);
+  }
+`;
+
 export const RoomPriceWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
