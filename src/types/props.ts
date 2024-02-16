@@ -53,3 +53,7 @@ export interface ServiceMainInfoProps {
     name: string;
   }[];
 }
+export interface INavigateButtonProps {
+  path: string;
+  text: string;
+}

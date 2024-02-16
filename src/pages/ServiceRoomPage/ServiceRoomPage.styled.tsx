@@ -10,6 +10,7 @@ export const ContentInfo = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px;
