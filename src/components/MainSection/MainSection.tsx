@@ -22,7 +22,7 @@ const MainSection: FC = () => {
           retreat promises an experience like no other.
         </MainArticleText>
       </MainArticleContent>
-      <Copy>© 2023. Mykyta Hilis</Copy>
+      <Copy>© 2024. Mykyta Hilis</Copy>
     </MainArticle>
   );
 };

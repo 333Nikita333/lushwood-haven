@@ -27,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: outfit_r;
     src: url(/fonts/outfit-regular.woff2);
   }
+  @font-face {
+    font-family: josefin_sans_regular;
+    src: url(/fonts/josefin-sans-regular.woff2);
+  }
   
   body {
     font-family: raleway_r, sans-serif;

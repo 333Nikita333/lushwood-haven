@@ -10,7 +10,7 @@ export const Button = styled(Link)`
   padding: 10px;
   background-image: linear-gradient(to top, #114633 0%, #4cedb5 80%, #28a479 100%);
   border-radius: 30px;
-  border: 1px solid #8b4513;
+  border: 2px solid #8b4513;
   transition: all 0.2s ease;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 15px;

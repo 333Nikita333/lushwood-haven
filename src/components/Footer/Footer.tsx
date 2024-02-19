@@ -51,7 +51,7 @@ const Footer: FC = () => {
           <FooterContactForm />
         </Modal>
       </ContentWrapper>
-      <p>&copy;2023 Mykyta Hilis | All Rights Reserved</p>
+      <p>&copy;2024 Mykyta Hilis | All Rights Reserved</p>
     </FooterWrapper>
   );
 };
