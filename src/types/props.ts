@@ -57,3 +57,10 @@ export interface INavigateButtonProps {
   path: string;
   text: string;
 }
+export interface IRoomDescriptionInfoProps {
+  type: string;
+  perNight: number;
+  description: string;
+  amenities: { icon: ReactNode; desc: string }[];
+}
+

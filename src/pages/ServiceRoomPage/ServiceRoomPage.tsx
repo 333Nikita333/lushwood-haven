@@ -1,34 +1,18 @@
 import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import NavigateButton from '../../components/NavigateButton';
+import RoomDescriptionInfo from '../../components/RoomDescriptionInfo';
 import RoomImagesSlider from '../../components/RoomImagesSlider';
 import { RoomType } from '../../types/types';
 import { familyRoomList, standartRoomList, suiteRoomList } from '../Services/Services';
-import {
-  ContentInfo,
-  MainInfo,
-  RoomAmentitieTitle,
-  RoomAmentitiesItem,
-  RoomAmentitiesRow,
-  RoomAmentitiesTable,
-  RoomAmentitiesTitle,
-  RoomAmentitiesWrapper,
-  RoomDescription,
-  RoomDescriptionTitle,
-  RoomInfo,
-  RoomPriceLabel,
-  RoomPriceNumber,
-  RoomPriceWrapper,
-  RoomTitle,
-  Wrapper,
-} from './ServiceRoomPage.styled';
-import NavigateButton from '../../components/NavigateButton';
+import { ContentInfo, Wrapper } from './ServiceRoomPage.styled';
 
 const allRoomList = [...standartRoomList, ...familyRoomList, ...suiteRoomList];
 
 const ServiceRoomPage: FC = () => {
   const { roomId } = useParams();
   const [roomData, setRoomData] = useState<RoomType | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const searchRoomData = (roomId: string): void => {
@@ -72,34 +56,8 @@ const ServiceRoomPage: FC = () => {
 
           <ContentInfo>
             <NavigateButton path="/services" text="Go Back" />
-            <RoomTitle>{roomData.type}</RoomTitle>
-            <MainInfo>
-              <RoomInfo>
-                <RoomDescriptionTitle>Description</RoomDescriptionTitle>
-                <RoomDescription>{roomData.description}</RoomDescription>
-              </RoomInfo>
 
-              <RoomAmentitiesWrapper>
-                <RoomAmentitiesTitle>Amenities</RoomAmentitiesTitle>
-                <RoomAmentitiesTable>
-                  <tbody>
-                    {roomData.amenities.map(({ icon, desc }, index) => (
-                      <RoomAmentitiesRow key={index}>
-                        <RoomAmentitiesItem>{icon}</RoomAmentitiesItem>
-                        <RoomAmentitiesItem>
-                          <RoomAmentitieTitle>{desc}</RoomAmentitieTitle>
-                        </RoomAmentitiesItem>
-                      </RoomAmentitiesRow>
-                    ))}
-                  </tbody>
-                </RoomAmentitiesTable>
-              </RoomAmentitiesWrapper>
-
-              <RoomPriceWrapper>
-                <RoomPriceLabel>Price per night</RoomPriceLabel>
-                <RoomPriceNumber>{roomData.perNight}$</RoomPriceNumber>
-              </RoomPriceWrapper>
-            </MainInfo>
+            <RoomDescriptionInfo roomData={roomData} />
           </ContentInfo>
         </>
       )}

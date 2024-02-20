@@ -37,12 +37,11 @@ export const standartRoomList = [
   {
     id: 'standart-single',
     images: [
-      '/images/services_images/page1.png',
-      '/images/services_images/page2.png',
-      '/images/services_images/page3.png',
-      '/images/services_images/page1.png',
-      '/images/services_images/page2.png',
-      '/images/services_images/page3.png',
+      '/images/services_images/standart_rooms/single/page1.jpg',
+      '/images/services_images/standart_rooms/single/page2.jpg',
+      '/images/services_images/standart_rooms/single/page3.jpg',
+      '/images/services_images/standart_rooms/single/page4.jpg',
+      '/images/services_images/standart_rooms/single/page5.jpg',
     ],
     type: 'Standard Single Room',
     perNight: 119,
@@ -86,9 +85,10 @@ export const standartRoomList = [
   {
     id: 'standart-double',
     images: [
-      '/images/services_images/page1.png',
-      '/images/services_images/page2.png',
-      '/images/services_images/page3.png',
+      '/images/services_images/standart_rooms/double/page1.jpg',
+      '/images/services_images/standart_rooms/double/page2.jpg',
+      '/images/services_images/standart_rooms/double/page3.jpg',
+      '/images/services_images/standart_rooms/double/page4.jpg',
     ],
     type: 'Standard Double Room',
     perNight: 159,
@@ -136,9 +136,10 @@ export const standartRoomList = [
   {
     id: 'standart-max',
     images: [
-      '/images/services_images/page1.png',
-      '/images/services_images/page2.png',
-      '/images/services_images/page3.png',
+      '/images/services_images/standart_rooms/max/page1.jpg',
+      '/images/services_images/standart_rooms/max/page2.jpg',
+      '/images/services_images/standart_rooms/max/page3.jpg',
+      '/images/services_images/standart_rooms/max/page4.jpg',
     ],
     type: 'Standard Max Room',
     perNight: 179,
@@ -188,9 +189,11 @@ export const familyRoomList = [
   {
     id: 'family-double',
     images: [
-      '/images/services_images/page1.png',
-      '/images/services_images/page2.png',
-      '/images/services_images/page3.png',
+      '/images/services_images/family_rooms/double/page1.jpg',
+      '/images/services_images/family_rooms/double/page2.jpg',
+      '/images/services_images/family_rooms/double/page3.jpg',
+      '/images/services_images/family_rooms/double/page4.jpg',
+      '/images/services_images/family_rooms/double/page5.jpg',
     ],
     type: 'Family Double Room',
     perNight: 169,
@@ -238,9 +241,11 @@ export const familyRoomList = [
   {
     id: 'family-triple',
     images: [
-      '/images/services_images/page1.png',
-      '/images/services_images/page2.png',
-      '/images/services_images/page3.png',
+      '/images/services_images/family_rooms/triple/page1.jpg',
+      '/images/services_images/family_rooms/triple/page2.jpg',
+      '/images/services_images/family_rooms/triple/page3.jpg',
+      '/images/services_images/family_rooms/triple/page4.jpg',
+      '/images/services_images/family_rooms/triple/page5.jpg',
     ],
     type: 'Family Triple Room',
     perNight: 189,
@@ -292,9 +297,11 @@ export const familyRoomList = [
   {
     id: 'family-max',
     images: [
-      '/images/services_images/page1.png',
-      '/images/services_images/page2.png',
-      '/images/services_images/page3.png',
+      '/images/services_images/family_rooms/max/page1.jpg',
+      '/images/services_images/family_rooms/max/page2.jpg',
+      '/images/services_images/family_rooms/max/page3.jpg',
+      '/images/services_images/family_rooms/max/page4.jpg',
+      '/images/services_images/family_rooms/max/page5.jpg',
     ],
     type: 'Family Max Room',
     perNight: 189,
@@ -348,9 +355,11 @@ export const suiteRoomList = [
   {
     id: 'suite-single',
     images: [
-      '/images/services_images/page1.png',
-      '/images/services_images/page2.png',
-      '/images/services_images/page3.png',
+      '/images/services_images/suite_rooms/single/page1.jpg',
+      '/images/services_images/suite_rooms/single/page2.jpg',
+      '/images/services_images/suite_rooms/single/page3.jpg',
+      '/images/services_images/suite_rooms/single/page4.jpg',
+      '/images/services_images/suite_rooms/single/page5.jpg',
     ],
     type: 'Suite Single Room',
     perNight: 215,
@@ -406,9 +415,11 @@ export const suiteRoomList = [
   {
     id: 'suite-double',
     images: [
-      '/images/services_images/page1.png',
-      '/images/services_images/page2.png',
-      '/images/services_images/page3.png',
+      '/images/services_images/suite_rooms/double/page1.jpg',
+      '/images/services_images/suite_rooms/double/page2.jpg',
+      '/images/services_images/suite_rooms/double/page3.jpg',
+      '/images/services_images/suite_rooms/double/page4.jpg',
+      '/images/services_images/suite_rooms/double/page5.jpg',
     ],
     type: 'Suite Double Room',
     perNight: 235,

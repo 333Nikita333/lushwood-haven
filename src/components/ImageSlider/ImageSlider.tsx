@@ -23,7 +23,7 @@ const ImageSlider: FC<SliderProps> = ({ images }) => {
       >
         {images.map((image, index) => (
           <SwiperSlide style={{ width: 480 }} key={index} virtualIndex={index}>
-            <img src={image} alt={`Slide ${index}`} style={{ height: '100%' }} />
+            <img src={image} alt={`Slide ${index}`} />
           </SwiperSlide>
         ))}
       </Swiper>

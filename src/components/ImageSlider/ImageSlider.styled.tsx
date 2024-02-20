@@ -16,6 +16,11 @@ export const Wrapper = styled.div`
   .swiper-slide {
     border-radius: 15px;
   }
+  .swiper-slide img {
+    height: 250px;
+    /* max-width: 335px; */
+    width: 100%;
+  }
 
   & .swiper {
     height: auto;
