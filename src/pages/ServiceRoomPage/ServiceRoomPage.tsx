@@ -15,8 +15,10 @@ const ServiceRoomPage: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const searchRoomData = (roomId: string): void => {
+    const searchRoomData = async (roomId: string): Promise<void> => {
       try {
+        // simulated request
+        await new Promise(resolve => setTimeout(resolve, 1000));
         const curRoom = allRoomList.find((room: RoomType) => roomId === room.id);
 
         if (!curRoom) {
@@ -44,11 +46,24 @@ const ServiceRoomPage: FC = () => {
 
   return (
     <Wrapper>
-      {!roomData && !isLoading && <Wrapper>Not found any room</Wrapper>}
-
-      {roomData && isLoading && (
-        <div style={{ fontSize: '32px', textAlign: 'center' }}>Loading...</div>
+      {isLoading && (
+        <div
+          style={{
+            minHeight: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontSize: '52px',
+            textAlign: 'center',
+            padding: '20px',
+            width: '100%',
+          }}
+        >
+          Loading...
+        </div>
       )}
+
+      {!roomData && !isLoading && <Wrapper>Not found any room</Wrapper>}
 
       {roomData && !isLoading && (
         <>
