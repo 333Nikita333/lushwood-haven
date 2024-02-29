@@ -28,5 +28,9 @@ export default function FancyboxWrapper(props: IFancyboxProps) {
     };
   });
 
-  return <div style={{ width: '100%', height: '100%' }} ref={containerRef}>{props.children}</div>;
+  return (
+    <div style={{ width: '100%', height: '100%' }} ref={containerRef}>
+      {props.children}
+    </div>
+  );
 }

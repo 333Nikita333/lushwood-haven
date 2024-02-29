@@ -63,4 +63,3 @@ export interface IRoomDescriptionInfoProps {
   description: string;
   amenities: { icon: ReactNode; desc: string }[];
 }
-
