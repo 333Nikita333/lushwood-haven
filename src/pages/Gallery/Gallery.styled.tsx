@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'react-imgr';
 
-export const GalleryWrapper = styled.div`
+export const GalleryWrapper = styled.main`
   padding: 5px;
   background-image: url(images/gallery_images/bg-gallery.png);
   background-size: cover;

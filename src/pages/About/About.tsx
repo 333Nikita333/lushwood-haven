@@ -15,59 +15,81 @@ const AboutPage: FC = () => {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    ScrollTrigger.refresh();
+    const handleImagesLoaded = () => {
+      ScrollTrigger.refresh();
 
-    gsap.fromTo(
-      heroSectionRef.current,
-      { opacity: 1 },
-      {
-        opacity: 0,
-        scrollTrigger: {
-          trigger: heroSectionRef.current,
-          start: '50px',
-          end: '820px',
-          scrub: true,
-        },
+      gsap.fromTo(
+        heroSectionRef.current,
+        { opacity: 1 },
+        {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: heroSectionRef.current,
+            start: '50px',
+            end: '820px',
+            scrub: true,
+          },
+        }
+      );
+
+      const itemsL = galleryLeftRef.current!.querySelectorAll('.gallery__item');
+
+      itemsL.forEach(item => {
+        gsap.fromTo(
+          item,
+          { opacity: 0, x: -150 },
+          {
+            opacity: 1,
+            x: 0,
+            scrollTrigger: {
+              trigger: item,
+              start: '-850px',
+              end: '-100px',
+              scrub: true,
+            },
+          }
+        );
+      });
+
+      const itemsR = galleryRightRef.current!.querySelectorAll('.gallery__item');
+
+      itemsR.forEach(item => {
+        gsap.fromTo(
+          item,
+          { opacity: 0, x: 150 },
+          {
+            opacity: 1,
+            x: 0,
+            scrollTrigger: {
+              trigger: item,
+              start: '-750px',
+              end: 'top',
+              scrub: true,
+            },
+          }
+        );
+      });
+    };
+
+    const images = document.querySelectorAll('img');
+    let loadedImages = 0;
+
+    images.forEach(image => {
+      if (image.complete) {
+        loadedImages++;
+      } else {
+        image.addEventListener('load', () => {
+          loadedImages++;
+          if (loadedImages === images.length) {
+            handleImagesLoaded();
+          }
+        });
       }
-    );
-
-    const itemsL = galleryLeftRef.current!.querySelectorAll('.gallery__item');
-
-    itemsL.forEach(item => {
-      gsap.fromTo(
-        item,
-        { opacity: 0, x: -150 },
-        {
-          opacity: 1,
-          x: 0,
-          scrollTrigger: {
-            trigger: item,
-            start: '-850px',
-            end: '-100px',
-            scrub: true,
-          },
-        }
-      );
     });
 
-    const itemsR = galleryRightRef.current!.querySelectorAll('.gallery__item');
-
-    itemsR.forEach(item => {
-      gsap.fromTo(
-        item,
-        { opacity: 0, x: 150 },
-        {
-          opacity: 1,
-          x: 0,
-          scrollTrigger: {
-            trigger: item,
-            start: '-750px',
-            end: 'top',
-            scrub: true,
-          },
-        }
-      );
-    });
+    if (loadedImages === images.length) {
+      handleImagesLoaded();
+    }
   }, []);
 
   return (

@@ -38,7 +38,7 @@ export const MainTitle = styled.h1`
   position: absolute;
   bottom: 32vh;
   width: min-content;
-  font-size: calc(var(--index) * 7);
+  font-size: calc(var(--index) * 6);
   font-weight: bold;
   line-height: 0.9;
   color: #67320c;

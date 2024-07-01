@@ -81,4 +81,5 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
     </section>
   );
 };
+
 export default AboutSection;

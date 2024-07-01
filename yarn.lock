@@ -220,6 +220,11 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
+"@darkroom.engineering/tempus@^0.0.46":
+  version "0.0.46"
+  resolved "https://registry.yarnpkg.com/@darkroom.engineering/tempus/-/tempus-0.0.46.tgz#3d958807503e4055fcc4a1aeeff83ca0546c62f0"
+  integrity sha512-s5vav3KMHYezvUCl4ee5epg0oimF6M8C9gAaKxFnFaTvX2q3ywFDryIv6XLd0mRFUt3S1uHDJqKaiEcs2ZVSvw==
+
 "@emotion/is-prop-valid@1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.2.1.tgz#23116cf1ed18bfeac910ec6436561ecb1a3885cc"
@@ -887,6 +892,11 @@ classnames@^2.2.6:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
   integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
+
+clsx@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-2.1.1.tgz#eed397c9fd8bd882bfb18deab7102049a2f32999"
+  integrity sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==
 
 color-convert@^1.9.0:
   version "1.9.3"
@@ -1878,6 +1888,14 @@ keyv@^4.5.3:
   dependencies:
     json-buffer "3.0.1"
 
+lenis@1.0.45:
+  version "1.0.45"
+  resolved "https://registry.yarnpkg.com/lenis/-/lenis-1.0.45.tgz#5e34437527f30e10c87ada3c3c756c7c0caf8475"
+  integrity sha512-wiaYRxr7rK1rY+dhGdMLowV0rkjg+1B2nI50Igyu5USkjDY6lkBNCJi0mVaSL/X3ECyAm/oA0nsihq8ic3p9wg==
+  dependencies:
+    "@darkroom.engineering/tempus" "^0.0.46"
+    clsx "^2.1.0"
+
 levn@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/levn/-/levn-0.4.1.tgz#ae4562c007473b932a6200d403268dd2fffc6ade"
@@ -1892,6 +1910,13 @@ locate-path@^6.0.0:
   integrity sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==
   dependencies:
     p-locate "^5.0.0"
+
+locomotive-scroll@^5.0.0-beta.13:
+  version "5.0.0-beta.13"
+  resolved "https://registry.yarnpkg.com/locomotive-scroll/-/locomotive-scroll-5.0.0-beta.13.tgz#002c8a6d65caaf0e56e3607ad59f61fcba8c502e"
+  integrity sha512-zA4E6jbakBVwakb8KzTF6kVhdql1HCZbWCY0BzZ2LNNm9G5uWlZc9+Q5Lcxl7DmygY+5Yt1EfT5p3l3JLG8RPg==
+  dependencies:
+    lenis "1.0.45"
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
@@ -2070,6 +2095,11 @@ once@^1.3.0:
   integrity sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==
   dependencies:
     wrappy "1"
+
+only-scrollbar@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/only-scrollbar/-/only-scrollbar-1.1.0.tgz#464445542970edeace341bb5d66d3028468419ce"
+  integrity sha512-OBJqIttxzfT/CwFxA2Dhw0LNfyKH072om52wiG8XPPLoA84KTO4hyspYEE49y61n1oDwnO9Yc9KBN2oOuO1PUA==
 
 optionator@^0.9.3:
   version "0.9.3"
@@ -2724,10 +2754,10 @@ typed-array-length@^1.0.4:
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
 
-typescript@^5.3.3:
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
-  integrity sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==
+typescript@4.5.4:
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.4.tgz#a17d3a0263bf5c8723b9c52f43c5084edf13c2e8"
+  integrity sha512-VgYs2A2QIRuGphtzFV7aQJduJ2gyfTljngLzjpfW9FoYZF6xuw1W0vW9ghCKLfcWrCFxK81CSGRAvS1pn4fIUg==
 
 ua-parser-js@^0.7.18:
   version "0.7.37"
