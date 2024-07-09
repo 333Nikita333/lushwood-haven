@@ -63,3 +63,7 @@ export interface IRoomDescriptionInfoProps {
   description: string;
   amenities: { icon: ReactNode; desc: string }[];
 }
+export interface IScrollDownBtnProps {
+  sizeX?: string;
+  sizeY?: string;
+}

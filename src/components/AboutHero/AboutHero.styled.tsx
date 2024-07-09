@@ -44,3 +44,9 @@ export const MainTitle = styled.h1`
   color: #67320c;
   text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
 `;
+export const ScrollDownIconWrapper = styled.div`
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+`;

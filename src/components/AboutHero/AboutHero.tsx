@@ -7,7 +7,9 @@ import {
   HeroVideo,
   MainHeader,
   MainTitle,
+  ScrollDownIconWrapper
 } from './AboutHero.styled';
+import ScrollDownBtn from '../ScrollDownBtn';
 
 const heroImage: string = 'images/about_images/hero.png';
 const bgHeroVideoMP4: string = 'videos/background_video.mp4';
@@ -28,6 +30,10 @@ const AboutHero: FC<IAboutHeroProps> = ({ heroSectionRef }) => {
           <MainTitle>Lushwood Haven</MainTitle>
         </MainHeader>
       </Container>
+
+      <ScrollDownIconWrapper>
+        <ScrollDownBtn sizeX="40px" sizeY="70px" />
+      </ScrollDownIconWrapper>
     </HeroSection>
   );
 };

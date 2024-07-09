@@ -10,7 +10,13 @@ const ServicePage = lazy(() => import('./pages/Services'));
 const ServiceRoomPage = lazy(() => import('./pages/ServiceRoomPage'));
 
 const App: FC = () => {
-  new LocomotiveScroll();
+  new LocomotiveScroll({
+    lenisOptions: {
+      lerp: 0.08,
+      duration: 0.1,
+    },
+    autoResize: true,
+  });
 
   return (
     <Routes>
