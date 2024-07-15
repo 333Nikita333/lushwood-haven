@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Modal from '../../utils/Modal';
+import { useScroll } from '../../utils/ScrollContext';
 import BookRoomButton from '../BookRoomButton';
 import MobileMenuHeader from '../MobileMenuHeader';
 import Navigation from '../Navigation';
@@ -12,6 +13,7 @@ const Header: FC = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const { toggleScroll } = useScroll();
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -44,6 +46,11 @@ const Header: FC = () => {
 
   const toggleModal = (): void => {
     setIsModalOpen(prevState => !prevState);
+    if (isModalOpen) {
+      toggleScroll(true);
+    } else {
+      toggleScroll(false);
+    }
   };
 
   const toggleMobileMenu = (): void => {

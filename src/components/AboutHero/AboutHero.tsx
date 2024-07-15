@@ -32,7 +32,7 @@ const AboutHero: FC<IAboutHeroProps> = ({ heroSectionRef }) => {
       </Container>
 
       <ScrollDownIconWrapper>
-        <ScrollDownBtn sizeX="40px" sizeY="70px" />
+        <ScrollDownBtn sizex="40px" sizey="70px" />
       </ScrollDownIconWrapper>
     </HeroSection>
   );

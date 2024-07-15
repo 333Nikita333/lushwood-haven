@@ -3,24 +3,24 @@ import { IScrollDownBtnProps } from '../../types';
 
 const scrolldownAnim = keyframes<IScrollDownBtnProps>`
   0% {
-    transform: translateY(calc(var(--sizeY) / -4));
+    transform: translateY(calc(var(--sizey) / -4));
     opacity: 0;
-    height: calc(var(--sizeY) / 10);
+    height: calc(var(--sizey) / 10);
   }
 
   40% {
     opacity: 1;
-    height: calc(var(--sizeY) / 5);
+    height: calc(var(--sizey) / 5);
   }
 
   80% {
-    transform: translateY(calc(var(--sizeY) / 4));
-    height: calc(var(--sizeY) / 5);
+    transform: translateY(calc(var(--sizey) / 4));
+    height: calc(var(--sizey) / 5);
     opacity: 0;
   }
 
   100% {
-    height: calc(var(--sizeY) / 10);
+    height: calc(var(--sizey) / 10);
     opacity: 0;
   }
 `;
@@ -36,15 +36,15 @@ const pulse54012 = keyframes`
 `;
 
 export const ScrollDownContainer = styled.div<IScrollDownBtnProps>`
-  --sizeX: ${props => props.sizeX};
-  --sizeY: ${props => props.sizeY};
+  --sizex: ${props => props.sizex};
+  --sizey: ${props => props.sizey};
   position: relative;
   display: flex;
   justify-content: center;
   align-items: end;
-  width: var(--sizeX);
-  height: var(--sizeY);
-  border: calc(var(--sizeX) / 10) solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
+  width: var(--sizex);
+  height: var(--sizey);
+  border: calc(var(--sizex) / 10) solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
   border-radius: 50px;
   box-sizing: border-box;
 `;
@@ -55,9 +55,9 @@ export const ScrollDot = styled.div`
   bottom: 35%;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(var(--sizeX) / 5);
-  height: calc(var(--sizeY) / 5);
-  margin-left: calc(var(--sizeX) / -10);
+  width: calc(var(--sizex) / 5);
+  height: calc(var(--sizey) / 5);
+  margin-left: calc(var(--sizex) / -10);
   background-color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
   border-radius: 50%;
   animation: ${scrolldownAnim} 2s infinite;
@@ -70,17 +70,17 @@ export const Chevrons = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translateY(calc(var(--sizeY) / 1.5));
+  transform: translateY(calc(var(--sizey) / 1.5));
 `;
 
 export const ChevronDown = styled.div`
-  margin-top: calc(var(--sizeY) * -0.3);
+  margin-top: calc(var(--sizey) * -0.3);
   position: relative;
   border: solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
-  border-width: 0 calc(var(--sizeX) / 10) calc(var(--sizeX) / 10) 0;
+  border-width: 0 calc(var(--sizex) / 10) calc(var(--sizex) / 10) 0;
   display: inline-block;
-  width: calc(var(--sizeX) * 0.8);
-  height: calc(var(--sizeY) * 0.5);
+  width: calc(var(--sizex) * 0.8);
+  height: calc(var(--sizey) * 0.5);
   transform: rotate(45deg);
 
   &:nth-child(odd) {

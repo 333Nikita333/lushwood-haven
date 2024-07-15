@@ -152,7 +152,7 @@ export const SubmitButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background: #315cfd;
+    background: ${({theme}) => theme.colors.bookRoomBtnBgc};
     color: #ffffff;
     font-size: 1.5em;
   }

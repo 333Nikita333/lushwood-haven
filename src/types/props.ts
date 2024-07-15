@@ -64,6 +64,13 @@ export interface IRoomDescriptionInfoProps {
   amenities: { icon: ReactNode; desc: string }[];
 }
 export interface IScrollDownBtnProps {
-  sizeX?: string;
-  sizeY?: string;
+  sizex?: string;
+  sizey?: string;
+}
+export interface ScrollContextProps {
+  toggleScroll: (enable: boolean) => void;
+}
+
+export interface ScrollProviderProps {
+  children: ReactNode;
 }

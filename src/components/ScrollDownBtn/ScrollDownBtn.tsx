@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { ChevronDown, Chevrons, ScrollDot, ScrollDownContainer } from './ScrollDownBtn.styled';
 import { IScrollDownBtnProps } from '../../types';
+import { ChevronDown, Chevrons, ScrollDot, ScrollDownContainer } from './ScrollDownBtn.styled';
 
-const ScrollDownBtn: FC<IScrollDownBtnProps> = ({sizeX = "30px", sizeY = "50px"}) => {
+const ScrollDownBtn: FC<IScrollDownBtnProps> = ({sizex = "30px", sizey = "50px"}) => {
   return (
-    <ScrollDownContainer sizeX={sizeX} sizeY={sizeY}>
+    <ScrollDownContainer sizex={sizex} sizey={sizey}>
       <ScrollDot />
       <Chevrons>
         <ChevronDown />

@@ -5,12 +5,15 @@ import { ThemeProvider } from 'styled-components';
 import App from './App';
 import GlobalStyle from './styles/GlobalStyle';
 import theme from './styles/theme';
+import { ScrollProvider } from './utils/ScrollContext';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <App />
+        <ScrollProvider>
+          <App />
+        </ScrollProvider>
         <GlobalStyle />
       </ThemeProvider>
     </BrowserRouter>

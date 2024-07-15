@@ -5,6 +5,7 @@ export const MobileMenuContainer = styled.div<{ $isMobileMenuOpen: boolean }>`
   z-index: 9999;
   top: 0;
   left: ${({ $isMobileMenuOpen }) => ($isMobileMenuOpen ? '0' : '-100%')};
+  opacity: ${({ $isMobileMenuOpen }) => ($isMobileMenuOpen ? '1' : '0')};
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -32,7 +33,7 @@ export const MobileMenuContainer = styled.div<{ $isMobileMenuOpen: boolean }>`
       rgba(0, 0, 0, 0.05) 100%
     );
   background-size: 40px 40px;
-  transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out ;;
 
   @media screen and (min-width: 481px) {
     display: none;

@@ -1,7 +1,6 @@
 import { FC, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
-import LocomotiveScroll from 'locomotive-scroll';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
@@ -10,14 +9,6 @@ const ServicePage = lazy(() => import('./pages/Services'));
 const ServiceRoomPage = lazy(() => import('./pages/ServiceRoomPage'));
 
 const App: FC = () => {
-  new LocomotiveScroll({
-    lenisOptions: {
-      lerp: 0.08,
-      duration: 0.1,
-    },
-    autoResize: true,
-  });
-
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
