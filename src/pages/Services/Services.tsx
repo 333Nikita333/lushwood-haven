@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { BsTelephone } from 'react-icons/bs';
 import { FaFan, FaGuitar, FaSpa, FaUserShield, FaWifi } from 'react-icons/fa';
-import { GiHomeGarage, GiBinoculars } from 'react-icons/gi';
+import { GiBinoculars, GiHomeGarage } from 'react-icons/gi';
 import { IoIosPeople } from 'react-icons/io';
 import { IoBed, IoRestaurantOutline } from 'react-icons/io5';
 import {

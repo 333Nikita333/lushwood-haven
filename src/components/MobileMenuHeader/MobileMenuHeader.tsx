@@ -1,4 +1,4 @@
-import { FC} from 'react';
+import { FC } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { IMobileMenuProps } from '../../types';
 import NavLinkItem from '../NavLinkItem';
@@ -6,7 +6,6 @@ import { listLinkNames } from '../Navigation/Navigation';
 import { CloseButton, LinkItem, ListLinks, MobileMenuContainer } from './MobileMenuHeader.styled';
 
 const MobileMenuHeader: FC<IMobileMenuProps> = ({ isMobileMenuOpen, onClose }) => {
-
   return (
     <MobileMenuContainer $isMobileMenuOpen={isMobileMenuOpen}>
       <CloseButton onClick={onClose}>

@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
 
   & .btn-content {
     display: flex;
@@ -14,12 +13,12 @@ export const Wrapper = styled.div`
     padding: 5px;
     font-weight: 600;
     font-size: calc(var(--index) * 1.5);
-    color: ${({ theme }) => theme.colors.primary};
-    background: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    color: #ffffff;
+    background: ${({ theme }) => theme.colors.primaryColor};
     transition: 1s;
     border-radius: 100px;
     border: 1px solid #ffffff80;
-    box-shadow: 0 0 0.2em 0 ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    box-shadow: 0 0 0.2em 0 ${({ theme }) => theme.colors.primaryColor};
   }
   & .btn-content:hover,
   & .btn-content:focus {
@@ -28,7 +27,7 @@ export const Wrapper = styled.div`
     animation: btn-content 1s;
     outline: 0.1em solid transparent;
     outline-offset: 0.2em;
-    box-shadow: 0 0 0.4em 0 ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    box-shadow: 0 0 0.4em 0 ${({ theme }) => theme.colors.primaryColor};
     transform: scale(1.1);
   }
   & .btn-title {
@@ -88,28 +87,28 @@ export const Wrapper = styled.div`
 
   @keyframes color_anim {
     0% {
-      fill: ${({ theme }) => theme.colors.primary};
+      fill: ${({ theme }) => theme.colors.primaryTextColor};
     }
 
     50% {
-      fill: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+      fill: ${({ theme }) => theme.colors.primaryColor};
     }
 
     100% {
-      fill: ${({ theme }) => theme.colors.primary};
+      fill: ${({ theme }) => theme.colors.primaryTextColor};
     }
   }
 
   @-webkit-keyframes btn-content {
     0% {
-      outline: 0.2em solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
+      outline: 0.2em solid ${({ theme }) => theme.colors.primaryColor};
       outline-offset: 0;
     }
   }
 
   @keyframes btn-content {
     0% {
-      outline: 0.2em solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
+      outline: 0.2em solid ${({ theme }) => theme.colors.primaryColor};
       outline-offset: 0;
     }
   }

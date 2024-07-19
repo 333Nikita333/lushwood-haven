@@ -50,7 +50,6 @@ const RoomDescriptionInfo: FC<ServiceRoomItemProps> = ({ roomData }) => {
         </RoomPriceWrapper>
       </MainInfo>
     </>
-   
   );
 };
 

@@ -11,6 +11,17 @@ const scaleIn = keyframes`
   }
 `;
 
+const scaleOut = keyframes`
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+`;
+
 export const Backdrop = styled.div`
   position: fixed;
   z-index: 10000;
@@ -21,14 +32,19 @@ export const Backdrop = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 10px;
+  padding: ${({ theme }) => theme.paddings.small};
   background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.5s ease-in-out;
+
+  @media screen and (min-width: 481px) {
+    padding: ${({ theme }) => theme.paddings.big};
+  }
 `;
 
-export const ModalContainer = styled.div`
+export const ModalContainer = styled.div<{ $isanimating: number }>`
   position: relative;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-  animation: ${scaleIn} 0.5s ease-in-out;
+  animation: ${({ $isanimating }) => ($isanimating ? scaleIn : scaleOut)} 0.3s ease-in-out;
 `;
 
 export const ButtonClose = styled.button`
@@ -50,9 +66,10 @@ export const ButtonClose = styled.button`
     border-radius: 45px;
     border: none;
     color: #000000;
-    background-color: transperent;
+    background-color: transparent;
     transition: transform 0.3s ease-in-out;
   }
+
   &:hover > svg {
     transform: scale(1.1);
   }

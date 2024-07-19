@@ -36,15 +36,15 @@ const pulse54012 = keyframes`
 `;
 
 export const ScrollDownContainer = styled.div<IScrollDownBtnProps>`
-  --sizex: ${props => props.sizex};
-  --sizey: ${props => props.sizey};
+  --sizex: ${({ $sizex }) => $sizex};
+  --sizey: ${({ $sizey }) => $sizey};
   position: relative;
   display: flex;
   justify-content: center;
   align-items: end;
   width: var(--sizex);
   height: var(--sizey);
-  border: calc(var(--sizex) / 10) solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
+  border: calc(var(--sizex) / 10) solid ${({ theme }) => theme.colors.primaryColor};
   border-radius: 50px;
   box-sizing: border-box;
 `;
@@ -58,7 +58,7 @@ export const ScrollDot = styled.div`
   width: calc(var(--sizex) / 5);
   height: calc(var(--sizey) / 5);
   margin-left: calc(var(--sizex) / -10);
-  background-color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+  background-color: ${({ theme }) => theme.colors.primaryColor};
   border-radius: 50%;
   animation: ${scrolldownAnim} 2s infinite;
   box-sizing: border-box;
@@ -76,7 +76,7 @@ export const Chevrons = styled.div`
 export const ChevronDown = styled.div`
   margin-top: calc(var(--sizey) * -0.3);
   position: relative;
-  border: solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
+  border: solid ${({ theme }) => theme.colors.primaryColor};
   border-width: 0 calc(var(--sizex) / 10) calc(var(--sizex) / 10) 0;
   display: inline-block;
   width: calc(var(--sizex) * 0.8);

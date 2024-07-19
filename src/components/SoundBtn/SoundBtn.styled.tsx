@@ -9,7 +9,7 @@ export const Button = styled.button`
   height: calc(var(--index) * 3);
   background-color: transparent;
   border: none;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primaryTextColor};
   will-change: transform;
   transform: translate3d(0, calc(var(--scrollTop) / 1), 0);
   transition: transform 0.3s ease;

@@ -30,7 +30,7 @@ export const ButtonSubmit = styled.button`
     justify-content: center;
     font-weight: 600;
     color: #fff;
-    background-color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    background-color: ${({ theme }) => theme.colors.primaryColor};
     transform: translateY(50px);
     transition: all 0.5s ease-in-out;
   }

@@ -4,7 +4,7 @@ export const FormContainer = styled.div`
   max-width: 400px;
   background-color: #222;
   padding: 30px 10px;
-  border: 3px solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
+  border: 3px solid ${({ theme }) => theme.colors.primaryColor};
   border-radius: 20px;
 
   & form {
@@ -68,7 +68,7 @@ export const Input = styled.input`
     color: #bbb;
   }
   &:focus {
-    border-left: 5px solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    border-left: 5px solid ${({ theme }) => theme.colors.primaryColor};
   }
 `;
 export const ErrorText = styled.span`
@@ -92,7 +92,7 @@ export const TextArea = styled.textarea`
     color: #bbb;
   }
   &:focus {
-    border-left: 5px solid ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    border-left: 5px solid ${({ theme }) => theme.colors.primaryColor};
   }
 `;
 
@@ -103,7 +103,7 @@ export const SendButton = styled.button`
   font-weight: 700;
   letter-spacing: 0.05rem;
   color: #333;
-  background: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+  background: ${({ theme }) => theme.colors.primaryColor};
   border: none;
   border-radius: 500px;
   overflow: hidden;

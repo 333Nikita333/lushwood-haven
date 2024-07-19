@@ -8,10 +8,10 @@ export const HeaderContainer = styled.header<{ $isMobileMenuOpen: boolean }>`
   padding: ${({ theme }) => theme.paddings.small};
   width: 100%;
   font-size: ${({ theme }) => theme.fontSizes.primary};
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primaryTextColor};
   background: transparent;
   transition: transform 0.3s ease-in-out;
-  
+
   &::after {
     content: '';
     position: fixed;
@@ -43,7 +43,7 @@ export const OrderButton = styled.button`
   margin-left: auto;
 `;
 export const MobileMenuButton = styled.button`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.primaryTextColor};
   background: transparent;
   border: none;
   font-size: ${({ theme }) => theme.fontSizes.secondary};

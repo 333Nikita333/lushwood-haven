@@ -11,27 +11,37 @@ export const ScrollProvider: FC<ScrollProviderProps> = ({ children }) => {
         lerp: 0.08,
         duration: 0.1,
       },
-      autoResize: true,
     });
 
     setLocomotiveScroll(scroll);
 
     return () => {
       scroll.destroy();
+      setLocomotiveScroll(null);
     };
   }, []);
 
   const toggleScroll = (enable: boolean): void => {
-    if (locomotiveScroll) {
-      if (enable) {
-        locomotiveScroll.start();
-      } else {
-        locomotiveScroll.stop();
-      }
+    if (!enable && locomotiveScroll) {
+      locomotiveScroll.destroy();
+      setLocomotiveScroll(null);
+    }
+    if (enable) {
+      const newScroll = new LocomotiveScroll({
+        lenisOptions: {
+          lerp: 0.08,
+          duration: 0.1,
+        },
+      });
+      setLocomotiveScroll(newScroll);
     }
   };
 
-  return <ScrollContext.Provider value={{ toggleScroll }}>{children}</ScrollContext.Provider>;
+  return (
+    <ScrollContext.Provider value={{ locomotiveScroll, toggleScroll }}>
+      {children}
+    </ScrollContext.Provider>
+  );
 };
 
 const ScrollContext = createContext<ScrollContextProps | null>(null);

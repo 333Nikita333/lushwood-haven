@@ -1,4 +1,4 @@
-export const photos = [
+export const photosGallery = [
   {
     src: 'https://www.ferienhotel-aussicht.at/andsrv/content/files/abm-www-ferienhotel-aussicht-at/defrancesco-photography-hotelaussicht-51-booking-210.jpg',
     alt: 'Hotel room',

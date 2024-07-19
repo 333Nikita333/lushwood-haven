@@ -33,7 +33,7 @@ export const MobileMenuContainer = styled.div<{ $isMobileMenuOpen: boolean }>`
       rgba(0, 0, 0, 0.05) 100%
     );
   background-size: 40px 40px;
-  transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out ;;
+  transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
   @media screen and (min-width: 481px) {
     display: none;
@@ -76,7 +76,7 @@ export const LinkItem = styled.li`
     font-weight: 700;
     color: #000000;
     border: 2px solid #000000;
-    background-color: ${({ theme }) => theme.colors.primaryBrown};
+    background-color: ${({ theme }) => theme.colors.secondaryColor};
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
       rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
       rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
@@ -84,8 +84,8 @@ export const LinkItem = styled.li`
       rgba(0, 0, 0, 0.09) 0px 32px 16px;
 
     &.active {
-      color: ${({ theme }) => theme.colors.primary};
-      border: 2px solid ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.primaryTextColor};
+      border: 2px solid ${({ theme }) => theme.colors.primaryTextColor};
       text-shadow: none;
     }
 

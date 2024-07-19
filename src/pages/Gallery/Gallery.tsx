@@ -1,13 +1,13 @@
 import { FC, useCallback, useEffect } from 'react';
 import 'react-imgr/dist/styles.min.css';
 import Gallery, { RenderImageProps } from 'react-photo-gallery';
-import { photos } from '../../data/photos';
+import { photosGallery } from '../../data/photos';
 import useImageValidation from '../../hooks/useImageValidation';
 import FancyboxWrapper from '../../utils/FancyboxWrapper';
 import { GalleryWrapper, Link, Photo } from './Gallery.styled';
 
 const GalleryPage: FC = () => {
-  const { isLoading, validPhotos } = useImageValidation(photos);
+  const { isLoading, validPhotos } = useImageValidation(photosGallery);
 
   useEffect(() => {
     document.title = 'Gallery';

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import Image from 'react-imgr';
+import styled from 'styled-components';
 
 export const GalleryWrapper = styled.main`
   padding: 5px;

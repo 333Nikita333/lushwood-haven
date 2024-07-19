@@ -6,8 +6,8 @@ export const FormContainer = styled.div`
   max-height: 400px;
   padding: 20px;
   overflow-y: auto;
-  color: ${({ theme }) => theme.colors.primaryBrown};
-  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.secondaryColor};
+  background-color: ${({ theme }) => theme.colors.primaryTextColor};
   background-image: url('/images/about_images/bg-image-modal.png');
   background-size: cover;
   border-radius: 16px;
@@ -43,7 +43,7 @@ export const OrderFormContainer = styled.form`
     background: transparent;
     outline: 0;
     border: none;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.primaryBrown};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.secondaryColor};
     transition: border-color 0.2s ease-in-out;
   }
   & .form__field::placeholder {
@@ -62,7 +62,7 @@ export const OrderFormContainer = styled.form`
     display: block;
     font-size: 17px;
     font-weight: 700;
-    color: ${({ theme }) => theme.colors.primaryBrown};
+    color: ${({ theme }) => theme.colors.secondaryColor};
     pointer-events: none;
     transition: 0.2s ease-in-out;
   }
@@ -71,7 +71,7 @@ export const OrderFormContainer = styled.form`
     padding-bottom: 6px;
     font-weight: 700;
     border-width: 3px;
-    border-image: linear-gradient(to right, #116399, ${({ theme }) => theme.colors.bookRoomBtnBgc});
+    border-image: linear-gradient(to right, #116399, ${({ theme }) => theme.colors.primaryColor});
     border-image-slice: 1;
   }
 
@@ -81,7 +81,7 @@ export const OrderFormContainer = styled.form`
     display: block;
     font-size: 17px;
     font-weight: 700;
-    color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    color: ${({ theme }) => theme.colors.primaryColor};
     transition: 0.2s ease-in-out;
   }
 
@@ -98,7 +98,7 @@ export const FormGroup = styled.div`
   max-width: 220px;
 
   & > .react-tel-input:focus-within + label {
-    color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    color: ${({ theme }) => theme.colors.primaryColor};
   }
   & .react-datepicker__navigation-icon::before {
     border-color: #000000;
@@ -144,15 +144,15 @@ export const SubmitButton = styled.button`
   margin-left: auto;
   font-size: 1.3em;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.primaryBrown};
-  border: 1px solid ${({ theme }) => theme.colors.primaryBrown};
+  color: ${({ theme }) => theme.colors.secondaryColor};
+  border: 1px solid ${({ theme }) => theme.colors.secondaryColor};
   background-color: #ffffff80;
   border-radius: 45px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
   &:hover {
-    background: ${({theme}) => theme.colors.bookRoomBtnBgc};
+    background: ${({ theme }) => theme.colors.primaryColor};
     color: #ffffff;
     font-size: 1.5em;
   }
@@ -198,8 +198,8 @@ export const RadioLabel = styled.label`
   }
   &:hover span {
     transform: scale(1.2);
-    border-color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
-    box-shadow: 0 0 20px ${({ theme }) => theme.colors.bookRoomBtnBgc + 80};
+    border-color: ${({ theme }) => theme.colors.primaryColor};
+    box-shadow: 0 0 20px ${({ theme }) => theme.colors.primaryColor + 80};
   }
 `;
 
@@ -210,14 +210,14 @@ export const RadioInput = styled.input`
   height: 0;
 
   &:checked + ${RadioLabel} span {
-    background-color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    background-color: ${({ theme }) => theme.colors.primaryColor};
     border-color: transparent;
     transform: scale(0.8);
-    box-shadow: 0 0 20px ${({ theme }) => theme.colors.bookRoomBtnBgc + 80};
+    box-shadow: 0 0 20px ${({ theme }) => theme.colors.primaryColor + 80};
   }
   &:checked + ${RadioLabel} {
     font-size: 17px;
-    color: ${({ theme }) => theme.colors.bookRoomBtnBgc};
+    color: ${({ theme }) => theme.colors.primaryColor};
   }
 `;
 

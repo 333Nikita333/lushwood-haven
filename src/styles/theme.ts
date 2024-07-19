@@ -1,14 +1,13 @@
 const theme = {
   paddings: {
     small: '15px',
+    big: '30px',
   },
   colors: {
-    primary: '#ffffff',
-    text: '#e7e7e0',
-    aboutSectionTitle: '#f4efec', // about title
-    aboutSectionText: '#cdc9c9', // about text
-    bookRoomBtnBgc: '#43b72b', // book a room background color
-    primaryBrown: '#8b4513',
+    primaryTextColor: '#ffffff',
+    secondaryTextColor: '#e7e7e0',
+    primaryColor: '#43b72b',
+    secondaryColor: '#8b4513',
   },
   fontSizes: {
     primary: '18px',

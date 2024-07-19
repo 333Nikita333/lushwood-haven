@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { IAboutHeroProps } from '../../types';
+import ScrollDownBtn from '../ScrollDownBtn';
 import {
   Container,
   HeroImage,
@@ -7,9 +8,8 @@ import {
   HeroVideo,
   MainHeader,
   MainTitle,
-  ScrollDownIconWrapper
+  ScrollDownIconWrapper,
 } from './AboutHero.styled';
-import ScrollDownBtn from '../ScrollDownBtn';
 
 const heroImage: string = 'images/about_images/hero.png';
 const bgHeroVideoMP4: string = 'videos/background_video.mp4';
@@ -32,7 +32,7 @@ const AboutHero: FC<IAboutHeroProps> = ({ heroSectionRef }) => {
       </Container>
 
       <ScrollDownIconWrapper>
-        <ScrollDownBtn sizex="40px" sizey="70px" />
+        <ScrollDownBtn $sizex="40px" $sizey="70px" />
       </ScrollDownIconWrapper>
     </HeroSection>
   );

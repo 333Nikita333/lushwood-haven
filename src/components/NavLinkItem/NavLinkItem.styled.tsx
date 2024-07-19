@@ -15,17 +15,17 @@ export const Link = styled(NavLink)`
   user-select: none;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-    background: ${({ theme }) => theme.colors.primaryBrown};
-    border: 1px solid ${({ theme }) => theme.colors.primaryBrown};
+    color: ${({ theme }) => theme.colors.primaryTextColor};
+    background: ${({ theme }) => theme.colors.secondaryColor};
+    border: 1px solid ${({ theme }) => theme.colors.secondaryColor};
     text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
     box-shadow: 0 0 5px #8b4513, 0 0 20px #8b4513, 0 0 50px #8b4513, 0 0 100px #8b4513;
   }
 
   &.active {
     color: #ffffff;
-    background: ${({ theme }) => theme.colors.primaryBrown};
-    border: 1px solid ${({ theme }) => theme.colors.primaryBrown};
+    background: ${({ theme }) => theme.colors.secondaryColor};
+    border: 1px solid ${({ theme }) => theme.colors.secondaryColor};
     text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
     box-shadow: 0 0 5px #8b4513, 0 0 20px #8b4513, 0 0 50px #8b4513, 0 0 100px #8b4513;
   }

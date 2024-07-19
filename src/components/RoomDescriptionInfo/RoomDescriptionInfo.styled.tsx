@@ -35,7 +35,7 @@ export const RoomDescriptionTitle = styled.h3`
     bottom: 0;
     left: 0;
     width: 25%;
-    border-bottom: 3px solid ${({ theme }) => theme.colors.primaryBrown};
+    border-bottom: 3px solid ${({ theme }) => theme.colors.secondaryColor};
   }
 `;
 export const RoomDescription = styled.p`
@@ -44,7 +44,7 @@ export const RoomDescription = styled.p`
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
   border-radius: 45px 45px 45px 0;
-  border: 2px solid ${({ theme }) => theme.colors.primaryBrown};
+  border: 2px solid ${({ theme }) => theme.colors.secondaryColor};
 `;
 export const RoomAmentitiesWrapper = styled.div`
   margin-top: calc(40 / 16 + rem);
@@ -62,7 +62,7 @@ export const RoomAmentitiesTitle = styled.h3`
     bottom: 0;
     left: 0;
     width: 25%;
-    border-bottom: 3px solid ${({ theme }) => theme.colors.primaryBrown};
+    border-bottom: 3px solid ${({ theme }) => theme.colors.secondaryColor};
   }
 `;
 export const RoomAmentitiesTable = styled.table`
@@ -117,7 +117,7 @@ export const RoomPriceLabel = styled.span`
   line-height: 1.5;
   border-top-left-radius: 45px;
   border-bottom-left-radius: 45px;
-  border: 2px solid ${({ theme }) => theme.colors.primaryBrown};
+  border: 2px solid ${({ theme }) => theme.colors.secondaryColor};
   border-right: none;
   background-color: #ffffff90;
   backdrop-filter: blur(5px);
@@ -143,7 +143,7 @@ export const RoomPriceNumber = styled.span`
   letter-spacing: 1px;
   background-color: #ffffff90;
   backdrop-filter: blur(5px);
-  border: 2px solid ${({ theme }) => theme.colors.primaryBrown};
+  border: 2px solid ${({ theme }) => theme.colors.secondaryColor};
   border-left: none;
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
     rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,

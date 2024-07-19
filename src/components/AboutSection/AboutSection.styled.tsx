@@ -37,7 +37,7 @@ export const Gallery = styled.div`
   }
 `;
 export const TextBlock = styled.div`
-  color: ${({ theme }) => theme.colors.aboutSectionText};
+  color: ${({ theme }) => theme.colors.secondaryTextColor};
   position: relative;
   text-shadow: 7px 7px 3px rgba(0, 0, 0, 0.6);
 
@@ -48,7 +48,7 @@ export const TextBlock = styled.div`
 export const TextBlockH = styled.h2`
   font-size: 2rem;
   line-height: 2.4rem;
-  color: ${({ theme }) => theme.colors.aboutSectionTitle};
+  color: ${({ theme }) => theme.colors.primaryTextColor};
   margin-bottom: 1.5rem;
 `;
 export const TextBlockP = styled.p`

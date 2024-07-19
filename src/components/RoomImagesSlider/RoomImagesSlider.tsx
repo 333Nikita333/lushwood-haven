@@ -1,15 +1,15 @@
 import { FC, useState } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
+import 'swiper/css/effect-fade';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import 'swiper/css/effect-fade';
 import { EffectFade, FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SliderProps } from '../../types';
-import './styles.css';
 import FancyboxWrapper from '../../utils/FancyboxWrapper';
+import './styles.css';
 
 const RoomImagesSlider: FC<SliderProps> = ({ images }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);

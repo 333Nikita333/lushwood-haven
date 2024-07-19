@@ -1,4 +1,5 @@
 import { ComponentOptionsType as FancyboxOptionsType } from '@fancyapps/ui/types/Fancybox/options';
+import LocomotiveScroll from 'locomotive-scroll';
 import { ReactNode, RefObject } from 'react';
 import { OptionsBgImageType, RoomType } from '.';
 
@@ -26,7 +27,7 @@ export interface IMobileMenuProps {
   onClose: () => void;
 }
 export interface IBookRoomButtonProps {
-  toggleModal: () => void;
+  toggleModalForm: () => void;
 }
 export interface IFooterButtonContactProps extends IBookRoomButtonProps {}
 export interface IFancyboxProps {
@@ -64,10 +65,11 @@ export interface IRoomDescriptionInfoProps {
   amenities: { icon: ReactNode; desc: string }[];
 }
 export interface IScrollDownBtnProps {
-  sizex?: string;
-  sizey?: string;
+  $sizex?: string;
+  $sizey?: string;
 }
 export interface ScrollContextProps {
+  locomotiveScroll: LocomotiveScroll | null;
   toggleScroll: (enable: boolean) => void;
 }
 
