@@ -11,7 +11,7 @@ import { HeaderContainer, MobileMenuButton } from './Header.styled';
 
 const Header: FC = () => {
   const [isModalFormOpen, setIsModalFormOpen] = useState<boolean>(false);
-  const [isWindowProfileOpen, setIsWindowProfileOpen] = useState<boolean>(true); //! переключить на false
+  const [isWindowProfileOpen, setIsWindowProfileOpen] = useState<boolean>(false); //! переключить на false
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);

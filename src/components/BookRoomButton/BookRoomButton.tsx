@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { IBookRoomButtonProps } from '../../types';
 import { OrderIcon, Wrapper } from './BookRoomButton.styled';
 
-const BookRoomButton: FC<IBookRoomButtonProps> = ({ toggleModal }) => {
+const BookRoomButton: FC<IBookRoomButtonProps> = ({ toggleModalForm }) => {
   return (
     <Wrapper>
-      <button className="btn-content" onClick={toggleModal}>
+      <button className="btn-content" onClick={toggleModalForm}>
         <span className="btn-title">Book a room</span>
         <OrderIcon />
         <span className="icon-arrow">

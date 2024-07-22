@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { modalBgImage } from '../../data/photos';
 
 export const ProfileWpaper = styled.div`
   background-color: #fff;
@@ -8,7 +9,7 @@ export const ProfileWpaper = styled.div`
   height: calc(100vh - ${({ theme }) => theme.paddings.big} * 2);
   border-radius: 16px;
   border: 2px solid #424141;
-  background-image: url('/images/about_images/bg-image-modal.png');
+  background-image: url(${modalBgImage});
   background-size: cover;
   font-weight: ${({ theme }) => theme.fontWeights.secondary};
 

@@ -1,3 +1,54 @@
+export const logo = 'images/logo.png';
+
+export const imagesHome = {
+  bgImageLayerBase: 'images/home_images/layer-base.png',
+  bgImageLayerMiddle: 'images/home_images/layer-middle.png',
+  bgImageLayerFront: 'images/home_images/layer-front.png',
+  ground: 'images/home_images/ground.png',
+  dungeon: 'images/home_images/dungeon.jpg',
+};
+
+export const imagesAbout = {
+  galleryItem1: {
+    src: 'images/about_images/image1.jpg',
+    alt: 'example 1',
+  },
+  galleryItem2: {
+    src: 'images/about_images/image2.jpg',
+    alt: 'example 2',
+  },
+  galleryItem3: {
+    src: 'images/about_images/image3.jpg',
+    alt: 'example 3',
+  },
+  galleryItem4: {
+    src: 'images/about_images/image4.jpg',
+    alt: 'example 4',
+  },
+  galleryItem5: {
+    src: 'images/about_images/image5.jpg',
+    alt: 'example 5',
+  },
+  galleryItem6: {
+    src: 'images/about_images/image6.jpg',
+    alt: 'example 6',
+  },
+  galleryItem7: {
+    src: 'images/about_images/image7.jpg',
+    alt: 'example 7',
+  },
+  galleryItem8: {
+    src: 'images/about_images/image8.jpg',
+    alt: 'example 8',
+  },
+  heroImage: {
+    src: 'images/about_images/hero.png',
+    alt: 'house',
+  },
+};
+
+export const bgImageAbout = 'images/about_images/bgImage.jpg';
+
 export const photosGallery = [
   {
     src: 'https://www.ferienhotel-aussicht.at/andsrv/content/files/abm-www-ferienhotel-aussicht-at/defrancesco-photography-hotelaussicht-51-booking-210.jpg',
@@ -156,3 +207,30 @@ export const photosGallery = [
     height: 2,
   },
 ];
+
+export const bgImageGallery = 'images/gallery_images/bg-gallery.png';
+
+export const servicesRoomBg = {
+  topPage: {
+    src: 'images/services_images/page1.png',
+    alt: 'wood',
+    strength: 500,
+  },
+  middlePage: {
+    src: 'images/services_images/page2.png',
+    alt: 'hotel',
+    strength: 500,
+  },
+  bottomPage: {
+    src: 'images/services_images/page3.png',
+    alt: 'sauna',
+    strength: 500,
+  },
+};
+
+export const bgServicesPattern = 'images/services_images/bg-pattern.svg';
+
+export const preloadImage =
+  'https://i0.wp.com/css-tricks.com/wp-content/uploads/2019/10/simple-loader.gif?ssl=1';
+
+export const modalBgImage = 'images/about_images/bg-image-modal.png';

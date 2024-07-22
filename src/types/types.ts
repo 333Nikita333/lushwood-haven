@@ -47,8 +47,8 @@ export type ValidationImagesType = {
   validPhotos: PhotoType[];
 };
 export type OptionsBgImageType = {
-  bgImagePath: string;
-  bgImageDesc: string;
+  src: string;
+  alt: string;
   strength: number;
   blur?: { min: number; max: number };
 };

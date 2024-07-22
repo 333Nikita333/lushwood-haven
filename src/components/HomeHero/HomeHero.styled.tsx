@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { imagesHome } from '../../data/photos';
 
 export const MainHeader = styled.div`
   position: relative;
@@ -9,7 +10,7 @@ export const MainHeader = styled.div`
     z-index: 100;
     width: 100%;
     height: calc(var(--index) * 10);
-    background-image: url('images/home_images/ground.png');
+    background-image: url(${imagesHome.ground});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -34,7 +35,7 @@ export const LayerHeader = styled.div`
   text-transform: uppercase;
   font-family: raleway_b;
   font-size: calc(var(--index) * 1.8);
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.primaryTextColor};
   text-shadow: 0 0 15px #9d822b;
 `;
 

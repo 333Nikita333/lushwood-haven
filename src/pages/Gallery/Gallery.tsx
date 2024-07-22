@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect } from 'react';
 import 'react-imgr/dist/styles.min.css';
 import Gallery, { RenderImageProps } from 'react-photo-gallery';
-import { photosGallery } from '../../data/photos';
+import { photosGallery, preloadImage } from '../../data/photos';
 import useImageValidation from '../../hooks/useImageValidation';
 import FancyboxWrapper from '../../utils/FancyboxWrapper';
 import { GalleryWrapper, Link, Photo } from './Gallery.styled';
@@ -20,7 +20,7 @@ const GalleryPage: FC = () => {
           <Photo
             src={photo.src}
             alt={photo.alt}
-            preloadSrc="https://i0.wp.com/css-tricks.com/wp-content/uploads/2019/10/simple-loader.gif?ssl=1"
+            preloadSrc={preloadImage}
             containerStyle={{
               width: photo.width,
               height: photo.height,

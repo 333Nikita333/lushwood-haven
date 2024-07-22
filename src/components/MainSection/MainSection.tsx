@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { imagesHome } from '../../data/photos';
 import {
   Copy,
   MainArticle,
@@ -7,11 +8,9 @@ import {
   MainArticleTitle,
 } from './MainSection.styled';
 
-const bgImageDungeon: string = 'images/home_images/dungeon.jpg';
-
 const MainSection: FC = () => {
   return (
-    <MainArticle style={{ backgroundImage: `url(${bgImageDungeon})` }}>
+    <MainArticle style={{ backgroundImage: `url(${imagesHome.dungeon})` }}>
       <MainArticleContent>
         <MainArticleTitle>Discover the Enchanted Haven</MainArticleTitle>
         <MainArticleText>

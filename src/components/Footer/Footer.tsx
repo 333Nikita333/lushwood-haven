@@ -11,6 +11,7 @@ import {
   LinksWrapper,
   Logo,
 } from './Footer.styled';
+import { logo } from '../../data/photos';
 
 const linksSite: readonly string[] = [
   'Home',
@@ -26,14 +27,14 @@ const linksSite: readonly string[] = [
 const Footer: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const toggleModal = (): void => {
+  const toggleContactForm = (): void => {
     setIsModalOpen(prevState => !prevState);
   };
 
   return (
     <FooterWrapper>
       <ContentWrapper>
-        <Logo src="/images/logo.png" alt="logo" />
+        <Logo src={logo} alt="logo" />
         <LinksWrapper>
           <LinksSite>
             {linksSite.map(link => (
@@ -46,8 +47,8 @@ const Footer: FC = () => {
 
         <FooterSocialLinks />
 
-        <FooterButtonContact toggleModal={toggleModal} />
-        <Modal isOpen={isModalOpen} onClose={toggleModal}>
+        <FooterButtonContact toggleContactForm={toggleContactForm} />
+        <Modal isOpen={isModalOpen} onClose={toggleContactForm}>
           <FooterContactForm />
         </Modal>
       </ContentWrapper>

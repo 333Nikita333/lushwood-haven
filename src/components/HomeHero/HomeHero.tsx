@@ -9,10 +9,7 @@ import {
   LayersTitle,
   MainHeader,
 } from './HomeHero.styled';
-
-const bgImageLayerBase: string = 'images/home_images/layer-base.png';
-const bgImageLayerMiddle: string = 'images/home_images/layer-middle.png';
-const bgImageLayerFront: string = 'images/home_images/layer-front.png';
+import { imagesHome } from '../../data/photos';
 
 const HomeHero: FC = () => {
   return (
@@ -22,9 +19,13 @@ const HomeHero: FC = () => {
           <LayersCaption>Welcome to Us!</LayersCaption>
           <LayersTitle>Lushwood Haven</LayersTitle>
         </LayerHeader>
-        <LayerBase style={{ backgroundImage: `url(${bgImageLayerBase})` }}></LayerBase>
-        <LayerMiddle style={{ backgroundImage: `url(${bgImageLayerMiddle})` }}></LayerMiddle>
-        <LayerFront style={{ backgroundImage: `url(${bgImageLayerFront})` }}></LayerFront>
+        <LayerBase style={{ backgroundImage: `url(${imagesHome.bgImageLayerBase})` }}></LayerBase>
+        <LayerMiddle
+          style={{ backgroundImage: `url(${imagesHome.bgImageLayerMiddle})` }}
+        ></LayerMiddle>
+        <LayerFront
+          style={{ backgroundImage: `url(${imagesHome.bgImageLayerFront})` }}
+        ></LayerFront>
       </Layers>
     </MainHeader>
   );

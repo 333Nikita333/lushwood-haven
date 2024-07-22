@@ -1,5 +1,6 @@
 import PhoneInput from 'react-phone-input-2';
 import styled from 'styled-components';
+import { modalBgImage } from '../../data/photos';
 
 export const FormContainer = styled.div`
   max-width: 600px;
@@ -8,7 +9,7 @@ export const FormContainer = styled.div`
   overflow-y: auto;
   color: ${({ theme }) => theme.colors.secondaryColor};
   background-color: ${({ theme }) => theme.colors.primaryTextColor};
-  background-image: url('/images/about_images/bg-image-modal.png');
+  background-image: url(${modalBgImage});
   background-size: cover;
   border-radius: 16px;
 `;

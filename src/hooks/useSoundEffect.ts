@@ -2,23 +2,18 @@ import { Howl } from 'howler';
 import { useEffect, useState } from 'react';
 import {
   Sound,
-  SoundFileTypes,
   SoundOptionsType,
   SoundThemeType,
   UseSoundEffectType,
 } from '../types';
-
-const soundFiles: SoundFileTypes = {
-  forest: 'sounds/Forest.mp3',
-  dungeon: 'sounds/Dungeon.mp3',
-};
+import { homePageSounds } from '../data/videos';
 
 const useSoundEffect = (soundTheme: SoundThemeType): UseSoundEffectType => {
   const [sound, setSound] = useState<Sound>(null);
   const [isMuted, setIsMuted] = useState<boolean>(false);
 
   useEffect(() => {
-    const soundUrl: string = soundFiles[soundTheme];
+    const soundUrl: string = homePageSounds[soundTheme];
 
     const options: SoundOptionsType = {
       src: [soundUrl],

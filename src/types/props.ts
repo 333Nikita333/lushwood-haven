@@ -29,7 +29,9 @@ export interface IMobileMenuProps {
 export interface IBookRoomButtonProps {
   toggleModalForm: () => void;
 }
-export interface IFooterButtonContactProps extends IBookRoomButtonProps {}
+export interface IFooterButtonContactProps {
+  toggleContactForm: () => void;
+}
 export interface IFancyboxProps {
   children?: ReactNode;
   delegate?: string;

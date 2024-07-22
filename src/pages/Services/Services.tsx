@@ -16,22 +16,7 @@ import ServiceBgParallaxContainer from '../../components/ServiceBgParallaxContai
 import ServiceMainInfo from '../../components/ServiceMainInfo';
 import ServiceRoomList from '../../components/ServiceRoomList';
 import { InfoWrapper, WrapperOuter } from './Services.styled';
-
-const oneOptions = {
-  bgImagePath: '/images/services_images/page1.png',
-  bgImageDesc: 'wood',
-  strength: 500,
-};
-const twoOptions = {
-  bgImagePath: '/images/services_images/page2.png',
-  bgImageDesc: 'hotel',
-  strength: 500,
-};
-const threeOptions = {
-  bgImagePath: '/images/services_images/page3.png',
-  bgImageDesc: 'sauna',
-  strength: 500,
-};
+import { servicesRoomBg } from '../../data/photos';
 
 export const standartRoomList = [
   {
@@ -520,13 +505,15 @@ const listServicesTwo = [
 ];
 
 const Services: FC = () => {
+  const { topPage, middlePage, bottomPage } = servicesRoomBg;
+
   useEffect(() => {
     document.title = 'Services';
   }, []);
 
   return (
     <WrapperOuter>
-      <ServiceBgParallaxContainer options={oneOptions}>
+      <ServiceBgParallaxContainer options={topPage}>
         <ServiceRoomList roomList={standartRoomList} />
       </ServiceBgParallaxContainer>
 
@@ -534,7 +521,7 @@ const Services: FC = () => {
         <ServiceMainInfo listServices={listServicesOne} />
       </InfoWrapper>
 
-      <ServiceBgParallaxContainer options={twoOptions}>
+      <ServiceBgParallaxContainer options={middlePage}>
         <ServiceRoomList roomList={familyRoomList} />
       </ServiceBgParallaxContainer>
 
@@ -542,7 +529,7 @@ const Services: FC = () => {
         <ServiceMainInfo listServices={listServicesTwo} />
       </InfoWrapper>
 
-      <ServiceBgParallaxContainer options={threeOptions}>
+      <ServiceBgParallaxContainer options={bottomPage}>
         <ServiceRoomList roomList={suiteRoomList} />
       </ServiceBgParallaxContainer>
     </WrapperOuter>

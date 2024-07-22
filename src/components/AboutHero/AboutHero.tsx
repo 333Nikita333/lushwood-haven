@@ -1,4 +1,6 @@
 import { FC } from 'react';
+import { imagesAbout } from '../../data/photos';
+import { bgAboutVideoMP4, bgAboutVideoWEBM } from '../../data/sounds';
 import { IAboutHeroProps } from '../../types';
 import ScrollDownBtn from '../ScrollDownBtn';
 import {
@@ -11,19 +13,15 @@ import {
   ScrollDownIconWrapper,
 } from './AboutHero.styled';
 
-const heroImage: string = 'images/about_images/hero.png';
-const bgHeroVideoMP4: string = 'videos/background_video.mp4';
-const bgHeroVideoWEBM: string = 'videos/background_video.webm';
-
 const AboutHero: FC<IAboutHeroProps> = ({ heroSectionRef }) => {
   return (
     <HeroSection ref={heroSectionRef}>
       <HeroVideo autoPlay muted loop>
-        <source src={bgHeroVideoMP4} type="video/mp4" />
-        <source src={bgHeroVideoWEBM} type="video/webm" />
+        <source src={bgAboutVideoMP4} type="video/mp4" />
+        <source src={bgAboutVideoWEBM} type="video/webm" />
       </HeroVideo>
 
-      <HeroImage src={heroImage} alt="hero image" />
+      <HeroImage src={imagesAbout.heroImage.src} alt={imagesAbout.heroImage.alt} />
 
       <Container>
         <MainHeader>

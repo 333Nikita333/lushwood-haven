@@ -1,9 +1,10 @@
 import Image from 'react-imgr';
 import styled from 'styled-components';
+import { bgImageGallery } from '../../data/photos';
 
 export const GalleryWrapper = styled.main`
   padding: 5px;
-  background-image: url(images/gallery_images/bg-gallery.png);
+  background-image: url(${bgImageGallery});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

@@ -8,17 +8,20 @@ import {
   TextBlockH,
   TextBlockP,
 } from './AboutSection.styled';
-
-const galleryItem1: string = 'images/about_images/image1.jpg';
-const galleryItem2: string = 'images/about_images/image2.jpg';
-const galleryItem3: string = 'images/about_images/image3.jpg';
-const galleryItem4: string = 'images/about_images/image4.jpg';
-const galleryItem5: string = 'images/about_images/image5.jpg';
-const galleryItem6: string = 'images/about_images/image6.jpg';
-const galleryItem7: string = 'images/about_images/image7.jpg';
-const galleryItem8: string = 'images/about_images/image8.jpg';
+import { imagesAbout } from '../../data/photos';
 
 const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef }) => {
+  const {
+    galleryItem1,
+    galleryItem2,
+    galleryItem3,
+    galleryItem4,
+    galleryItem5,
+    galleryItem6,
+    galleryItem7,
+    galleryItem8,
+  } = imagesAbout;
+
   return (
     <section>
       <div>
@@ -32,7 +35,7 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
                 and enjoy true relaxation
               </TextBlockP>
             </TextBlock>
-            <img className="gallery__item" src={galleryItem5} alt="example 5" />
+            <img className="gallery__item" src={galleryItem5.src} alt={galleryItem5.alt} />
             <TextBlock className="gallery__item">
               <TextBlockH>Forest harmony in every detail</TextBlockH>
               <TextBlockP>
@@ -41,7 +44,7 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
                 have everything for an unforgettable holiday
               </TextBlockP>
             </TextBlock>
-            <img className="gallery__item" src={galleryItem2} alt="example 2" />
+            <img className="gallery__item" src={galleryItem2.src} alt={galleryItem2.alt} />
             <TextBlock className="gallery__item">
               <TextBlockH>Extreme in the heart of nature: caving</TextBlockH>
               <TextBlockP>
@@ -50,11 +53,11 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
                 history and adrenaline is in full swing
               </TextBlockP>
             </TextBlock>
-            <img className="gallery__item" src={galleryItem7} alt="example 7" />
+            <img className="gallery__item" src={galleryItem7.src} alt={galleryItem7.alt} />
           </GalleryLeft>
 
           <GalleryRight ref={galleryRightRef}>
-            <img className="gallery__item" src={galleryItem1} alt="example 1" />
+            <img className="gallery__item" src={galleryItem1.src} alt={galleryItem1.alt} />
             <TextBlock className="gallery__item">
               <TextBlockH>Inspiration from nature: a hotel overlooking the forest</TextBlockH>
               <TextBlockP>
@@ -63,8 +66,8 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
                 with harmony with nature
               </TextBlockP>
             </TextBlock>
-            <img className="gallery__item" src={galleryItem3} alt="example 3" />
-            <img className="gallery__item" src={galleryItem4} alt="example 4" />
+            <img className="gallery__item" src={galleryItem3.src} alt={galleryItem3.alt} />
+            <img className="gallery__item" src={galleryItem4.src} alt={galleryItem4.alt} />
             <TextBlock className="gallery__item">
               <TextBlockH>Forest hiking trips</TextBlockH>
               <TextBlockP>
@@ -73,8 +76,8 @@ const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef 
                 create unforgettable memories
               </TextBlockP>
             </TextBlock>
-            <img className="gallery__item" src={galleryItem6} alt="example 6" />
-            <img className="gallery__item" src={galleryItem8} alt="example 8" />
+            <img className="gallery__item" src={galleryItem6.src} alt={galleryItem6.alt} />
+            <img className="gallery__item" src={galleryItem8.src} alt={galleryItem8.alt} />
           </GalleryRight>
         </Gallery>
       </div>
