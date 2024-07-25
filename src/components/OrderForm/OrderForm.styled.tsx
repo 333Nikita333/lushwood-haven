@@ -136,6 +136,11 @@ export const PhoneNumberInput = styled(PhoneInput)`
 export const ErrorText = styled.span`
   color: red;
   font-size: 14px;
+
+  &::before {
+    content: '⚠ ';
+    font-size: 60%;
+  }
 `;
 
 export const SubmitButton = styled.button`

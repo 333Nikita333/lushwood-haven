@@ -1,7 +1,8 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useCallback, Dispatch, SetStateAction } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Modal from '../../utils/Modal';
 import { useScroll } from '../../utils/ScrollContext';
+import AuthForm from '../AuthForm';
 import BookRoomButton from '../BookRoomButton';
 import MobileMenuHeader from '../MobileMenuHeader';
 import Navigation from '../Navigation';
@@ -11,50 +12,43 @@ import { HeaderContainer, MobileMenuButton } from './Header.styled';
 
 const Header: FC = () => {
   const [isModalFormOpen, setIsModalFormOpen] = useState<boolean>(false);
-  const [isWindowProfileOpen, setIsWindowProfileOpen] = useState<boolean>(false); //! переключить на false
+  const [isWindowProfileOpen, setIsWindowProfileOpen] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [isAuthFormOpen, setIsAuthFormOpen] = useState<boolean>(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);
 
   const { toggleScroll } = useScroll();
 
+  const handleScroll = useCallback((): void => {
+    if (isModalFormOpen || isWindowProfileOpen) return;
+
+    const currentScrollPos: number = window.scrollY;
+    const isScrollingUp: boolean = currentScrollPos < prevScrollPos;
+
+    setIsHeaderVisible(isScrollingUp);
+    setPrevScrollPos(currentScrollPos);
+  }, [isModalFormOpen, isWindowProfileOpen, prevScrollPos]);
+
   useEffect(() => {
-    const handleScroll = (): void => {
-      if (isModalFormOpen || isWindowProfileOpen) return;
-
-      const currentScrollPos: number = window.scrollY;
-      const isScrollingUp: boolean = currentScrollPos < prevScrollPos;
-
-      if (isScrollingUp) {
-        setIsHeaderVisible(true);
-      } else {
-        setIsHeaderVisible(false);
-      }
-
-      setPrevScrollPos(currentScrollPos);
-    };
-
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [prevScrollPos, isModalFormOpen, isWindowProfileOpen]);
+  }, [handleScroll]);
 
-  const toggleModalForm = (): void => {
-    setIsModalFormOpen(prevState => !prevState);
-    toggleScroll(isModalFormOpen);
-  };
+  const toggleState = useCallback(
+    (stateSetter: Dispatch<SetStateAction<boolean>>, state: boolean): void => {
+      stateSetter(!state);
+      toggleScroll(state);
+    },
+    [toggleScroll]
+  );
 
-  const toggleMobileMenu = (): void => {
-    setIsMobileMenuOpen(prevState => !prevState);
-    toggleScroll(isMobileMenuOpen);
-  };
-
-  const toggleWindowProfile = (): void => {
-    setIsWindowProfileOpen(prevState => !prevState);
-    toggleScroll(isWindowProfileOpen);
-  };
+  const toggleModalForm = (): void => toggleState(setIsModalFormOpen, isModalFormOpen);
+  const toggleMobileMenu = (): void => toggleState(setIsMobileMenuOpen, isMobileMenuOpen);
+  const toggleWindowProfile = (): void => toggleState(setIsWindowProfileOpen, isWindowProfileOpen);
+  const toggleAuthForm = (): void => toggleState(setIsAuthFormOpen, isAuthFormOpen);
 
   return (
     <HeaderContainer
@@ -77,8 +71,15 @@ const Header: FC = () => {
         <button onClick={toggleWindowProfile} type="button">
           OPEN PROFILE
         </button>
+        <button onClick={toggleAuthForm} type="button">
+          OPEN AUTH
+        </button>
         <BookRoomButton toggleModalForm={toggleModalForm} />
       </div>
+
+      <Modal isOpen={isAuthFormOpen} onClose={toggleAuthForm}>
+        <AuthForm />
+      </Modal>
 
       <Modal isOpen={isWindowProfileOpen} onClose={toggleWindowProfile}>
         <ProfileWindow />

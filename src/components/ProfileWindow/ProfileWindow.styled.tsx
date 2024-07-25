@@ -45,51 +45,66 @@ export const TablesContainer = styled.div`
     flex-direction: row;
   }
 `;
-
+export const TableWrapper = styled.div``;
 export const TableContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid ${({ theme }) => theme.colors.secondaryColor};
-  max-height: 300px; /* Set the maximum height for the table */
+  max-height: 400px;
+  overflow-y: scroll;
+  border-radius: 15px;
+  border: 2px solid ${({ theme }) => theme.colors.secondaryColor};
 
   @media screen and (max-width: 481px) {
     font-size: 14px;
   }
 `;
 
-export const BookingTable = styled.div`
-  height: 100%; /* Full height of the container */
-  overflow-y: auto;
-`;
-
 export const TableHeader = styled.h3`
   font-size: 20px;
   margin: 10px;
   text-align: center;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.secondaryColor};
 `;
 
-export const TableRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.secondaryColor};
+export const BookingTable = styled.table`
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  border-collapse: collapse;
 
-  &:nth-child(even) {
+  thead {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  th,
+  td {
+    padding: 10px;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.secondaryColor};
+    text-align: center;
+
+    &:not(:last-child) {
+      border-right: 1px solid ${({ theme }) => theme.colors.secondaryColor};
+    }
+  }
+
+  tbody tr:nth-child(even) {
     background-color: ${({ theme }) => theme.colors.primaryColor};
   }
 `;
 
-export const TableCell = styled.div`
+export const TableRow = styled.tr`
+  display: table-row;
+`;
+
+export const TableCell = styled.td`
   flex: 1;
   text-align: center;
 `;
 
-export const SubHeader = styled.div`
+export const SubHeader = styled.th`
   flex: 1;
   text-align: center;
   font-weight: bold;
