@@ -30,7 +30,6 @@ const ProfileWindow: FC = () => {
         </InfoBlockItem>
       </InfoBlock>
       <TablesContainer>
-        {/* Current Bookings */}
         <TableWrapper>
           <TableHeader>Current Bookings</TableHeader>
           <TableContainer>
@@ -44,7 +43,6 @@ const ProfileWindow: FC = () => {
                 </TableRow>
               </thead>
               <tbody>
-                {/* Replace the hardcoded rows with dynamic data from your backend */}
                 <TableRow>
                   <TableCell>Standard Family Room</TableCell>
                   <TableCell>Family</TableCell>
@@ -105,13 +103,11 @@ const ProfileWindow: FC = () => {
                   <TableCell>2024-05-27 17:10</TableCell>
                   <TableCell>2024-05-28 13:47</TableCell>
                 </TableRow>
-                {/* Add more rows as needed */}
               </tbody>
             </BookingTable>
           </TableContainer>
         </TableWrapper>
 
-        {/* Past Bookings */}
         <TableWrapper>
           <TableHeader>Past Bookings</TableHeader>
           <TableContainer>
@@ -125,7 +121,6 @@ const ProfileWindow: FC = () => {
                 </TableRow>
               </thead>
               <tbody>
-                {/* Replace the hardcoded rows with dynamic data from your backend */}
                 <TableRow>
                   <TableCell>Standard Family Room</TableCell>
                   <TableCell>Family</TableCell>
@@ -192,7 +187,6 @@ const ProfileWindow: FC = () => {
                   <TableCell>2024-05-27 17:10</TableCell>
                   <TableCell>2024-05-28 13:47</TableCell>
                 </TableRow>
-                {/* Add more rows as needed */}
               </tbody>
             </BookingTable>
           </TableContainer>

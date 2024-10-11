@@ -23,14 +23,15 @@ export type UseSoundEffectType = {
 export type LinkName = 'Home' | 'About' | 'Search' | 'Gallery' | 'Services';
 
 export type OrderFormData = {
+  name: string;
+  email: string;
+  phone?: string;
+  roomName: string;
+  roomType: string;
   checkInDate: Date;
   checkOutDate: Date;
-  email: string;
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  roomType: string;
 };
+
 export type ContactFormData = {
   email: string;
   name: string;
@@ -59,4 +60,9 @@ export type RoomType = {
   perNight: number;
   description: string;
   amenities: { icon: ReactNode; desc: string }[];
+};
+export type FormAuthData = {
+  name: string;
+  email: string;
+  password: string;
 };

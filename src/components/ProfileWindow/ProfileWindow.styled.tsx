@@ -2,16 +2,18 @@ import styled from 'styled-components';
 import { modalBgImage } from '../../data/photos';
 
 export const ProfileWpaper = styled.div`
-  background-color: #fff;
-  color: #000;
+  overflow-y: auto;
   padding: ${({ theme }) => theme.paddings.big};
-  width: calc(100vw - ${({ theme }) => theme.paddings.big} * 2);
   height: calc(100vh - ${({ theme }) => theme.paddings.big} * 2);
+  width: calc(100vw - ${({ theme }) => theme.paddings.big} * 2);
+  font-weight: ${({ theme }) => theme.fontWeights.secondary};
   border-radius: 16px;
   border: 2px solid #424141;
+  background-color: #fff;
+  color: #000;
   background-image: url(${modalBgImage});
   background-size: cover;
-  font-weight: ${({ theme }) => theme.fontWeights.secondary};
+  box-shadow: 3px 3px 85px 10px rgba(186, 181, 181, 1);
 
   @media screen and (max-width: 481px) {
     padding: ${({ theme }) => theme.paddings.small};
@@ -21,9 +23,10 @@ export const ProfileWpaper = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: ${({ theme }) => theme.fontSizes.secondary};
   margin-bottom: 20px;
+  font-size: ${({ theme }) => theme.fontSizes.secondary};
   text-transform: uppercase;
+  text-shadow: 7px 7px 5px rgba(0, 0, 0, 0.6);
 `;
 
 export const InfoBlock = styled.div`
@@ -33,6 +36,7 @@ export const InfoBlock = styled.div`
 export const InfoBlockItem = styled.div`
   p {
     margin: 5px 0;
+    text-shadow: 7px 7px 5px rgba(0, 0, 0, 0.6);
   }
 `;
 
@@ -54,6 +58,7 @@ export const TableContainer = styled.div`
   overflow-y: scroll;
   border-radius: 15px;
   border: 2px solid ${({ theme }) => theme.colors.secondaryColor};
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
   @media screen and (max-width: 481px) {
     font-size: 14px;
@@ -61,17 +66,18 @@ export const TableContainer = styled.div`
 `;
 
 export const TableHeader = styled.h3`
-  font-size: 20px;
   margin: 10px;
+  font-size: 20px;
   text-align: center;
+  text-shadow: 7px 7px 5px rgba(0, 0, 0, 0.6);
 `;
 
 export const BookingTable = styled.table`
-  background-color: rgba(255, 255, 255, 0.8);
   width: 100%;
   height: 100%;
   overflow-y: auto;
   border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.8);
 
   thead {
     position: sticky;
@@ -82,8 +88,8 @@ export const BookingTable = styled.table`
   th,
   td {
     padding: 10px;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.secondaryColor};
     text-align: center;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.secondaryColor};
 
     &:not(:last-child) {
       border-right: 1px solid ${({ theme }) => theme.colors.secondaryColor};
@@ -92,6 +98,13 @@ export const BookingTable = styled.table`
 
   tbody tr:nth-child(even) {
     background-color: ${({ theme }) => theme.colors.primaryColor};
+  }
+
+  @media screen and (max-width: 480px) {
+    th,
+    td {
+      padding: 5px;
+    }
   }
 `;
 

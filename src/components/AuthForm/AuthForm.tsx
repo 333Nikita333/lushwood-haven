@@ -2,29 +2,23 @@ import { FC, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FaEye } from 'react-icons/fa';
 import { RiEyeCloseFill } from 'react-icons/ri';
+import { FormAuthData } from '../../types';
 import {
   ButtonLogin,
   ButtonRegister,
   Checkbox,
+  ErrorMessage,
   Form,
   Input,
   InputContainer,
+  InputWrapper,
   LabelLogin,
   LabelRegister,
   Login,
   Main,
   Register,
   TogglePasswordButton,
-  ErrorMessage,
-  InputWrapper,
 } from './AuthForm.styled';
-
-interface FormData {
-  name?: string;
-  phone?: string;
-  email: string;
-  password: string;
-}
 
 const AuthForm: FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -34,26 +28,25 @@ const AuthForm: FC = () => {
     handleSubmit: handleSubmitLogin,
     reset: resetLogin,
     formState: { errors: errorsLogin },
-  } = useForm<FormData>();
+  } = useForm<FormAuthData>();
 
   const {
     register: registerRegister,
     handleSubmit: handleSubmitRegister,
     reset: resetRegister,
     formState: { errors: errorsRegister },
-  } = useForm<FormData>();
+  } = useForm<FormAuthData>();
 
   const togglePasswordVisibility = (): void => {
     setShowPassword(prevState => !prevState);
   };
 
-  const onSubmitLogin: SubmitHandler<FormData> = (data): void => {
+  const onSubmitLogin: SubmitHandler<FormAuthData> = (data): void => {
     console.log('Login Data:', data);
-
     resetLogin();
   };
 
-  const onSubmitRegister: SubmitHandler<FormData> = (data): void => {
+  const onSubmitRegister: SubmitHandler<FormAuthData> = (data): void => {
     console.log('Register Data:', data);
     resetRegister();
   };

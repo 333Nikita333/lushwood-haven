@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useCallback, Dispatch, SetStateAction } from 'react';
+import { Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Modal from '../../utils/Modal';
 import { useScroll } from '../../utils/ScrollContext';

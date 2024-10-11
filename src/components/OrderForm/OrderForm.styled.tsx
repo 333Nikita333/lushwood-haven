@@ -12,7 +12,9 @@ export const FormContainer = styled.div`
   background-image: url(${modalBgImage});
   background-size: cover;
   border-radius: 16px;
+  box-shadow: 3px 3px 85px 10px rgba(186, 181, 181, 1);
 `;
+
 export const FormTitle = styled.h3`
   margin-bottom: 10px;
   text-align: center;
@@ -25,13 +27,15 @@ export const FormTitle = styled.h3`
     font-size: calc(var(--index) * 1.8);
   }
 `;
+
 export const OrderFormContainer = styled.form`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
 
-  & input {
+  & input,
+  & select {
     width: 100%;
     padding: 5px;
     border-radius: 8px;
@@ -133,6 +137,7 @@ export const PhoneNumberInput = styled(PhoneInput)`
     border-top-left-radius: 8px;
   }
 `;
+
 export const ErrorText = styled.span`
   color: red;
   font-size: 14px;
@@ -236,4 +241,29 @@ export const RadioButtonsLabel = styled.label`
 
 export const FormGroupButtons = styled(FormGroup)`
   padding: 0px;
+`;
+
+export const Select = styled.select`
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 7px;
+  font-size: ${({ theme }) => theme.fontSizes.primary};
+  background: transparent;
+  outline: 0;
+  border: none;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.secondaryColor};
+  transition: border-color 0.2s ease-in-out;
+
+  &:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #116399, ${({ theme }) => theme.colors.primaryColor});
+    border-image-slice: 1;
+  }
+
+  & option {
+    background-color: ${({ theme }) => theme.colors.primaryTextColor};
+    color: ${({ theme }) => theme.colors.secondaryColor};
+  }
 `;

@@ -97,15 +97,15 @@ export const Input = styled.input`
   background-color: #ccc;
   box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
   transition: 300ms ease-in-out;
-  font-weight: 900;
 
   &::placeholder {
     color: #5f5f5f;
   }
 
   &:focus {
-    background-color: white;
     transform: scale(1.05);
+    font-weight: ${({ theme }) => theme.fontWeights.secondary};
+    background-color: white;
     box-shadow: 13px 13px 100px #969696, -13px -13px 100px #ffffff;
   }
 `;
@@ -126,7 +126,7 @@ export const Button = styled.button`
   height: 40px;
   margin: 25px auto;
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: ${({ theme }) => theme.fontWeights.secondary};
   border: none;
   border-radius: 15px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,

@@ -17,10 +17,17 @@ import {
   RadioGroup,
   RadioInput,
   RadioLabel,
+  Select,
   SubmitButton,
 } from './OrderForm.styled';
 
-const radioButtons: ReadonlyArray<string> = ['Standart', 'Family', 'Suite'];
+const radioButtons: ReadonlyArray<string> = ['Standard', 'Family', 'Suite'];
+
+const roomOptions: Record<string, string[]> = {
+  Standard: ['Standard Single Room', 'Standard Double Room', 'Standard Max Room'],
+  Family: ['Family Double Room', 'Family Triple Room', 'Family Max Room'],
+  Suite: ['Suite Single Room', 'Suite Double Room', 'Suite Max Room'],
+};
 
 const OrderForm: FC = () => {
   const {
@@ -34,6 +41,7 @@ const OrderForm: FC = () => {
   const today: Date = new Date();
   const checkInDate: Date = watch('checkInDate');
   const checkOutDate: Date = watch('checkOutDate');
+  const roomType: string = watch('roomType');
 
   const [showCheckInError, setShowCheckInError] = useState<boolean>(false);
   const [showCheckOutError, setShowCheckOutError] = useState<boolean>(false);
@@ -48,51 +56,14 @@ const OrderForm: FC = () => {
       <OrderFormContainer onSubmit={handleSubmit(onSubmit)}>
         <FormGroup>
           <Controller
-            name="firstName"
+            name="name"
             control={control}
             defaultValue=""
             rules={{ required: true }}
-            render={({ field }) => (
-              <input className="form__field" placeholder="First Name" {...field} />
-            )}
+            render={({ field }) => <input className="form__field" placeholder="Name" {...field} />}
           />
-          <label className="form__label">First Name</label>
-          {errors.firstName && <ErrorText>This field is required</ErrorText>}
-        </FormGroup>
-
-        <FormGroup>
-          <Controller
-            name="lastName"
-            control={control}
-            defaultValue=""
-            rules={{ required: true }}
-            render={({ field }) => (
-              <input className="form__field" placeholder="Last Name" {...field} />
-            )}
-          />
-          <label className="form__label">Last Name</label>
-          {errors.lastName && <ErrorText>This field is required</ErrorText>}
-        </FormGroup>
-
-        <FormGroup>
-          <Controller
-            name="phoneNumber"
-            control={control}
-            defaultValue=""
-            rules={{ required: true }}
-            render={({ field }) => (
-              <PhoneNumberInput
-                country={'us'}
-                preferredCountries={['us', 'ua']}
-                excludeCountries={['ru', 'by', 'hu', 'kp']}
-                enableSearch={true}
-                {...field}
-              />
-            )}
-          />
-          <label className="form__label">Phone Number</label>
-          {errors.phoneNumber?.type === 'required' && <ErrorText>This field is required</ErrorText>}
-          {errors.phoneNumber?.type === 'pattern' && <ErrorText>Invalid phone number</ErrorText>}
+          <label className="form__label">Name</label>
+          {errors.name && <ErrorText>This field is required</ErrorText>}
         </FormGroup>
 
         <FormGroup>
@@ -172,6 +143,27 @@ const OrderForm: FC = () => {
           {errors.checkOutDate && <ErrorText>This field is required</ErrorText>}
         </FormGroup>
 
+        <FormGroup>
+          <Controller
+            name="phone"
+            control={control}
+            defaultValue=""
+            rules={{ required: true }}
+            render={({ field }) => (
+              <PhoneNumberInput
+                country={'us'}
+                preferredCountries={['us', 'ua']}
+                excludeCountries={['ru', 'by', 'hu', 'kp']}
+                enableSearch={true}
+                {...field}
+              />
+            )}
+          />
+          <label className="form__label">Phone Number</label>
+          {errors.phone?.type === 'required' && <ErrorText>This field is required</ErrorText>}
+          {errors.phone?.type === 'pattern' && <ErrorText>Invalid phone number</ErrorText>}
+        </FormGroup>
+
         <FormGroupButtons>
           <RadioButtonsLabel className="form__label">Room Type</RadioButtonsLabel>
           <Controller
@@ -182,12 +174,7 @@ const OrderForm: FC = () => {
               <RadioGroup>
                 {radioButtons.map(item => (
                   <RadioButton key={item}>
-                    <RadioInput
-                      type="radio"
-                      {...field}
-                      value={item.toLowerCase()}
-                      id={item.toLowerCase()}
-                    />
+                    <RadioInput type="radio" {...field} value={item} id={item.toLowerCase()} />
                     <RadioLabel htmlFor={item.toLowerCase()}>
                       <span></span>
                       {item}
@@ -199,6 +186,28 @@ const OrderForm: FC = () => {
           />
           {errors.roomType && <ErrorText>This field is required</ErrorText>}
         </FormGroupButtons>
+
+        {roomType && (
+          <FormGroup>
+            <Controller
+              name="roomName"
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <Select {...field}>
+                  {roomOptions[roomType].map(roomName => (
+                    <option key={roomName} value={roomName}>
+                      {roomName}
+                    </option>
+                  ))}
+                </Select>
+              )}
+            />
+            <label className="form__label">Room Name</label>
+            {errors.roomName && <ErrorText>This field is required</ErrorText>}
+          </FormGroup>
+        )}
+
         <SubmitButton type="submit">Submit</SubmitButton>
       </OrderFormContainer>
     </FormContainer>
