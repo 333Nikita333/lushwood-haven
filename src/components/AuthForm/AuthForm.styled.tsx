@@ -90,6 +90,7 @@ export const InputWrapper = styled.div`
   margin-top: 30px;
 `;
 export const Input = styled.input`
+  width: 100%;
   border: none;
   outline: none;
   border-radius: 15px;

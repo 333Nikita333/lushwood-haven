@@ -19,9 +19,16 @@ import {
   Register,
   TogglePasswordButton,
 } from './AuthForm.styled';
+import useStore from '../../store';
 
 const AuthForm: FC = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
+  const { login, register, isLoading } = useStore(state => ({
+    login: state.login,
+    register: state.register,
+    isLoading: state.isLoading,
+  }));
 
   const {
     register: registerLogin,
@@ -41,21 +48,25 @@ const AuthForm: FC = () => {
     setShowPassword(prevState => !prevState);
   };
 
-  const onSubmitLogin: SubmitHandler<FormAuthData> = (data): void => {
-    console.log('Login Data:', data);
-    resetLogin();
-  };
+  const onSubmit: SubmitHandler<FormAuthData> = async (data): Promise<void> => {
+    const { name, email, password } = data;
 
-  const onSubmitRegister: SubmitHandler<FormAuthData> = (data): void => {
-    console.log('Register Data:', data);
-    resetRegister();
+    if (name) {
+      console.log('Register data:', data);
+      await register(name, email, password);
+      resetRegister();
+    } else {
+      console.log('Login data:', data);
+      await login(email, password);
+      resetLogin();
+    }
   };
 
   return (
     <Main>
       <Checkbox type="checkbox" id="chk" aria-hidden="true" />
       <Login>
-        <Form onSubmit={handleSubmitLogin(onSubmitLogin)}>
+        <Form onSubmit={handleSubmitLogin(onSubmit)}>
           <LabelLogin htmlFor="chk" aria-hidden="true">
             Log in
           </LabelLogin>
@@ -81,15 +92,18 @@ const AuthForm: FC = () => {
               </TogglePasswordButton>
             </InputContainer>
           </InputWrapper>
-          <ButtonLogin type="submit">Log in</ButtonLogin>
+          <ButtonLogin type="submit" disabled={isLoading}>
+            {isLoading ? 'Logging in...' : 'Log in'}
+          </ButtonLogin>
         </Form>
       </Login>
 
       <Register>
-        <Form onSubmit={handleSubmitRegister(onSubmitRegister)}>
+        <Form onSubmit={handleSubmitRegister(onSubmit)}>
           <LabelRegister htmlFor="chk" aria-hidden="true">
             Register
           </LabelRegister>
+
           <InputWrapper>
             {errorsRegister.name && <ErrorMessage>{errorsRegister.name.message}</ErrorMessage>}
             <Input
@@ -121,7 +135,9 @@ const AuthForm: FC = () => {
               </TogglePasswordButton>
             </InputContainer>
           </InputWrapper>
-          <ButtonRegister type="submit">Register</ButtonRegister>
+          <ButtonRegister type="submit" disabled={isLoading}>
+            {isLoading ? 'Registering...' : 'Register'}
+          </ButtonRegister>
         </Form>
       </Register>
     </Main>

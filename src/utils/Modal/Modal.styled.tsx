@@ -24,7 +24,7 @@ const scaleOut = keyframes`
 
 export const Backdrop = styled.div`
   position: fixed;
-  z-index: 10000;
+  z-index: 11;
   top: 0;
   left: 0;
   display: flex;
