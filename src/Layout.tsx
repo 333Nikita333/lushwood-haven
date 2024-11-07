@@ -21,7 +21,7 @@ const Layout: FC = () => {
 
       <StyledToastContainer
         position="top-center"
-        autoClose={false}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

@@ -13,7 +13,7 @@ export const MainArticle = styled.article`
   min-height: 100vh;
   background-size: cover;
   background-position: center;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.primaryTextColor};
 `;
 
 export const MainArticleContent = styled.div`
