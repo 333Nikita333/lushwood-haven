@@ -54,3 +54,9 @@ export const MobileMenuButton = styled.button`
     display: none;
   }
 `;
+export const ListButtons = styled.ul`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-left: auto;
+`;

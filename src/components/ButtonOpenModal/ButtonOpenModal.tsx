@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import { IBookRoomButtonProps } from '../../types';
-import { OrderIcon, Wrapper } from './BookRoomButton.styled';
+import { IButtonOpenModalProps } from '../../types';
+import { Wrapper } from './ButtonOpenModal.styled';
 
-const BookRoomButton: FC<IBookRoomButtonProps> = ({ toggleModalForm }) => {
+const ButtonOpenModal: FC<IButtonOpenModalProps> = ({ toggleModalForm, icon, text }) => {
   return (
     <Wrapper>
       <button className="btn-content" onClick={toggleModalForm}>
-        <span className="btn-title">Book a room</span>
-        <OrderIcon />
+        <span className="btn-title">{text}</span>
+        {icon}
         <span className="icon-arrow">
           <svg
             width="66px"
@@ -41,4 +41,4 @@ const BookRoomButton: FC<IBookRoomButtonProps> = ({ toggleModalForm }) => {
   );
 };
 
-export default BookRoomButton;
+export default ButtonOpenModal;

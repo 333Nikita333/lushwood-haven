@@ -1,34 +1,41 @@
-import { Dispatch, FC, SetStateAction, useCallback, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
+import { FaHouseUser } from 'react-icons/fa';
+import { FiLogIn } from 'react-icons/fi';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { MdBorderColor } from 'react-icons/md';
 import Modal from '../../utils/Modal';
 import { useScroll } from '../../utils/ScrollContext';
 import AuthForm from '../AuthForm';
-import BookRoomButton from '../BookRoomButton';
+import ButtonOpenModal from '../ButtonOpenModal';
 import MobileMenuHeader from '../MobileMenuHeader';
 import Navigation from '../Navigation';
 import OrderForm from '../OrderForm';
 import ProfileWindow from '../ProfileWindow';
-import { HeaderContainer, MobileMenuButton } from './Header.styled';
+import { HeaderContainer, ListButtons, MobileMenuButton } from './Header.styled';
+
+type ModalState = 'profileModal' | 'authModal' | 'orderModal';
 
 const Header: FC = () => {
-  const [isModalFormOpen, setIsModalFormOpen] = useState<boolean>(false);
-  const [isWindowProfileOpen, setIsWindowProfileOpen] = useState<boolean>(false);
+  const [modals, setModals] = useState<Record<ModalState, boolean>>({
+    profileModal: false,
+    authModal: false,
+    orderModal: false,
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
-  const [isAuthFormOpen, setIsAuthFormOpen] = useState<boolean>(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);
 
   const { toggleScroll } = useScroll();
 
   const handleScroll = useCallback((): void => {
-    if (isModalFormOpen || isWindowProfileOpen) return;
+    if (Object.values(modals).some(Boolean)) return;
 
     const currentScrollPos: number = window.scrollY;
     const isScrollingUp: boolean = currentScrollPos < prevScrollPos;
 
     setIsHeaderVisible(isScrollingUp);
     setPrevScrollPos(currentScrollPos);
-  }, [isModalFormOpen, isWindowProfileOpen, prevScrollPos]);
+  }, [modals, prevScrollPos]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -37,18 +44,16 @@ const Header: FC = () => {
     };
   }, [handleScroll]);
 
-  const toggleState = useCallback(
-    (stateSetter: Dispatch<SetStateAction<boolean>>, state: boolean): void => {
-      stateSetter(!state);
-      toggleScroll(state);
+  const toggleModal = useCallback(
+    (modal: ModalState) => {
+      setModals(prev => ({
+        ...prev,
+        [modal]: !prev[modal],
+      }));
+      toggleScroll(modals[modal]);
     },
-    [toggleScroll]
+    [toggleScroll, modals]
   );
-
-  const toggleModalForm = (): void => toggleState(setIsModalFormOpen, isModalFormOpen);
-  const toggleMobileMenu = (): void => toggleState(setIsMobileMenuOpen, isMobileMenuOpen);
-  const toggleWindowProfile = (): void => toggleState(setIsWindowProfileOpen, isWindowProfileOpen);
-  const toggleAuthForm = (): void => toggleState(setIsAuthFormOpen, isAuthFormOpen);
 
   return (
     <HeaderContainer
@@ -58,34 +63,45 @@ const Header: FC = () => {
       }}
     >
       {!isMobileMenuOpen && (
-        <MobileMenuButton onClick={toggleMobileMenu}>
+        <MobileMenuButton onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           <GiHamburgerMenu size={40} />
         </MobileMenuButton>
       )}
 
-      <MobileMenuHeader isMobileMenuOpen={isMobileMenuOpen} onClose={toggleMobileMenu} />
+      <MobileMenuHeader
+        isMobileMenuOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
 
       <Navigation />
 
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '10px', marginLeft: 'auto' }}>
-        <button onClick={toggleWindowProfile} type="button">
-          OPEN PROFILE
-        </button>
-        <button onClick={toggleAuthForm} type="button">
-          OPEN AUTH
-        </button>
-        <BookRoomButton toggleModalForm={toggleModalForm} />
-      </div>
+      <ListButtons>
+        <ButtonOpenModal
+          toggleModalForm={() => toggleModal('profileModal')}
+          text="My profile"
+          icon={<FaHouseUser size={30} />}
+        />
+        <ButtonOpenModal
+          toggleModalForm={() => toggleModal('authModal')}
+          text="Log in"
+          icon={<FiLogIn size={30} />}
+        />
+        <ButtonOpenModal
+          toggleModalForm={() => toggleModal('orderModal')}
+          text="Book a room"
+          icon={<MdBorderColor size={30} />}
+        />
+      </ListButtons>
 
-      <Modal isOpen={isAuthFormOpen} onClose={toggleAuthForm}>
+      <Modal isOpen={modals.authModal} onClose={() => toggleModal('authModal')}>
         <AuthForm />
       </Modal>
 
-      <Modal isOpen={isWindowProfileOpen} onClose={toggleWindowProfile}>
+      <Modal isOpen={modals.profileModal} onClose={() => toggleModal('profileModal')}>
         <ProfileWindow />
       </Modal>
 
-      <Modal isOpen={isModalFormOpen} onClose={toggleModalForm}>
+      <Modal isOpen={modals.orderModal} onClose={() => toggleModal('orderModal')}>
         <OrderForm />
       </Modal>
     </HeaderContainer>

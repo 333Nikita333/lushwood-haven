@@ -26,8 +26,10 @@ export interface IMobileMenuProps {
   isMobileMenuOpen: boolean;
   onClose: () => void;
 }
-export interface IBookRoomButtonProps {
+export interface IButtonOpenModalProps {
   toggleModalForm: () => void;
+  text: string;
+  icon: JSX.Element;
 }
 export interface IFooterButtonContactProps {
   toggleContactForm: () => void;
