@@ -33,9 +33,10 @@ export const Wrapper = styled.div`
   & .btn-title {
     position: absolute;
     top: 110%;
-    display: none;
+    display: block;
     width: 110px;
     opacity: 0;
+    font-size: ${({ theme }) => theme.fontSizes.primary};
     text-shadow: 7px 7px 3px rgba(0, 0, 0, 0.6);
     transition: all 0.3s ease-in-out;
   }

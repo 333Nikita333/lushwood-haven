@@ -2,50 +2,9 @@ import axios, { AxiosResponse } from 'axios';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { toast } from 'react-toastify';
+import { AuthResponse, AuthStore, ErrorResponse } from '../types';
 
-interface IOrder {
-  roomName: string;
-  roomType: string;
-  dateCheckIn: Date;
-  dateCheckOut: Date;
-}
-interface IUser {
-  name: string;
-  email: string;
-  newOrders?: IOrder[];
-  oldOrders?: IOrder[];
-}
-interface IAuthStore {
-  user: IUser | null;
-  token: string | null;
-  isLoggedIn: boolean;
-  isRefreshing: boolean;
-  isLoading: boolean;
-  error: string | null;
-  login: (email: string, password: string) => Promise<void>;
-  register: (name: string, email: string, password: string) => Promise<void>;
-  current: () => Promise<void>;
-  logout: () => void;
-}
-interface IAuthResponse {
-  data: {
-    user: IUser;
-    token: string;
-  };
-  message: string;
-  success: boolean;
-}
-interface IErrorResponse {
-  response: {
-    data: {
-      error: {
-        message: string;
-      };
-    };
-  };
-}
-
-const initialState: Omit<IAuthStore, 'login' | 'register' | 'current' | 'logout'> = {
+const initialState: Omit<AuthStore, 'login' | 'register' | 'current' | 'logout'> = {
   user: null,
   token: null,
   isLoggedIn: false,
@@ -55,7 +14,7 @@ const initialState: Omit<IAuthStore, 'login' | 'register' | 'current' | 'logout'
 };
 const API_URL = import.meta.env.VITE_API_URL;
 
-const useStore = create<IAuthStore>()(
+const useStore = create<AuthStore>()(
   devtools(
     persist(
       (set, get) => ({
@@ -66,7 +25,7 @@ const useStore = create<IAuthStore>()(
           try {
             await toast
               .promise(
-                axios.post<{ email: string; password: string }, AxiosResponse<IAuthResponse>>(
+                axios.post<{ email: string; password: string }, AxiosResponse<AuthResponse>>(
                   `${API_URL}/auth/login`,
                   {
                     email,
@@ -76,25 +35,25 @@ const useStore = create<IAuthStore>()(
                 {
                   pending: 'Logging in...',
                   success: {
-                    render({ data }: { data: AxiosResponse<IAuthResponse> }) {
+                    render({ data }: { data: AxiosResponse<AuthResponse> }) {
                       return data.data.message || 'Logged in successfully 👌';
                     },
                   },
                   error: {
-                    render({ data }: { data: IErrorResponse }) {
+                    render({ data }: { data: ErrorResponse }) {
                       return data.response.data.error.message || 'Login failed 🤯';
                     },
                   },
                 }
               )
-              .then((response: AxiosResponse<IAuthResponse>) => {
+              .then((response: AxiosResponse<AuthResponse>) => {
                 console.log('Login response data:', response.data);
 
                 const { user, token } = response.data.data;
 
                 set({ user, token, isLoggedIn: true });
               })
-              .catch((error: IErrorResponse) => {
+              .catch((error: ErrorResponse) => {
                 console.error('Login error:', error.response.data.error.message);
                 set({
                   isLoggedIn: false,
@@ -114,7 +73,7 @@ const useStore = create<IAuthStore>()(
               .promise(
                 axios.post<
                   { name: string; email: string; password: string },
-                  AxiosResponse<IAuthResponse>
+                  AxiosResponse<AuthResponse>
                 >(`${API_URL}/auth/register`, {
                   name,
                   email,
@@ -123,25 +82,25 @@ const useStore = create<IAuthStore>()(
                 {
                   pending: 'Registering...',
                   success: {
-                    render({ data }: { data: AxiosResponse<IAuthResponse> }) {
+                    render({ data }: { data: AxiosResponse<AuthResponse> }) {
                       return data.data.message || 'Registration successful 👌';
                     },
                   },
                   error: {
-                    render({ data }: { data: IErrorResponse }) {
+                    render({ data }: { data: ErrorResponse }) {
                       return data.response.data.error.message || 'Registration failed 🤯';
                     },
                   },
                 }
               )
-              .then((response: AxiosResponse<IAuthResponse>) => {
+              .then((response: AxiosResponse<AuthResponse>) => {
                 console.log('Register response data:', response.data);
 
                 const { user, token } = response.data.data;
 
                 set({ user, token, isLoggedIn: true });
               })
-              .catch((error: IErrorResponse) => {
+              .catch((error: ErrorResponse) => {
                 console.error('Register error:', error.response.data.error.message);
                 set({
                   isLoggedIn: false,
@@ -162,7 +121,7 @@ const useStore = create<IAuthStore>()(
             try {
               await toast
                 .promise(
-                  axios.get<{ token: string }, AxiosResponse<IAuthResponse>>(
+                  axios.get<{ token: string }, AxiosResponse<AuthResponse>>(
                     `${API_URL}/auth/current`,
                     {
                       headers: {
@@ -173,25 +132,25 @@ const useStore = create<IAuthStore>()(
                   {
                     pending: 'Fetching user info...',
                     success: {
-                      render({ data }: { data: AxiosResponse<IAuthResponse> }) {
+                      render({ data }: { data: AxiosResponse<AuthResponse> }) {
                         return data.data.message || 'User info fetched 👌';
                       },
                     },
                     error: {
-                      render({ data }: { data: IErrorResponse }) {
+                      render({ data }: { data: ErrorResponse }) {
                         return data.response.data.error.message || 'Failed to fetch user info 🤯';
                       },
                     },
                   }
                 )
-                .then((response: AxiosResponse<IAuthResponse>) => {
+                .then((response: AxiosResponse<AuthResponse>) => {
                   console.log('Current user response:', response.data);
 
                   const { user } = response.data.data;
 
                   set({ user, isLoggedIn: true });
                 })
-                .catch((error: IErrorResponse) => {
+                .catch((error: ErrorResponse) => {
                   console.error('Current user error:', error.response.data.error.message); // Log the error
                   set({
                     isLoggedIn: false,

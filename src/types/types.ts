@@ -66,3 +66,44 @@ export type FormAuthData = {
   email: string;
   password: string;
 };
+export type Order = {
+  roomName: string;
+  roomType: string;
+  dateCheckIn: Date;
+  dateCheckOut: Date;
+};
+export type User = {
+  name: string;
+  email: string;
+  newOrders?: Order[];
+  oldOrders?: Order[];
+};
+export type AuthStore = {
+  user: User | null;
+  token: string | null;
+  isLoggedIn: boolean;
+  isRefreshing: boolean;
+  isLoading: boolean;
+  error: string | null;
+  login: (email: string, password: string) => Promise<void>;
+  register: (name: string, email: string, password: string) => Promise<void>;
+  current: () => Promise<void>;
+  logout: () => void;
+};
+export type AuthResponse = {
+  data: {
+    user: User;
+    token: string;
+  };
+  message: string;
+  success: boolean;
+};
+export type ErrorResponse = {
+  response: {
+    data: {
+      error: {
+        message: string;
+      };
+    };
+  };
+};

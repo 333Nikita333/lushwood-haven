@@ -80,3 +80,8 @@ export interface ScrollContextProps {
 export interface ScrollProviderProps {
   children: ReactNode;
 }
+
+export interface RouteProps {
+  component: JSX.Element;
+  redirectTo?: string;
+}

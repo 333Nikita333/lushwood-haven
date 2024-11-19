@@ -12,6 +12,7 @@ import Navigation from '../Navigation';
 import OrderForm from '../OrderForm';
 import ProfileWindow from '../ProfileWindow';
 import { HeaderContainer, ListButtons, MobileMenuButton } from './Header.styled';
+import useStore from '../../store';
 
 type ModalState = 'profileModal' | 'authModal' | 'orderModal';
 
@@ -24,6 +25,10 @@ const Header: FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);
+
+  const { isLoggedIn } = useStore(state => ({
+    isLoggedIn: state.isLoggedIn,
+  }));
 
   const { toggleScroll } = useScroll();
 
@@ -76,21 +81,27 @@ const Header: FC = () => {
       <Navigation />
 
       <ListButtons>
-        <ButtonOpenModal
-          toggleModalForm={() => toggleModal('profileModal')}
-          text="My profile"
-          icon={<FaHouseUser size={30} />}
-        />
-        <ButtonOpenModal
-          toggleModalForm={() => toggleModal('authModal')}
-          text="Log in"
-          icon={<FiLogIn size={30} />}
-        />
-        <ButtonOpenModal
-          toggleModalForm={() => toggleModal('orderModal')}
-          text="Book a room"
-          icon={<MdBorderColor size={30} />}
-        />
+        {!isLoggedIn ? (
+          <ButtonOpenModal
+            toggleModalForm={() => toggleModal('authModal')}
+            text="Log in"
+            icon={<FiLogIn size={30} />}
+          />
+        ) : (
+          <>
+            <ButtonOpenModal
+              toggleModalForm={() => toggleModal('profileModal')}
+              text="My profile"
+              icon={<FaHouseUser size={30} />}
+            />
+
+            <ButtonOpenModal
+              toggleModalForm={() => toggleModal('orderModal')}
+              text="Book a room"
+              icon={<MdBorderColor size={30} />}
+            />
+          </>
+        )}
       </ListButtons>
 
       <Modal isOpen={modals.authModal} onClose={() => toggleModal('authModal')}>
