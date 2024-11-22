@@ -3,6 +3,7 @@ import { FaHouseUser } from 'react-icons/fa';
 import { FiLogIn } from 'react-icons/fi';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdBorderColor } from 'react-icons/md';
+import useStore from '../../store';
 import Modal from '../../utils/Modal';
 import { useScroll } from '../../utils/ScrollContext';
 import AuthForm from '../AuthForm';
@@ -12,7 +13,6 @@ import Navigation from '../Navigation';
 import OrderForm from '../OrderForm';
 import ProfileWindow from '../ProfileWindow';
 import { HeaderContainer, ListButtons, MobileMenuButton } from './Header.styled';
-import useStore from '../../store';
 
 type ModalState = 'profileModal' | 'authModal' | 'orderModal';
 
@@ -26,8 +26,9 @@ const Header: FC = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);
 
-  const { isLoggedIn } = useStore(state => ({
+  const { isLoggedIn, user } = useStore(state => ({
     isLoggedIn: state.isLoggedIn,
+    user: state.user,
   }));
 
   const { toggleScroll } = useScroll();
@@ -104,17 +105,20 @@ const Header: FC = () => {
         )}
       </ListButtons>
 
-      <Modal isOpen={modals.authModal} onClose={() => toggleModal('authModal')}>
-        <AuthForm />
-      </Modal>
-
-      <Modal isOpen={modals.profileModal} onClose={() => toggleModal('profileModal')}>
-        <ProfileWindow />
-      </Modal>
-
-      <Modal isOpen={modals.orderModal} onClose={() => toggleModal('orderModal')}>
-        <OrderForm />
-      </Modal>
+      {!isLoggedIn ? (
+        <Modal isOpen={modals.authModal} onClose={() => toggleModal('authModal')}>
+          <AuthForm />
+        </Modal>
+      ) : (
+        <>
+          <Modal isOpen={modals.profileModal} onClose={() => toggleModal('profileModal')}>
+            <ProfileWindow user={user} />
+          </Modal>
+          <Modal isOpen={modals.orderModal} onClose={() => toggleModal('orderModal')}>
+            <OrderForm />
+          </Modal>
+        </>
+      )}
     </HeaderContainer>
   );
 };

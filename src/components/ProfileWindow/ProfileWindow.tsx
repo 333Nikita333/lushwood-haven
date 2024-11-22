@@ -1,196 +1,93 @@
 import { FC } from 'react';
+import { ProfileWindowProps } from '../../types';
 import {
-  ProfileWpaper,
-  Title,
-  InfoBlock,
   BookingTable,
+  InfoBlock,
+  InfoBlockItem,
+  ProfileWpaper,
+  SubHeader,
+  TableCell,
+  TableContainer,
   TableHeader,
   TableRow,
-  TableCell,
-  SubHeader,
   TablesContainer,
-  TableContainer,
-  InfoBlockItem,
   TableWrapper,
+  Title,
 } from './ProfileWindow.styled';
 
-const ProfileWindow: FC = () => {
+const ProfileWindow: FC<ProfileWindowProps> = ({ user }) => {
+  const { name, email, phone, newOrders, oldOrders } = user || {};
+
   return (
     <ProfileWpaper>
       <Title>My Profile</Title>
       <InfoBlock>
         <InfoBlockItem>
-          <p>Name: Nikitos</p>
+          <p>Name: {name}</p>
         </InfoBlockItem>
         <InfoBlockItem>
-          <p>Email: nikitosfox333@gmail.com</p>
+          <p>Email: {email}</p>
         </InfoBlockItem>
         <InfoBlockItem>
-          <p>Phone: +380991234567</p>
+          <p>Phone: {phone ? phone : 'No phone'}</p>
         </InfoBlockItem>
       </InfoBlock>
       <TablesContainer>
-        <TableWrapper>
-          <TableHeader>Current Bookings</TableHeader>
-          <TableContainer>
-            <BookingTable>
-              <thead>
-                <TableRow>
-                  <SubHeader>Room Name</SubHeader>
-                  <SubHeader>Room Type</SubHeader>
-                  <SubHeader>Check In</SubHeader>
-                  <SubHeader>Check Out</SubHeader>
-                </TableRow>
-              </thead>
-              <tbody>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-              </tbody>
-            </BookingTable>
-          </TableContainer>
-        </TableWrapper>
+        {newOrders && newOrders.length > 0 && (
+          <TableWrapper>
+            <TableHeader>Current Bookings</TableHeader>
+            <TableContainer>
+              <BookingTable>
+                <thead>
+                  <TableRow>
+                    <SubHeader>Room Name</SubHeader>
+                    <SubHeader>Room Type</SubHeader>
+                    <SubHeader>Check In</SubHeader>
+                    <SubHeader>Check Out</SubHeader>
+                  </TableRow>
+                </thead>
+                <tbody>
+                  {newOrders.map(({ roomName, roomType, dateCheckIn, dateCheckOut }, index) => (
+                    <TableRow key={index}>
+                      <TableCell>{roomName}</TableCell>
+                      <TableCell>{roomType}</TableCell>
+                      <TableCell>{dateCheckIn.toString()}</TableCell>
+                      <TableCell>{dateCheckOut.toString()}</TableCell>
+                    </TableRow>
+                  ))}
+                </tbody>
+              </BookingTable>
+            </TableContainer>
+          </TableWrapper>
+        )}
 
-        <TableWrapper>
-          <TableHeader>Past Bookings</TableHeader>
-          <TableContainer>
-            <BookingTable>
-              <thead>
-                <TableRow>
-                  <SubHeader>Room Name</SubHeader>
-                  <SubHeader>Room Type</SubHeader>
-                  <SubHeader>Check In</SubHeader>
-                  <SubHeader>Check Out</SubHeader>
-                </TableRow>
-              </thead>
-              <tbody>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Standard Family Room</TableCell>
-                  <TableCell>Family</TableCell>
-                  <TableCell>2024-05-27 17:10</TableCell>
-                  <TableCell>2024-05-28 13:47</TableCell>
-                </TableRow>
-              </tbody>
-            </BookingTable>
-          </TableContainer>
-        </TableWrapper>
+        {oldOrders && oldOrders.length > 0 && (
+          <TableWrapper>
+            <TableHeader>Past Bookings</TableHeader>
+            <TableContainer>
+              <BookingTable>
+                <thead>
+                  <TableRow>
+                    <SubHeader>Room Name</SubHeader>
+                    <SubHeader>Room Type</SubHeader>
+                    <SubHeader>Check In</SubHeader>
+                    <SubHeader>Check Out</SubHeader>
+                  </TableRow>
+                </thead>
+                <tbody>
+                  {oldOrders.map(({ roomName, roomType, dateCheckIn, dateCheckOut }, index) => (
+                    <TableRow key={index}>
+                      <TableCell>{roomName}</TableCell>
+                      <TableCell>{roomType}</TableCell>
+                      <TableCell>{dateCheckIn.toString()}</TableCell>
+                      <TableCell>{dateCheckOut.toString()}</TableCell>
+                    </TableRow>
+                  ))}
+                </tbody>
+              </BookingTable>
+            </TableContainer>
+          </TableWrapper>
+        )}
       </TablesContainer>
     </ProfileWpaper>
   );

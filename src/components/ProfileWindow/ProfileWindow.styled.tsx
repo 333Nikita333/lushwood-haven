@@ -4,8 +4,6 @@ import { modalBgImage } from '../../data/photos';
 export const ProfileWpaper = styled.div`
   overflow-y: auto;
   padding: ${({ theme }) => theme.paddings.big};
-  height: calc(100vh - ${({ theme }) => theme.paddings.big} * 2);
-  width: calc(100vw - ${({ theme }) => theme.paddings.big} * 2);
   font-weight: ${({ theme }) => theme.fontWeights.secondary};
   border-radius: 16px;
   border: 2px solid #424141;
@@ -15,10 +13,10 @@ export const ProfileWpaper = styled.div`
   background-size: cover;
   box-shadow: 3px 3px 85px 10px rgba(186, 181, 181, 1);
 
-  @media screen and (max-width: 481px) {
+  @media screen and (max-width: 1199px) {
     padding: ${({ theme }) => theme.paddings.small};
     width: calc(100vw - ${({ theme }) => theme.paddings.small} * 2);
-    height: calc(100vh - ${({ theme }) => theme.paddings.small} * 2);
+    max-height: calc(100vh - ${({ theme }) => theme.paddings.small} * 2);
   }
 `;
 
@@ -43,6 +41,7 @@ export const InfoBlockItem = styled.div`
 export const TablesContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
 
   @media screen and (min-width: 1200px) {
