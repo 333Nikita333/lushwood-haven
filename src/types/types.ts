@@ -75,6 +75,7 @@ export type Order = {
 export type User = {
   name: string;
   email: string;
+  phone?: string;
   newOrders?: Order[];
   oldOrders?: Order[];
 };
@@ -98,12 +99,28 @@ export type AuthResponse = {
   message: string;
   success: boolean;
 };
+export type UserResponse = {
+  data: User;
+  message: string;
+  success: boolean;
+};
 export type ErrorResponse = {
   response: {
     data: {
+      name: string;
       error: {
         message: string;
+        code: string;
+        status: number;
       };
     };
   };
+};
+export type ApiError = {
+  error: {
+    message: string;
+    code: string;
+    status: number;
+  };
+  name: string;
 };

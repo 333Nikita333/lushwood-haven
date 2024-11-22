@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { toast } from 'react-toastify';
-import { AuthResponse, AuthStore, ErrorResponse } from '../types';
+import { ApiError, AuthResponse, AuthStore, ErrorResponse, UserResponse } from '../types';
 
 const initialState: Omit<AuthStore, 'login' | 'register' | 'current' | 'logout'> = {
   user: null,
@@ -119,44 +119,34 @@ const useStore = create<AuthStore>()(
 
           if (token) {
             try {
-              await toast
-                .promise(
-                  axios.get<{ token: string }, AxiosResponse<AuthResponse>>(
-                    `${API_URL}/auth/current`,
-                    {
-                      headers: {
-                        Authorization: `Bearer ${token}`,
-                      },
-                    }
-                  ),
-                  {
-                    pending: 'Fetching user info...',
-                    success: {
-                      render({ data }: { data: AxiosResponse<AuthResponse> }) {
-                        return data.data.message || 'User info fetched 👌';
-                      },
-                    },
-                    error: {
-                      render({ data }: { data: ErrorResponse }) {
-                        return data.response.data.error.message || 'Failed to fetch user info 🤯';
-                      },
-                    },
-                  }
-                )
-                .then((response: AxiosResponse<AuthResponse>) => {
-                  console.log('Current user response:', response.data);
+              toast.info('Fetching user info...', { autoClose: false });
 
-                  const { user } = response.data.data;
+              const response = await axios.get<UserResponse>(`${API_URL}/auth/current`, {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              });
+              const { data: user } = response.data;
 
-                  set({ user, isLoggedIn: true });
-                })
-                .catch((error: ErrorResponse) => {
-                  console.error('Current user error:', error.response.data.error.message); // Log the error
-                  set({
-                    isLoggedIn: false,
-                    error: error.response.data.error.message || 'Fetching user info failed',
-                  });
-                });
+              console.log('Current user data:', user);
+              set({
+                user,
+                isLoggedIn: true,
+                error: null,
+              });
+
+              toast.dismiss();
+              toast.success('User info fetched successfully 👌');
+            } catch (error: any) {
+              const errorCurrent: ApiError = error.response.data;
+              console.error('Current user error:', errorCurrent);
+              set({
+                isLoggedIn: false,
+                error: errorCurrent.error.message || 'Fetching user info failed',
+              });
+
+              toast.dismiss();
+              toast.error(errorCurrent.error.message || 'Failed to fetch user info 🤯');
             } finally {
               set({ isRefreshing: false, isLoading: false });
             }

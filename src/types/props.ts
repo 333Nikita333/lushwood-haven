@@ -1,7 +1,7 @@
 import { ComponentOptionsType as FancyboxOptionsType } from '@fancyapps/ui/types/Fancybox/options';
 import LocomotiveScroll from 'locomotive-scroll';
 import { ReactNode, RefObject } from 'react';
-import { OptionsBgImageType, RoomType } from '.';
+import { OptionsBgImageType, RoomType, User } from '.';
 
 export interface ISoundProps {
   isMuted: boolean;
@@ -84,4 +84,7 @@ export interface ScrollProviderProps {
 export interface RouteProps {
   component: JSX.Element;
   redirectTo?: string;
+}
+export interface ProfileWindowProps {
+  user: User | null;
 }
