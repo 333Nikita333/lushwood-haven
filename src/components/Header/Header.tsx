@@ -69,14 +69,11 @@ const Header: FC = () => {
   }, [handleScroll]);
 
   useEffect(() => {
-    if (isLoggedIn) {
-      setModals({ profileModal: false, authModal: false, orderModal: false });
-      toggleScroll(true);
-    } else {
-      setModals({ profileModal: false, authModal: false, orderModal: false });
-      toggleScroll(true);
-    }
-  }, [isLoggedIn, toggleScroll]);
+    if (!Object.values(modals).some(Boolean)) return;
+
+    setModals({ profileModal: false, authModal: false, orderModal: false });
+    toggleScroll(true);
+  }, [isLoggedIn]);
 
   return (
     <HeaderContainer

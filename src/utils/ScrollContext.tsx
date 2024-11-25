@@ -24,12 +24,18 @@ export const ScrollProvider: FC<ScrollProviderProps> = ({ children }) => {
   }, []);
 
   const toggleScroll = (enable: boolean): void => {
-    if (!enable) {
-      document.body.style.overflow = 'hidden';
-      locomotiveScroll?.stop();
-    } else {
-      document.body.style.overflow = '';
-      locomotiveScroll?.start();
+    if (!enable && locomotiveScroll) {
+      locomotiveScroll.destroy();
+      setLocomotiveScroll(null);
+    }
+    if (enable) {
+      const newScroll = new LocomotiveScroll({
+        lenisOptions: {
+          lerp: 0.08,
+          duration: 0.1,
+        },
+      });
+      setLocomotiveScroll(newScroll);
     }
   };
 
