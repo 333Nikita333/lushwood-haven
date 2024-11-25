@@ -87,6 +87,7 @@ export interface RouteProps {
 }
 export interface ProfileWindowProps {
   user: User | null;
+  onSubmit: () => void;
 }
 export interface TableOrderProps {
   nameTable: string;

@@ -1,20 +1,27 @@
 import { FC } from 'react';
 import { ProfileWindowProps } from '../../types';
+import TableOrder from '../TableOrder';
 import {
   InfoBlock,
   InfoBlockItem,
   ProfileWpaper,
   TablesContainer,
   Title,
+  TitleWrapper,
 } from './ProfileWindow.styled';
-import TableOrder from '../TableOrder';
+import ButtonLogout from '../ButtonLogout';
+import { FiLogOut } from 'react-icons/fi';
 
-const ProfileWindow: FC<ProfileWindowProps> = ({ user }) => {
+const ProfileWindow: FC<ProfileWindowProps> = ({ onSubmit, user }) => {
   const { name, email, phone, newOrders, oldOrders } = user || {};
 
   return (
     <ProfileWpaper>
-      <Title>My Profile</Title>
+      <TitleWrapper>
+        <Title>My Profile</Title>
+        <ButtonLogout onSubmit={onSubmit} icon={<FiLogOut />} text="Logout" />
+      </TitleWrapper>
+
       <InfoBlock>
         <InfoBlockItem>
           <p>Name: {name}</p>

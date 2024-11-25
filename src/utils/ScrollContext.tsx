@@ -2,6 +2,8 @@ import LocomotiveScroll from 'locomotive-scroll';
 import { createContext, FC, useContext, useEffect, useState } from 'react';
 import { ScrollContextProps, ScrollProviderProps } from '../types';
 
+const ScrollContext = createContext<ScrollContextProps | null>(null);
+
 export const ScrollProvider: FC<ScrollProviderProps> = ({ children }) => {
   const [locomotiveScroll, setLocomotiveScroll] = useState<LocomotiveScroll | null>(null);
 
@@ -22,18 +24,12 @@ export const ScrollProvider: FC<ScrollProviderProps> = ({ children }) => {
   }, []);
 
   const toggleScroll = (enable: boolean): void => {
-    if (!enable && locomotiveScroll) {
-      locomotiveScroll.destroy();
-      setLocomotiveScroll(null);
-    }
-    if (enable) {
-      const newScroll = new LocomotiveScroll({
-        lenisOptions: {
-          lerp: 0.08,
-          duration: 0.1,
-        },
-      });
-      setLocomotiveScroll(newScroll);
+    if (!enable) {
+      document.body.style.overflow = 'hidden';
+      locomotiveScroll?.stop();
+    } else {
+      document.body.style.overflow = '';
+      locomotiveScroll?.start();
     }
   };
 
@@ -43,8 +39,6 @@ export const ScrollProvider: FC<ScrollProviderProps> = ({ children }) => {
     </ScrollContext.Provider>
   );
 };
-
-const ScrollContext = createContext<ScrollContextProps | null>(null);
 
 export const useScroll = () => {
   const context = useContext(ScrollContext);

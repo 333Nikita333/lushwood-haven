@@ -26,9 +26,10 @@ const Header: FC = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(window.scrollY);
 
-  const { isLoggedIn, user } = useStore(state => ({
+  const { isLoggedIn, user, logout } = useStore(state => ({
     isLoggedIn: state.isLoggedIn,
     user: state.user,
+    logout: state.logout,
   }));
 
   const { toggleScroll } = useScroll();
@@ -43,6 +44,23 @@ const Header: FC = () => {
     setPrevScrollPos(currentScrollPos);
   }, [modals, prevScrollPos]);
 
+  const toggleModal = useCallback(
+    (modal: ModalState) => {
+      setModals(prev => {
+        const nextModals = {
+          ...prev,
+          [modal]: !prev[modal],
+        };
+
+        const anyModalOpen = Object.values(nextModals).some(Boolean);
+        toggleScroll(!anyModalOpen);
+
+        return nextModals;
+      });
+    },
+    [toggleScroll]
+  );
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -50,16 +68,15 @@ const Header: FC = () => {
     };
   }, [handleScroll]);
 
-  const toggleModal = useCallback(
-    (modal: ModalState) => {
-      setModals(prev => ({
-        ...prev,
-        [modal]: !prev[modal],
-      }));
-      toggleScroll(modals[modal]);
-    },
-    [toggleScroll, modals]
-  );
+  useEffect(() => {
+    if (isLoggedIn) {
+      setModals({ profileModal: false, authModal: false, orderModal: false });
+      toggleScroll(true);
+    } else {
+      setModals({ profileModal: false, authModal: false, orderModal: false });
+      toggleScroll(true);
+    }
+  }, [isLoggedIn, toggleScroll]);
 
   return (
     <HeaderContainer
@@ -112,7 +129,7 @@ const Header: FC = () => {
       ) : (
         <>
           <Modal isOpen={modals.profileModal} onClose={() => toggleModal('profileModal')}>
-            <ProfileWindow user={user} />
+            <ProfileWindow onSubmit={logout} user={user} />
           </Modal>
           <Modal isOpen={modals.orderModal} onClose={() => toggleModal('orderModal')}>
             <OrderForm />
