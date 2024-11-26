@@ -9,12 +9,16 @@ import { CloseButton, LinkItem, ListLinks, MobileMenuContainer } from './MobileM
 const MobileMenuHeader: FC<IMobileMenuProps> = ({ isMobileMenuOpen, onClose }) => {
   const { isLoggedIn } = useStore(state => ({ isLoggedIn: state.isLoggedIn }));
 
+  const toggleBodyScroll = (disable: boolean): void => {
+    document.body.style.overflow = disable ? 'hidden' : '';
+    document.body.style.position = disable ? 'fixed' : '';
+    document.body.style.width = disable ? '100%' : '';
+  };
+
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+    toggleBodyScroll(isMobileMenuOpen);
+
+    return () => toggleBodyScroll(false);
   }, [isMobileMenuOpen]);
 
   return (
