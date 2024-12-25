@@ -28,8 +28,16 @@ export type OrderFormData = {
   phone?: string;
   roomName: string;
   roomType: string;
-  checkInDate: Date;
-  checkOutDate: Date;
+  dateCheckIn: Date;
+  dateCheckOut: Date;
+};
+
+export type BookRoomData = {
+  client: Omit<User, 'newOrders' | 'oldOrders'>;
+  roomName: string;
+  roomType: string;
+  dateCheckIn: string;
+  dateCheckOut: string;
 };
 
 export type ContactFormData = {
@@ -69,8 +77,8 @@ export type FormAuthData = {
 export type Order = {
   roomName: string;
   roomType: string;
-  dateCheckIn: Date;
-  dateCheckOut: Date;
+  dateCheckIn: string;
+  dateCheckOut: string;
 };
 export type User = {
   name: string;
@@ -90,6 +98,7 @@ export type AuthStore = {
   register: (name: string, email: string, password: string) => Promise<void>;
   current: () => Promise<void>;
   logout: () => void;
+  reserveRoom: (data: BookRoomData) => Promise<void>;
 };
 export type AuthResponse = {
   data: {
@@ -123,4 +132,17 @@ export type ApiError = {
     status: number;
   };
   name: string;
+};
+export type BookingResponse = {
+  success: boolean;
+  data: {
+    order: {
+      userName: string;
+      roomName: string;
+      roomType: string;
+      dateCheckIn: string;
+      dateCheckOut: string;
+    };
+  };
+  message: string;
 };

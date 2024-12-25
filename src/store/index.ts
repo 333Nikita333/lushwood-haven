@@ -2,9 +2,17 @@ import axios, { AxiosResponse } from 'axios';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { toast } from 'react-toastify';
-import { ApiError, AuthResponse, AuthStore, ErrorResponse, UserResponse } from '../types';
+import {
+  ApiError,
+  AuthResponse,
+  AuthStore,
+  BookingResponse,
+  BookRoomData,
+  ErrorResponse,
+  UserResponse,
+} from '../types';
 
-const initialState: Omit<AuthStore, 'login' | 'register' | 'current' | 'logout'> = {
+const initialState: Omit<AuthStore, 'login' | 'register' | 'current' | 'logout' | 'reserveRoom'> = {
   user: null,
   token: null,
   isLoggedIn: false,
@@ -36,6 +44,7 @@ const useStore = create<AuthStore>()(
                   pending: 'Logging in...',
                   success: {
                     render({ data }: { data: AxiosResponse<AuthResponse> }) {
+                      console.log('login toast data =>', data);
                       return data.data.message || 'Logged in successfully 👌';
                     },
                   },
@@ -158,6 +167,59 @@ const useStore = create<AuthStore>()(
         logout: () => {
           set(() => ({ ...initialState }));
           toast.success('Logged out successfully 👋');
+        },
+
+        reserveRoom: async (data: BookRoomData) => {
+          set({ isLoading: true, error: null });
+
+          try {
+            const { token, user } = get();
+            if (!token) throw new Error('Unauthorized');
+
+            await toast
+              .promise(
+                axios.post<BookRoomData, AxiosResponse<BookingResponse>>(
+                  `${API_URL}/booking/reserve`,
+                  data,
+                  {
+                    headers: { Authorization: `Bearer ${token}` },
+                  }
+                ),
+                {
+                  pending: 'Reserving room...',
+                  success: {
+                    render({ data }: { data: AxiosResponse<BookingResponse> }) {
+                      return data.data.message || 'Room reserved successfully 👌';
+                    },
+                  },
+                  error: {
+                    render({ data }: { data: ErrorResponse }) {
+                      return data.response.data.error.message || 'Room reservation failed 🤯';
+                    },
+                  },
+                }
+              )
+              .then((response: AxiosResponse<BookingResponse>) => {
+                console.log('Room reservation response data:', response.data.data.order);
+
+                const { order } = response.data.data;
+
+                if (user) {
+                  set({
+                    user: {
+                      ...user,
+                      newOrders: user.newOrders ? [...user.newOrders, order] : [order],
+                    },
+                  });
+                }
+              })
+              .catch((error: ErrorResponse) => {
+                console.error('Room reservation error:', error.response.data.error.message);
+                set({ error: error.response.data.error.message || 'Room reservation failed' });
+              });
+          } finally {
+            set({ isLoading: false });
+          }
         },
       }),
       {

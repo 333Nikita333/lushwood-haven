@@ -14,6 +14,7 @@ import { FiLogOut } from 'react-icons/fi';
 
 const ProfileWindow: FC<ProfileWindowProps> = ({ onSubmit, user }) => {
   const { name, email, phone, newOrders, oldOrders } = user || {};
+  const hasOrders = (newOrders && newOrders.length > 0) || (oldOrders && oldOrders.length > 0);
 
   return (
     <ProfileWpaper>
@@ -34,11 +35,14 @@ const ProfileWindow: FC<ProfileWindowProps> = ({ onSubmit, user }) => {
         </InfoBlockItem>
       </InfoBlock>
 
-      {newOrders && newOrders.length > 0 && oldOrders && oldOrders.length > 0 && (
+      {hasOrders && (
         <TablesContainer>
-          {newOrders.length > 0 && <TableOrder nameTable="Current Bookings" orders={newOrders} />}
-
-          {oldOrders.length > 0 && <TableOrder nameTable="Past Bookings" orders={oldOrders} />}
+          {newOrders && newOrders.length > 0 && (
+            <TableOrder nameTable="Current Bookings" orders={newOrders} />
+          )}
+          {oldOrders && oldOrders.length > 0 && (
+            <TableOrder nameTable="Past Bookings" orders={oldOrders} />
+          )}
         </TablesContainer>
       )}
     </ProfileWpaper>

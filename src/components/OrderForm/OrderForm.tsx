@@ -1,9 +1,9 @@
-import { FC, useState } from 'react';
+import { FC, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import 'react-phone-input-2/lib/style.css';
-import { OrderFormData } from '../../types';
+import { BookRoomData, OrderFormData } from '../../types';
 import {
   ErrorText,
   FormContainer,
@@ -20,6 +20,7 @@ import {
   Select,
   SubmitButton,
 } from './OrderForm.styled';
+import useStore from '../../store';
 
 const radioButtons: ReadonlyArray<string> = ['Standard', 'Family', 'Suite'];
 
@@ -36,34 +37,66 @@ const OrderForm: FC = () => {
     formState: { errors },
     watch,
     setValue,
-  } = useForm<OrderFormData>();
+  } = useForm<OrderFormData>({
+    mode: 'onBlur',
+  });
 
   const today: Date = new Date();
-  const checkInDate: Date = watch('checkInDate');
-  const checkOutDate: Date = watch('checkOutDate');
+  const dateCheckIn: Date = watch('dateCheckIn');
+  const dateCheckOut: Date = watch('dateCheckOut');
   const roomType: string = watch('roomType');
+  const roomName: string = watch('roomName');
 
-  const [showCheckInError, setShowCheckInError] = useState<boolean>(false);
-  const [showCheckOutError, setShowCheckOutError] = useState<boolean>(false);
+  const { reserveRoom, isLoading } = useStore(state => ({
+    reserveRoom: state.reserveRoom,
+    isLoading: state.isLoading,
+  }));
 
-  const onSubmit: SubmitHandler<OrderFormData> = (data): void => {
-    console.log(data);
+  useEffect(() => {
+    if (roomType && (!roomName || !roomOptions[roomType].includes(roomName))) {
+      setValue('roomName', roomOptions[roomType][0]);
+    }
+  }, [roomType, roomName, setValue]);
+
+  const formatOrderRoomData = (data: OrderFormData): BookRoomData => {
+    const { name, email, phone, dateCheckIn, dateCheckOut, ...rest } = data;
+
+    const pad = (num: number) => num.toString().padStart(2, '0');
+    const formatDateTime = (date: Date) =>
+      `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(
+        date.getHours()
+      )}:${pad(date.getMinutes())}`;
+
+    return {
+      client: { name, email, phone },
+      dateCheckIn: formatDateTime(dateCheckIn),
+      dateCheckOut: formatDateTime(dateCheckOut),
+      ...rest,
+    };
+  };
+
+  const onSubmit: SubmitHandler<OrderFormData> = async (data): Promise<void> => {
+    const formattedData = formatOrderRoomData(data);
+
+    console.log('Submitted formattedData:', formattedData);
+
+    await reserveRoom(formattedData);
   };
 
   return (
     <FormContainer>
-      <FormTitle>Room reservation</FormTitle>
+      <FormTitle>Room Reservation</FormTitle>
       <OrderFormContainer onSubmit={handleSubmit(onSubmit)}>
         <FormGroup>
           <Controller
             name="name"
             control={control}
             defaultValue=""
-            rules={{ required: true }}
+            rules={{ required: 'Name is required' }}
             render={({ field }) => <input className="form__field" placeholder="Name" {...field} />}
           />
           <label className="form__label">Name</label>
-          {errors.name && <ErrorText>This field is required</ErrorText>}
+          {errors.name && <ErrorText>{errors.name.message}</ErrorText>}
         </FormGroup>
 
         <FormGroup>
@@ -72,75 +105,65 @@ const OrderForm: FC = () => {
             control={control}
             defaultValue=""
             rules={{
-              required: true,
-              pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              required: 'Email is required',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: 'Invalid email address',
+              },
             }}
             render={({ field }) => <input className="form__field" placeholder="Email" {...field} />}
           />
           <label className="form__label">Email</label>
-          {errors.email?.type === 'required' && <ErrorText>This field is required</ErrorText>}
-          {errors.email?.type === 'pattern' && <ErrorText>Invalid email address</ErrorText>}
+          {errors.email && <ErrorText>{errors.email.message}</ErrorText>}
         </FormGroup>
 
         <FormGroup>
           <Controller
-            name="checkInDate"
+            name="dateCheckIn"
             control={control}
             rules={{
-              required: true,
-              validate: value => {
-                const isValid = value && value <= checkOutDate && value >= today;
-                setShowCheckInError(!isValid);
-                return isValid;
-              },
+              required: 'Check-in date is required',
+              validate: value =>
+                value && value >= today ? true : 'Check-in date must be today or later',
             }}
             render={({ field }) => (
-              <div>
-                <DatePicker
-                  selected={field.value}
-                  onChange={date => setValue('checkInDate', date as Date)}
-                  showTimeSelect
-                  minDate={today}
-                  maxDate={checkOutDate ? new Date(checkOutDate) : null}
-                  timeFormat="HH:mm"
-                  dateFormat="dd/MM/yyyy, HH:mm"
-                />
-                {showCheckInError && <ErrorText>Invalid check-in date</ErrorText>}
-              </div>
+              <DatePicker
+                selected={field.value}
+                onChange={date => setValue('dateCheckIn', date as Date)}
+                showTimeSelect
+                minDate={today}
+                maxDate={dateCheckOut || null}
+                timeFormat="HH:mm"
+                dateFormat="dd/MM/yyyy, HH:mm"
+              />
             )}
           />
           <label className="form__label">Check-in Date and Time</label>
-          {errors.checkInDate && <ErrorText>This field is required</ErrorText>}
+          {errors.dateCheckIn && <ErrorText>{errors.dateCheckIn.message}</ErrorText>}
         </FormGroup>
 
         <FormGroup>
           <Controller
-            name="checkOutDate"
+            name="dateCheckOut"
             control={control}
             rules={{
-              required: true,
-              validate: value => {
-                const isValid: boolean = value && value >= checkInDate && value >= today;
-                setShowCheckOutError(!isValid);
-                return isValid;
-              },
+              required: 'Check-out date is required',
+              validate: value =>
+                value && value > dateCheckIn ? true : 'Check-out date must be after check-in date',
             }}
             render={({ field }) => (
-              <div>
-                <DatePicker
-                  selected={field.value}
-                  onChange={date => setValue('checkOutDate', date as Date)}
-                  showTimeSelect
-                  minDate={checkInDate ? new Date(checkInDate) : today}
-                  timeFormat="HH:mm"
-                  dateFormat="dd/MM/yyyy, HH:mm"
-                />
-                {showCheckOutError && <ErrorText>Invalid check-out date</ErrorText>}
-              </div>
+              <DatePicker
+                selected={field.value}
+                onChange={date => setValue('dateCheckOut', date as Date)}
+                showTimeSelect
+                minDate={dateCheckIn || today}
+                timeFormat="HH:mm"
+                dateFormat="dd/MM/yyyy, HH:mm"
+              />
             )}
           />
           <label className="form__label">Check-out Date and Time</label>
-          {errors.checkOutDate && <ErrorText>This field is required</ErrorText>}
+          {errors.dateCheckOut && <ErrorText>{errors.dateCheckOut.message}</ErrorText>}
         </FormGroup>
 
         <FormGroup>
@@ -148,20 +171,25 @@ const OrderForm: FC = () => {
             name="phone"
             control={control}
             defaultValue=""
-            rules={{ required: true }}
+            rules={{
+              required: 'Phone number is required',
+              minLength: {
+                value: 10,
+                message: 'Phone number must be at least 10 digits',
+              },
+            }}
             render={({ field }) => (
               <PhoneNumberInput
                 country={'us'}
                 preferredCountries={['us', 'ua']}
                 excludeCountries={['ru', 'by', 'hu', 'kp']}
-                enableSearch={true}
+                enableSearch
                 {...field}
               />
             )}
           />
           <label className="form__label">Phone Number</label>
-          {errors.phone?.type === 'required' && <ErrorText>This field is required</ErrorText>}
-          {errors.phone?.type === 'pattern' && <ErrorText>Invalid phone number</ErrorText>}
+          {errors.phone && <ErrorText>{errors.phone.message}</ErrorText>}
         </FormGroup>
 
         <FormGroupButtons>
@@ -169,7 +197,7 @@ const OrderForm: FC = () => {
           <Controller
             name="roomType"
             control={control}
-            rules={{ required: true }}
+            rules={{ required: 'Please select a room type' }}
             render={({ field }) => (
               <RadioGroup>
                 {radioButtons.map(item => (
@@ -184,7 +212,7 @@ const OrderForm: FC = () => {
               </RadioGroup>
             )}
           />
-          {errors.roomType && <ErrorText>This field is required</ErrorText>}
+          {errors.roomType && <ErrorText>{errors.roomType.message}</ErrorText>}
         </FormGroupButtons>
 
         {roomType && (
@@ -192,7 +220,7 @@ const OrderForm: FC = () => {
             <Controller
               name="roomName"
               control={control}
-              rules={{ required: true }}
+              rules={{ required: 'Please select a room name' }}
               render={({ field }) => (
                 <Select {...field}>
                   {roomOptions[roomType].map(roomName => (
@@ -204,11 +232,13 @@ const OrderForm: FC = () => {
               )}
             />
             <label className="form__label">Room Name</label>
-            {errors.roomName && <ErrorText>This field is required</ErrorText>}
+            {errors.roomName && <ErrorText>{errors.roomName.message}</ErrorText>}
           </FormGroup>
         )}
 
-        <SubmitButton type="submit">Submit</SubmitButton>
+        <SubmitButton type="submit" disabled={isLoading}>
+          {isLoading ? 'Sending...' : 'Send'}
+        </SubmitButton>
       </OrderFormContainer>
     </FormContainer>
   );
