@@ -75,6 +75,7 @@ export type FormAuthData = {
   password: string;
 };
 export type Order = {
+  id: string;
   roomName: string;
   roomType: string;
   dateCheckIn: string;
@@ -99,6 +100,7 @@ export type AuthStore = {
   current: () => Promise<void>;
   logout: () => void;
   reserveRoom: (data: BookRoomData) => Promise<void>;
+  cancelOrder: (orderId: string) => Promise<void>;
 };
 export type AuthResponse = {
   data: {
@@ -136,13 +138,11 @@ export type ApiError = {
 export type BookingResponse = {
   success: boolean;
   data: {
-    order: {
-      userName: string;
-      roomName: string;
-      roomType: string;
-      dateCheckIn: string;
-      dateCheckOut: string;
-    };
+    id: string;
+    roomName: string;
+    roomType: string;
+    dateCheckIn: string;
+    dateCheckOut: string;
   };
   message: string;
 };

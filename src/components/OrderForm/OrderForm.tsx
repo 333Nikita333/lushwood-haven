@@ -27,7 +27,7 @@ const radioButtons: ReadonlyArray<string> = ['Standard', 'Family', 'Suite'];
 const roomOptions: Record<string, string[]> = {
   Standard: ['Standard Single Room', 'Standard Double Room', 'Standard Max Room'],
   Family: ['Family Double Room', 'Family Triple Room', 'Family Max Room'],
-  Suite: ['Suite Single Room', 'Suite Double Room', 'Suite Max Room'],
+  Suite: ['Suite Single Room', 'Suite Double Room'],
 };
 
 const OrderForm: FC = () => {

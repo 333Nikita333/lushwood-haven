@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { TableOrderProps } from '../../types';
+import ButtonCancelOrder from '../ButtonCancelOrder';
 import {
   BookingTable,
   SubHeader,
@@ -9,8 +10,20 @@ import {
   TableRow,
   TableWrapper,
 } from './TableOrder.styled';
+import useStore from '../../store';
 
-const TableOrder: FC<TableOrderProps> = ({ nameTable, orders }) => {
+const TableOrder: FC<TableOrderProps> = ({ nameTable, orders, isCancel }) => {
+  const { isLoading, cancelOrder } = useStore(state => ({
+    isLoading: state.isLoading,
+    cancelOrder: state.cancelOrder,
+  }));
+
+  const onCancelOrder = async (orderId: string): Promise<void> => {
+    console.log('Cancel order id:', orderId);
+
+    await cancelOrder(orderId);
+  };
+
   return (
     <TableWrapper>
       <TableHeader>{nameTable}</TableHeader>
@@ -22,15 +35,21 @@ const TableOrder: FC<TableOrderProps> = ({ nameTable, orders }) => {
               <SubHeader>Room Type</SubHeader>
               <SubHeader>Check In</SubHeader>
               <SubHeader>Check Out</SubHeader>
+              {isCancel && <SubHeader>Cancel</SubHeader>}
             </TableRow>
           </thead>
           <tbody>
-            {orders.map(({ roomName, roomType, dateCheckIn, dateCheckOut }, index) => (
-              <TableRow key={index}>
+            {orders.map(({ id, roomName, roomType, dateCheckIn, dateCheckOut }) => (
+              <TableRow key={id}>
                 <TableCell>{roomName}</TableCell>
                 <TableCell>{roomType}</TableCell>
                 <TableCell>{dateCheckIn.toString()}</TableCell>
                 <TableCell>{dateCheckOut.toString()}</TableCell>
+                {isCancel && (
+                  <TableCell>
+                    <ButtonCancelOrder isLoading={isLoading} onClick={() => onCancelOrder(id)} />
+                  </TableCell>
+                )}
               </TableRow>
             ))}
           </tbody>

@@ -92,4 +92,5 @@ export interface ProfileWindowProps {
 export interface TableOrderProps {
   nameTable: string;
   orders: Order[];
+  isCancel?: boolean;
 }

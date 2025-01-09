@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const TableWrapper = styled.div``;
 export const TableHeader = styled.h3`
@@ -52,13 +52,17 @@ export const BookingTable = styled.table`
   @media screen and (max-width: 480px) {
     th,
     td {
-      padding: 5px;
+      padding: 5px 0;
     }
   }
 `;
 
 export const TableRow = styled.tr`
   display: table-row;
+
+  &:hover button {
+    opacity: 1;
+  }
 `;
 
 export const TableCell = styled.td`

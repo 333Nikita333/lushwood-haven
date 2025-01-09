@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { modalBgImage } from '../../data/photos';
 
-export const ProfileWpaper = styled.div`
+export const ProfileWrapper = styled.div`
   overflow-y: auto;
   display: flex;
   flex-direction: column;

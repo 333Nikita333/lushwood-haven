@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
+import { toast } from 'react-toastify';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { toast } from 'react-toastify';
 import {
   ApiError,
   AuthResponse,
@@ -12,7 +12,10 @@ import {
   UserResponse,
 } from '../types';
 
-const initialState: Omit<AuthStore, 'login' | 'register' | 'current' | 'logout' | 'reserveRoom'> = {
+const initialState: Omit<
+  AuthStore,
+  'login' | 'register' | 'current' | 'logout' | 'reserveRoom' | 'cancelOrder'
+> = {
   user: null,
   token: null,
   isLoggedIn: false,
@@ -200,9 +203,9 @@ const useStore = create<AuthStore>()(
                 }
               )
               .then((response: AxiosResponse<BookingResponse>) => {
-                console.log('Room reservation response data:', response.data.data.order);
+                console.log('Room reservation response data:', response.data.data);
 
-                const { order } = response.data.data;
+                const { data: order } = response.data;
 
                 if (user) {
                   set({
@@ -216,6 +219,54 @@ const useStore = create<AuthStore>()(
               .catch((error: ErrorResponse) => {
                 console.error('Room reservation error:', error.response.data.error.message);
                 set({ error: error.response.data.error.message || 'Room reservation failed' });
+              });
+          } finally {
+            set({ isLoading: false });
+          }
+        },
+
+        cancelOrder: async (orderId: string) => {
+          set({ isLoading: true, error: null });
+
+          try {
+            const { token, user } = get();
+            if (!token) throw new Error('Unauthorized');
+
+            await toast
+              .promise(
+                axios.delete(`${API_URL}/booking/cancel/${orderId}`, {
+                  headers: { Authorization: `Bearer ${token}` },
+                }),
+                {
+                  pending: 'Canceling booking...',
+                  success: 'Booking canceled successfully 👌',
+                  error: {
+                    render({ data }: { data: ErrorResponse }) {
+                      return data.response.data.error.message || 'Order cancellation failed 🤯';
+                    },
+                  },
+                }
+              )
+              .then((response: AxiosResponse<BookingResponse>) => {
+                console.log('Order cancellation response data:', response.data.data);
+
+                if (user) {
+                  const canceledOrder = user.newOrders?.find(order => order.id === orderId);
+
+                  set({
+                    user: {
+                      ...user,
+                      newOrders: user.newOrders?.filter(order => order.id !== orderId),
+                      oldOrders: canceledOrder
+                        ? [...(user.oldOrders || []), canceledOrder]
+                        : user.oldOrders,
+                    },
+                  });
+                }
+              })
+              .catch((error: ErrorResponse) => {
+                console.error('Order cancellation error:', error.response.data.error.message);
+                set({ error: error.response.data.error.message || 'Order cancellation failed' });
               });
           } finally {
             set({ isLoading: false });
