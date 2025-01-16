@@ -53,6 +53,7 @@ const useStore = create<AuthStore>()(
                   },
                   error: {
                     render({ data }: { data: ErrorResponse }) {
+                      console.log('login toast error =>', data);
                       return data.response.data.error.message || 'Login failed 🤯';
                     },
                   },
@@ -167,9 +168,44 @@ const useStore = create<AuthStore>()(
           }
         },
 
-        logout: () => {
-          set(() => ({ ...initialState }));
-          toast.success('Logged out successfully 👋');
+        logout: async () => {
+          set({ isLoading: true, error: null });
+
+          try {
+            const { token } = get();
+            if (!token) throw new Error('Unauthorized');
+
+            await toast
+              .promise(
+                axios.post(
+                  `${API_URL}/auth/logout`,
+                  {},
+                  {
+                    headers: { Authorization: `Bearer ${token}` },
+                  }
+                ),
+                {
+                  pending: 'Logging out...',
+                  success: 'Logged out successfully 👋',
+                  error: {
+                    render({ data }: { data: ErrorResponse }) {
+                      console.log('logout toast error =>', data);
+                      return data.response.data.error.message || 'Logout failed 🤯';
+                    },
+                  },
+                }
+              )
+              .then((response: AxiosResponse<AuthResponse>) => {
+                console.log('Logout response data:', response.data);
+                set(() => ({ ...initialState }));
+              })
+              .catch((error: ErrorResponse) => {
+                console.error('Logout error:', error.response.data.error.message);
+                set({ error: error.response.data.error.message || 'Logout failed' });
+              });
+          } finally {
+            set({ isLoading: false });
+          }
         },
 
         reserveRoom: async (data: BookRoomData) => {

@@ -14,7 +14,7 @@ export const TableContainer = styled.div`
   max-height: 400px;
   overflow-y: scroll;
   border-radius: 15px;
-  border: 2px solid ${({ theme }) => theme.colors.secondaryColor};
+  border: 3px solid ${({ theme }) => theme.colors.secondaryColor};
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
   @media screen and (max-width: 481px) {

@@ -94,3 +94,8 @@ export interface TableOrderProps {
   orders: Order[];
   isCancel?: boolean;
 }
+export interface ButtonLogoutProps {
+  onSubmit: () => void;
+  icon: JSX.Element;
+  text: string;
+}

@@ -1,11 +1,6 @@
 import { FC } from 'react';
+import { ButtonLogoutProps } from '../../types';
 import { Button, IconWrapper, Text } from './ButtonLogout.styled';
-
-interface ButtonLogoutProps {
-  onSubmit: () => void;
-  icon: JSX.Element;
-  text: string;
-}
 
 const ButtonLogout: FC<ButtonLogoutProps> = ({ onSubmit, icon, text }) => {
   return (
