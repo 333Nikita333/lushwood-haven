@@ -3,46 +3,39 @@ import { useParams } from 'react-router-dom';
 import NavigateButton from '../../components/NavigateButton';
 import RoomDescriptionInfo from '../../components/RoomDescriptionInfo';
 import RoomImagesSlider from '../../components/RoomImagesSlider';
-import { RoomType } from '../../types/types';
-import { familyRoomList, standartRoomList, suiteRoomList } from '../Services/Services';
+import useStore from '../../store';
+import { Room } from '../../types';
 import { ContentInfo, Wrapper } from './ServiceRoomPage.styled';
 
-const allRoomList = [...standartRoomList, ...familyRoomList, ...suiteRoomList];
-
 const ServiceRoomPage: FC = () => {
-  const { roomId } = useParams();
-  const [roomData, setRoomData] = useState<RoomType | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { roomNameId } = useParams();
+  const [roomData, setRoomData] = useState<Room | null>(null);
+  const { isLoading, getRoomData } = useStore(state => ({
+    isLoading: state.isLoading,
+    getRoomData: state.getRoomData,
+  }));
 
   useEffect(() => {
-    const searchRoomData = async (roomId: string): Promise<void> => {
-      try {
-        // simulated request
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        const curRoom = allRoomList.find((room: RoomType) => roomId === room.id);
+    const fetchRoomDetails = async (): Promise<void> => {
+      const room = await getRoomData(roomNameId as string);
 
-        if (!curRoom) {
-          setRoomData(null);
-          throw new Error('Not found any room');
-        }
-
-        setRoomData(curRoom);
-        document.title = curRoom.type || 'Room of Lushwood Haven';
-
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
+      if (!room) {
         setRoomData(null);
-        setIsLoading(false);
+        throw new Error('Room not found');
       }
+      setRoomData(room);
+
+      document.title = room.name || 'Room of Lushwood Haven';
     };
 
-    searchRoomData(roomId as string);
+    if (roomNameId) {
+      fetchRoomDetails();
+    }
 
     return () => {
       window.scrollTo(0, 0);
     };
-  }, [roomId]);
+  }, [roomNameId, getRoomData]);
 
   return (
     <Wrapper>

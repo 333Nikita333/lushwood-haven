@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import { create } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
+import { createJSONStorage, devtools, persist } from 'zustand/middleware';
 import {
   ApiError,
   AuthResponse,
@@ -384,7 +384,7 @@ const useStore = create<AuthStore>()(
       }),
       {
         name: 'auth-storage',
-        getStorage: () => localStorage,
+        storage: createJSONStorage(() => localStorage),
         partialize: state => ({ token: state.token }),
       }
     ),

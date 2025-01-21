@@ -208,7 +208,7 @@ export const photosGallery = [
   },
 ];
 
-export const bgImageGallery = 'images/gallery_images/bg-gallery.png';
+export const bgImageGallery = '/images/gallery_images/bg-gallery.png';
 
 export const servicesRoomBg = {
   topPage: {
@@ -228,7 +228,7 @@ export const servicesRoomBg = {
   },
 };
 
-export const bgServicesPattern = 'images/services_images/bg-pattern.svg';
+export const bgServicesPattern = '/images/services_images/bg-pattern.svg';
 
 export const preloadImage =
   'https://i0.wp.com/css-tricks.com/wp-content/uploads/2019/10/simple-loader.gif?ssl=1';

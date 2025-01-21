@@ -16,11 +16,44 @@ import {
   RoomPriceWrapper,
   RoomTitle,
 } from './RoomDescriptionInfo.styled';
+import { BsTelephone } from 'react-icons/bs';
+import { FaFan, FaGuitar, FaSpa, FaUserShield, FaWifi } from 'react-icons/fa';
+import { GiBinoculars, GiHomeGarage } from 'react-icons/gi';
+import { IoIosPeople } from 'react-icons/io';
+import { IoBed, IoRestaurantOutline } from 'react-icons/io5';
+import {
+  MdLocalBar,
+  MdOutlineCleaningServices,
+  MdOutlineLocalLaundryService,
+  MdPool,
+} from 'react-icons/md';
+import { RxDimensions } from 'react-icons/rx';
+import { TbAirConditioning } from 'react-icons/tb';
+
+const iconMap: Record<string, JSX.Element> = {
+  BsTelephone: <BsTelephone />,
+  FaFan: <FaFan />,
+  FaGuitar: <FaGuitar />,
+  FaSpa: <FaSpa />,
+  FaUserShield: <FaUserShield />,
+  FaWifi: <FaWifi />,
+  GiBinoculars: <GiBinoculars />,
+  GiHomeGarage: <GiHomeGarage />,
+  IoIosPeople: <IoIosPeople />,
+  IoBed: <IoBed />,
+  IoRestaurantOutline: <IoRestaurantOutline />,
+  MdLocalBar: <MdLocalBar />,
+  MdOutlineCleaningServices: <MdOutlineCleaningServices />,
+  MdOutlineLocalLaundryService: <MdOutlineLocalLaundryService />,
+  MdPool: <MdPool />,
+  RxDimensions: <RxDimensions />,
+  TbAirConditioning: <TbAirConditioning />,
+};
 
 const RoomDescriptionInfo: FC<ServiceRoomItemProps> = ({ roomData }) => {
   return (
     <>
-      <RoomTitle>{roomData.type}</RoomTitle>
+      <RoomTitle>{roomData.name}</RoomTitle>
 
       <MainInfo>
         <RoomInfo>
@@ -34,7 +67,9 @@ const RoomDescriptionInfo: FC<ServiceRoomItemProps> = ({ roomData }) => {
             <tbody>
               {roomData.amenities.map(({ icon, desc }, index) => (
                 <RoomAmentitiesRow key={index}>
-                  <RoomAmentitiesItem>{icon}</RoomAmentitiesItem>
+                  <RoomAmentitiesItem>
+                    {iconMap[icon as keyof typeof iconMap] || <FaUserShield />}
+                  </RoomAmentitiesItem>
                   <RoomAmentitiesItem>
                     <RoomAmentitieTitle>{desc}</RoomAmentitieTitle>
                   </RoomAmentitiesItem>
