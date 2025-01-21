@@ -1,5 +1,7 @@
 import { FC, useState } from 'react';
+import { logo } from '../../data/photos';
 import Modal from '../../utils/Modal';
+import { useScroll } from '../../utils/ScrollContext';
 import FooterButtonContact from '../FooterButtonContact';
 import FooterContactForm from '../FooterContactForm';
 import FooterSocialLinks from '../FooterSocialLinks';
@@ -11,7 +13,6 @@ import {
   LinksWrapper,
   Logo,
 } from './Footer.styled';
-import { logo } from '../../data/photos';
 
 const linksSite: readonly string[] = [
   'Home',
@@ -27,8 +28,11 @@ const linksSite: readonly string[] = [
 const Footer: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
+  const { toggleScroll } = useScroll();
+
   const toggleContactForm = (): void => {
     setIsModalOpen(prevState => !prevState);
+    toggleScroll(isModalOpen);
   };
 
   return (
