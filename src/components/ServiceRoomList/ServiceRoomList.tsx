@@ -6,9 +6,10 @@ import { Wrapper } from './ServiceRoomList.styled';
 const ServiceRoomList: FC<ServiceRoomListProps> = ({ roomList }) => {
   return (
     <Wrapper>
-      {roomList.map((item, index) => (
-        <ServiceRoomItem key={index} roomData={item} />
-      ))}
+      {roomList.map(item => {
+        console.log(item);
+        return <ServiceRoomItem key={item.id} roomData={item} />
+      })}
     </Wrapper>
   );
 };

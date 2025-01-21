@@ -1,4 +1,4 @@
-export const logo = 'images/logo.png';
+export const logo = '/images/logo.png';
 
 export const imagesHome = {
   bgImageLayerBase: 'images/home_images/layer-base.png',
@@ -233,4 +233,4 @@ export const bgServicesPattern = 'images/services_images/bg-pattern.svg';
 export const preloadImage =
   'https://i0.wp.com/css-tricks.com/wp-content/uploads/2019/10/simple-loader.gif?ssl=1';
 
-export const modalBgImage = 'images/about_images/bg-image-modal.png';
+export const modalBgImage = '/images/about_images/bg-image-modal.png';

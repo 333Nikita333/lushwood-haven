@@ -61,14 +61,6 @@ export type OptionsBgImageType = {
   strength: number;
   blur?: { min: number; max: number };
 };
-export type RoomType = {
-  id: string;
-  images: string[];
-  type: string;
-  perNight: number;
-  description: string;
-  amenities: { icon: ReactNode; desc: string }[];
-};
 export type FormAuthData = {
   name: string;
   email: string;
@@ -101,6 +93,8 @@ export type AuthStore = {
   logout: () => void;
   reserveRoom: (data: BookRoomData) => Promise<void>;
   cancelOrder: (orderId: string) => Promise<void>;
+  getRoomsData: () => Promise<Room[] | void>;
+  getRoomData: (roomName: string) => Promise<Room | void>;
 };
 export type AuthResponse = {
   data: {
@@ -144,5 +138,24 @@ export type BookingResponse = {
     dateCheckIn: string;
     dateCheckOut: string;
   };
+  message: string;
+};
+export type Room = {
+  id: string;
+  name: string;
+  images: string[];
+  type: string;
+  perNight: number;
+  description: string;
+  amenities: { icon: ReactNode; desc: string }[];
+};
+export type RoomsResponse = {
+  success: boolean;
+  data: Room[];
+  message: string;
+};
+export type RoomResponse = {
+  success: boolean;
+  data: Room;
   message: string;
 };

@@ -5,7 +5,9 @@ import ImageSlider from '../ImageSlider';
 import { Item, LinkDetails, RoomPrice, RoomTitle } from './ServiceRoomItem.styled';
 
 const ServiceRoomItem: FC<ServiceRoomItemProps> = ({ roomData }) => {
-  const { id, type, images, perNight } = roomData;
+  const { name, images, perNight } = roomData;
+  const roomNameId = name.toLowerCase().replace(/\s+/g, '-');
+
   const userAgent = navigator.userAgent;
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
 
@@ -13,11 +15,11 @@ const ServiceRoomItem: FC<ServiceRoomItemProps> = ({ roomData }) => {
     return (
       <Item>
         <ImageSlider images={images} />
-        <RoomTitle>{type}</RoomTitle>
+        <RoomTitle>{name}</RoomTitle>
         <RoomPrice>
           <span>{perNight}.00$</span> / per night
         </RoomPrice>
-        <LinkDetails to={`/services/rooms/${id}`}>Details</LinkDetails>
+        <LinkDetails to={`/services/rooms/${roomNameId}`}>Details</LinkDetails>
       </Item>
     );
   }
@@ -26,11 +28,11 @@ const ServiceRoomItem: FC<ServiceRoomItemProps> = ({ roomData }) => {
     <Tilt scale={1.1} transitionSpeed={1000}>
       <Item>
         <ImageSlider images={images.slice(0, 3)} />
-        <RoomTitle>{type}</RoomTitle>
+        <RoomTitle>{name}</RoomTitle>
         <RoomPrice>
           <span>{perNight}.00$</span> / per night
         </RoomPrice>
-        <LinkDetails to={`/services/rooms/${id}`}>Details</LinkDetails>
+        <LinkDetails to={`/services/rooms/${roomNameId}`}>Details</LinkDetails>
       </Item>
     </Tilt>
   );

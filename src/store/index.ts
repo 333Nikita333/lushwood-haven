@@ -9,12 +9,21 @@ import {
   BookingResponse,
   BookRoomData,
   ErrorResponse,
+  RoomResponse,
+  RoomsResponse,
   UserResponse,
 } from '../types';
 
 const initialState: Omit<
   AuthStore,
-  'login' | 'register' | 'current' | 'logout' | 'reserveRoom' | 'cancelOrder'
+  | 'login'
+  | 'register'
+  | 'current'
+  | 'logout'
+  | 'reserveRoom'
+  | 'cancelOrder'
+  | 'getRoomsData'
+  | 'getRoomData'
 > = {
   user: null,
   token: null,
@@ -303,6 +312,70 @@ const useStore = create<AuthStore>()(
               .catch((error: ErrorResponse) => {
                 console.error('Order cancellation error:', error.response.data.error.message);
                 set({ error: error.response.data.error.message || 'Order cancellation failed' });
+              });
+          } finally {
+            set({ isLoading: false });
+          }
+        },
+
+        getRoomsData: async () => {
+          set({ isLoading: true, error: null });
+
+          try {
+            return await toast
+              .promise(axios.get<RoomsResponse>(`${API_URL}/services/rooms`), {
+                pending: 'Fetching rooms...',
+                success: {
+                  render({ data }: { data: AxiosResponse<RoomsResponse> }) {
+                    return data.data.message || 'Rooms fetched successfully 👌';
+                  },
+                },
+                error: {
+                  render({ data }: { data: ErrorResponse }) {
+                    return data.response.data.error.message || 'Rooms fetching failed 🤯';
+                  },
+                },
+              })
+              .then((response: AxiosResponse<RoomsResponse>) => {
+                console.log('Rooms fetching response data:', response.data.data);
+
+                return response.data.data;
+              })
+              .catch((error: ErrorResponse) => {
+                console.error('Rooms fetching error:', error.response.data.error.message);
+                set({ error: error.response.data.error.message || 'Rooms fetching failed' });
+              });
+          } finally {
+            set({ isLoading: false });
+          }
+        },
+
+        getRoomData: async (roomName: string) => {
+          set({ isLoading: true, error: null });
+
+          try {
+            return await toast
+              .promise(axios.get<RoomResponse>(`${API_URL}/services/rooms/${roomName}`), {
+                pending: 'Fetching room...',
+                success: {
+                  render({ data }: { data: AxiosResponse<RoomResponse> }) {
+                    return data.data.message || 'Room fetched successfully 👌';
+                  },
+                },
+                error: {
+                  render({ data }: { data: ErrorResponse }) {
+                    return data.response.data.error.message || 'Room fetching failed 🤯';
+                  },
+                },
+              })
+              .then((response: AxiosResponse<RoomResponse>) => {
+                console.log('Room fetching response data:', response.data.data);
+
+                return response.data.data;
+              })
+              .catch((error: ErrorResponse) => {
+                console.error('Room fetching error:', error.response.data.error.message);
+                set({ error: error.response.data.error.message || 'Room fetching failed' });
               });
           } finally {
             set({ isLoading: false });

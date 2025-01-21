@@ -1,7 +1,7 @@
 import { ComponentOptionsType as FancyboxOptionsType } from '@fancyapps/ui/types/Fancybox/options';
 import LocomotiveScroll from 'locomotive-scroll';
 import { ReactNode, RefObject } from 'react';
-import { OptionsBgImageType, Order, RoomType, User } from '.';
+import { OptionsBgImageType, Order, Room, User } from '.';
 
 export interface ISoundProps {
   isMuted: boolean;
@@ -44,10 +44,10 @@ export interface ServiceBgParallaxContainerProps {
   children: ReactNode;
 }
 export interface ServiceRoomItemProps {
-  roomData: RoomType;
+  roomData: Room;
 }
 export interface ServiceRoomListProps {
-  roomList: RoomType[];
+  roomList: Room[];
 }
 export interface SliderProps {
   images: string[];

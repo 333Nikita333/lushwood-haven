@@ -40,7 +40,7 @@ const App: FC = () => {
           element={<PrivateRoute redirectTo="/" component={<ServicePage />} />}
         />
         <Route
-          path="/services/rooms/:roomId"
+          path="/services/rooms/:roomNameId"
           element={<PrivateRoute redirectTo="/" component={<ServiceRoomPage />} />}
         />
       </Route>
