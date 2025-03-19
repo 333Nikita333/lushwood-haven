@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import styled from 'styled-components';
 import { modalBgImage } from '../data/photos';
 
 export const StyledToastContainer = styled(ToastContainer)`

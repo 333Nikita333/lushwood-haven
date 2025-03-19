@@ -1,6 +1,7 @@
 import { FC, useCallback, useEffect } from 'react';
 import 'react-imgr/dist/styles.min.css';
 import Gallery, { RenderImageProps } from 'react-photo-gallery';
+import Loader from '../../components/Loader';
 import { photosGallery, preloadImage } from '../../data/photos';
 import useImageValidation from '../../hooks/useImageValidation';
 import FancyboxWrapper from '../../utils/FancyboxWrapper';
@@ -37,24 +38,7 @@ const GalleryPage: FC = () => {
   return (
     <GalleryWrapper>
       <FancyboxWrapper>
-        {!isLoading ? (
-          <Gallery photos={validPhotos} renderImage={renderImage} />
-        ) : (
-          <p
-            style={{
-              minHeight: '100vh',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              color: '#fff',
-              fontSize: '35px',
-              fontWeight: 700,
-              letterSpacing: '10px',
-            }}
-          >
-            Loading...
-          </p>
-        )}
+        {!isLoading ? <Gallery photos={validPhotos} renderImage={renderImage} /> : <Loader />}
       </FancyboxWrapper>
     </GalleryWrapper>
   );

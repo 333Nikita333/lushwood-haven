@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { imagesAbout } from '../../data/photos';
 import { IAboutSectionProps } from '../../types';
 import {
   Gallery,
@@ -8,7 +9,6 @@ import {
   TextBlockH,
   TextBlockP,
 } from './AboutSection.styled';
-import { imagesAbout } from '../../data/photos';
 
 const AboutSection: FC<IAboutSectionProps> = ({ galleryLeftRef, galleryRightRef }) => {
   const {

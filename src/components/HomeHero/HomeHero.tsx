@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { imagesHome } from '../../data/photos';
 import {
   LayerBase,
   LayerFront,
@@ -9,7 +10,6 @@ import {
   LayersTitle,
   MainHeader,
 } from './HomeHero.styled';
-import { imagesHome } from '../../data/photos';
 
 const HomeHero: FC = () => {
   return (

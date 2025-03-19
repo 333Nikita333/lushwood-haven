@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Loader from '../../components/Loader';
 import NavigateButton from '../../components/NavigateButton';
 import RoomDescriptionInfo from '../../components/RoomDescriptionInfo';
 import RoomImagesSlider from '../../components/RoomImagesSlider';
@@ -17,15 +18,20 @@ const ServiceRoomPage: FC = () => {
 
   useEffect(() => {
     const fetchRoomDetails = async (): Promise<void> => {
-      const room = await getRoomData(roomNameId as string);
+      try {
+        const room = await getRoomData(roomNameId as string);
 
-      if (!room) {
+        if (!room) {
+          setRoomData(null);
+          return;
+        }
+
+        setRoomData(room);
+        document.title = room.name || 'Room of Lushwood Haven';
+      } catch (error) {
+        console.error('Error fetching room:', error);
         setRoomData(null);
-        throw new Error('Room not found');
       }
-      setRoomData(room);
-
-      document.title = room.name || 'Room of Lushwood Haven';
     };
 
     if (roomNameId) {
@@ -39,22 +45,7 @@ const ServiceRoomPage: FC = () => {
 
   return (
     <Wrapper>
-      {isLoading && (
-        <div
-          style={{
-            minHeight: '100vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            fontSize: '52px',
-            textAlign: 'center',
-            padding: '20px',
-            width: '100%',
-          }}
-        >
-          Loading...
-        </div>
-      )}
+      {isLoading && <Loader />}
 
       {!roomData && !isLoading && <Wrapper>Not found any room</Wrapper>}
 

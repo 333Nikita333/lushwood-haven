@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import 'react-phone-input-2/lib/style.css';
+import useStore from '../../store';
 import { BookRoomData, OrderFormData } from '../../types';
 import {
   ErrorText,
@@ -20,7 +21,6 @@ import {
   Select,
   SubmitButton,
 } from './OrderForm.styled';
-import useStore from '../../store';
 
 const radioButtons: ReadonlyArray<string> = ['Standard', 'Family', 'Suite'];
 

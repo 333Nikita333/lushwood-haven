@@ -65,18 +65,16 @@ const Services: FC = () => {
   }));
   const [rooms, setRooms] = useState<Room[] | null>(null);
 
-  const getRoomsInfo = async (): Promise<void> => {
-    const data = await getRoomsData();
-
-    if (data) {
-      setRooms(data);
-    }
-  };
-
   useEffect(() => {
     document.title = 'Services';
-    getRoomsInfo();
-  }, []);
+
+    const fetchRooms = async (): Promise<void> => {
+      const data = await getRoomsData();
+      if (data) setRooms(data);
+    };
+
+    fetchRooms();
+  }, [getRoomsData]);
 
   const getArrayRoomsByType = (roomType: string): Room[] => {
     return rooms?.filter(room => room.type === roomType) || [];

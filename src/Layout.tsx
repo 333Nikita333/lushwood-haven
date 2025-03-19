@@ -2,19 +2,21 @@ import { FC, Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Loader from './components/Loader';
 import ScrollIndicator from './components/ScrollIndicator';
 import { StyledToastContainer } from './styles/CustomToast.styled';
 
 const Layout: FC = () => {
   const location = useLocation();
-  const shouldDisplayFooter = location.pathname !== '/';
+  const hideFooterRoutes = ['/'];
+  const shouldDisplayFooter = !hideFooterRoutes.includes(location.pathname);
 
   return (
     <>
       <Header />
       <ScrollIndicator />
 
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
         {shouldDisplayFooter && <Footer />}
       </Suspense>

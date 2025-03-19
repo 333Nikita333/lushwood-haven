@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import useStore from '../../store';
 import { TableOrderProps } from '../../types';
 import ButtonCancelOrder from '../ButtonCancelOrder';
 import {
@@ -10,7 +11,6 @@ import {
   TableRow,
   TableWrapper,
 } from './TableOrder.styled';
-import useStore from '../../store';
 
 const TableOrder: FC<TableOrderProps> = ({ nameTable, orders, isCancel }) => {
   const { isLoading, cancelOrder } = useStore(state => ({

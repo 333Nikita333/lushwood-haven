@@ -1,12 +1,12 @@
 import { Howl } from 'howler';
 import { useEffect, useState } from 'react';
+import { homePageSounds } from '../data/videos';
 import {
   Sound,
   SoundOptionsType,
   SoundThemeType,
   UseSoundEffectType,
 } from '../types';
-import { homePageSounds } from '../data/videos';
 
 const useSoundEffect = (soundTheme: SoundThemeType): UseSoundEffectType => {
   const [sound, setSound] = useState<Sound>(null);

@@ -1,4 +1,17 @@
 import { FC } from 'react';
+import { BsTelephone } from 'react-icons/bs';
+import { FaFan, FaGuitar, FaSpa, FaUserShield, FaWifi } from 'react-icons/fa';
+import { GiBinoculars, GiHomeGarage } from 'react-icons/gi';
+import { IoIosPeople } from 'react-icons/io';
+import { IoBed, IoRestaurantOutline } from 'react-icons/io5';
+import {
+  MdLocalBar,
+  MdOutlineCleaningServices,
+  MdOutlineLocalLaundryService,
+  MdPool,
+} from 'react-icons/md';
+import { RxDimensions } from 'react-icons/rx';
+import { TbAirConditioning } from 'react-icons/tb';
 import { ServiceRoomItemProps } from '../../types';
 import {
   MainInfo,
@@ -16,19 +29,6 @@ import {
   RoomPriceWrapper,
   RoomTitle,
 } from './RoomDescriptionInfo.styled';
-import { BsTelephone } from 'react-icons/bs';
-import { FaFan, FaGuitar, FaSpa, FaUserShield, FaWifi } from 'react-icons/fa';
-import { GiBinoculars, GiHomeGarage } from 'react-icons/gi';
-import { IoIosPeople } from 'react-icons/io';
-import { IoBed, IoRestaurantOutline } from 'react-icons/io5';
-import {
-  MdLocalBar,
-  MdOutlineCleaningServices,
-  MdOutlineLocalLaundryService,
-  MdPool,
-} from 'react-icons/md';
-import { RxDimensions } from 'react-icons/rx';
-import { TbAirConditioning } from 'react-icons/tb';
 
 const iconMap: Record<string, JSX.Element> = {
   BsTelephone: <BsTelephone />,

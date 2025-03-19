@@ -8,8 +8,7 @@ const ServiceRoomItem: FC<ServiceRoomItemProps> = ({ roomData }) => {
   const { name, images, perNight } = roomData;
   const roomNameId = name.toLowerCase().replace(/\s+/g, '-');
 
-  const userAgent = navigator.userAgent;
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
   if (isMobile) {
     return (

@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FaEye } from 'react-icons/fa';
 import { RiEyeCloseFill } from 'react-icons/ri';
+import useStore from '../../store';
 import { FormAuthData } from '../../types';
 import {
   ButtonLogin,
@@ -19,7 +20,6 @@ import {
   Register,
   TogglePasswordButton,
 } from './AuthForm.styled';
-import useStore from '../../store';
 
 const AuthForm: FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);

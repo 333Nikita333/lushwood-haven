@@ -1,5 +1,6 @@
 import { FC, lazy, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Loader from './components/Loader';
 import Layout from './Layout';
 import PrivateRoute from './PrivateRoute';
 import useStore from './store';
@@ -19,14 +20,14 @@ const App: FC = () => {
 
   useEffect(() => {
     const initialize = async () => {
-      current();
+      await current();
       setIsInitialized(true);
     };
     initialize();
   }, [current]);
 
   if (isRefreshing || !isInitialized) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
