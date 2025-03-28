@@ -34,7 +34,7 @@ It is a single-page application (SPA) developed using **React**, **TypeScript**,
 
 App Routes (Frontend)
 Public Routes (No Authentication Required):
-**@ GET /**
+<br>**@ GET /**
 <br>Landing page of the application. Contains a visually engaging homepage with general information about the hotel.
 
 **@ GET /about**
@@ -44,7 +44,7 @@ Public Routes (No Authentication Required):
 <br>Photo gallery of rooms, events, and hotel surroundings.
 
 Private Routes (Authentication Required):
-**@ GET /services**
+<br>**@ GET /services**
 <br>Page displaying all available room types grouped by categories (Standard, Family, Suite). Each room card contains a short description, price per night, image slider, and a button to view full details.
 
 **@ GET /services/rooms/:roomNameId**
