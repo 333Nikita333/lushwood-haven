@@ -32,6 +32,7 @@ const initialState: Omit<
   isLoading: false,
   error: null,
 };
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 const useStore = create<AuthStore>()(
